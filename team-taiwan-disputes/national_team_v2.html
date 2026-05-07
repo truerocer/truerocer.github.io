@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>賴蔡十年：國家隊與辦公室預算爭議儀表板</title>
+<style>
+  :root{
+    /* base palette */
+    --bg:#f5f1e8;          /* 米白底 */
+    --bg-alt:#ece6d6;
+    --panel:#ffffff;
+    --panel-2:#fbf7ec;
+    --line:#d9d2bf;
+    --line-strong:#b8af96;
+
+    /* ink */
+    --ink:#1a2238;
+    --ink-2:#3d4868;
+    --mute:#6b7388;
+
+    /* primary 深藍 */
+    --primary:#1f3a68;
+    --primary-2:#2c528f;
+    --primary-3:#4a78b5;
+    --primary-soft:#dbe5f3;
+
+    /* accent 暗紅 */
+    --accent:#9c2a2a;
+    --accent-2:#c14545;
+    --accent-soft:#f3dada;
+
+    /* utility */
+    --warn:#a06a13;
+    --warn-soft:#f5e6c4;
+    --ok:#2f6b3c;
+    --ok-soft:#d6e7d8;
+
+    --shadow: 0 1px 2px rgba(31,58,104,.06), 0 4px 12px rgba(31,58,104,.06);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Source Han Sans TC",system-ui,sans-serif;line-height:1.65;font-feature-settings:"palt";}
+  a{color:var(--primary-2)}
+  .wrap{max-width:1240px;margin:0 auto;padding:32px 24px 80px}
+
+  /* ======== HEADER ======== */
+  .topbar{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--primary);padding-bottom:14px;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .mark{width:36px;height:36px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;letter-spacing:.05em;border-radius:4px}
+  .brand .meta{font-size:11px;color:var(--mute);letter-spacing:.18em;text-transform:uppercase}
+  .brand .name{font-size:14px;font-weight:700;color:var(--ink)}
+  .topbar .tags{font-size:11px;color:var(--mute);display:flex;gap:14px;align-items:center}
+  .topbar .tags b{color:var(--primary);font-weight:700}
+
+  h1{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:34px;line-height:1.3;margin:8px 0 12px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+  h1 .sub{display:block;font-family:"Noto Sans TC",sans-serif;font-size:15px;color:var(--ink-2);font-weight:400;margin-top:10px;letter-spacing:0}
+  .lede{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--primary);border-radius:4px;padding:18px 22px;margin:18px 0 28px;font-size:14.5px;color:var(--ink-2);box-shadow:var(--shadow)}
+
+  h2{font-size:20px;margin:48px 0 18px;color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:10px;letter-spacing:.02em}
+  h2 .num{font-family:"Noto Serif TC",serif;color:var(--accent);font-size:14px;font-weight:700;letter-spacing:.1em}
+  h3{font-size:15px;margin:20px 0 10px;color:var(--primary);font-weight:700;letter-spacing:.02em}
+
+  p{color:var(--ink-2)}
+
+  /* ======== KPI CARDS ======== */
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0 8px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:18px;position:relative;box-shadow:var(--shadow)}
+  .kpi .lbl{font-size:11px;color:var(--mute);letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+  .kpi .num{font-family:"Noto Serif TC",serif;font-size:30px;font-weight:700;line-height:1.05;margin:8px 0 6px;color:var(--primary)}
+  .kpi .num.bad{color:var(--accent)}
+  .kpi .desc{font-size:12px;color:var(--mute);line-height:1.55}
+  .kpi .badge{position:absolute;top:14px;right:14px;font-size:10px;letter-spacing:.1em;padding:2px 8px;border-radius:2px;font-weight:700}
+  .kpi .badge.up{background:var(--accent-soft);color:var(--accent)}
+  .kpi .badge.dn{background:var(--ok-soft);color:var(--ok)}
+  .kpi .badge.flat{background:var(--bg-alt);color:var(--ink-2)}
+
+  /* ======== DASHBOARD ROW ======== */
+  .dash{display:grid;grid-template-columns:1.5fr 1fr;gap:14px;margin:14px 0 8px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:18px 20px;box-shadow:var(--shadow)}
+  .card h4{margin:0 0 4px;font-size:14px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+  .card .cap{font-size:11px;color:var(--mute);letter-spacing:.05em;margin-bottom:14px}
+  .card .src{font-size:10.5px;color:var(--mute);margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+
+  .dash2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  .dash3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:14px 0}
+
+  /* SVG chart */
+  svg.chart{width:100%;height:auto;display:block;font-family:inherit}
+  .axis text{fill:var(--mute);font-size:10.5px}
+  .axis line, .axis path{stroke:var(--line-strong);stroke-width:.5}
+  .grid line{stroke:var(--line);stroke-width:.5;stroke-dasharray:2 2}
+  .bar-label{fill:var(--ink);font-size:10.5px;font-weight:700}
+  .bar-num{fill:#fff;font-size:11px;font-weight:700}
+
+  /* legend */
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--ink-2);margin:6px 0 8px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:11px;height:11px;display:inline-block;border-radius:1px}
+
+  /* ======== TABLES ======== */
+  table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:4px;overflow:hidden;font-size:13.5px;box-shadow:var(--shadow);margin:8px 0}
+  thead th{background:var(--primary);color:#fff;text-align:left;padding:11px 12px;font-weight:700;font-size:12px;letter-spacing:.04em;border-bottom:1px solid var(--primary);white-space:nowrap}
+  td{padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+  tbody tr:nth-child(even) td{background:var(--panel-2)}
+  tbody tr:last-child td{border-bottom:none}
+  td.name{font-weight:700;color:var(--ink);white-space:nowrap;font-size:14px;line-height:1.4}
+  td.budget{font-family:"Noto Serif TC",serif;color:var(--primary);font-weight:600;font-size:14px;white-space:nowrap}
+  td.ctrl{line-height:1.6}
+  td.ctrl b{color:var(--accent);font-weight:700}
+  td.ctrl em{font-style:normal;color:var(--ink);background:var(--warn-soft);padding:1px 5px;border-radius:2px;font-weight:600}
+  td.ctrl .case-no{color:var(--accent);font-weight:700;margin-right:4px}
+
+  /* tag chips */
+  .tag{display:inline-block;font-size:10.5px;padding:2px 8px;border-radius:2px;font-weight:700;letter-spacing:.05em;margin:0 4px 4px 0;border:1px solid transparent}
+  .tag.judicial{background:var(--accent-soft);color:var(--accent);border-color:#e2bdbd}
+  .tag.policy{background:var(--primary-soft);color:var(--primary);border-color:#bccde0}
+  .tag.audit{background:var(--warn-soft);color:var(--warn);border-color:#dfc99a}
+  .tag.legi{background:#e8e3d2;color:var(--ink);border-color:var(--line-strong)}
+
+  /* ======== CASE CARDS ======== */
+  .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:14px 0}
+  .case{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px;padding:16px 20px;box-shadow:var(--shadow)}
+  .case.policy{border-left-color:var(--primary)}
+  .case.audit{border-left-color:var(--warn)}
+  .case .ttl{font-weight:700;color:var(--ink);font-size:15px;margin:0 0 8px;line-height:1.45}
+  .case .meta{font-size:11px;color:var(--mute);margin-bottom:8px;display:flex;gap:6px;flex-wrap:wrap}
+  .case .desc{font-size:13px;color:var(--ink-2);line-height:1.65;margin:0}
+  .case .desc b{color:var(--accent)}
+
+  /* footer */
+  footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);font-size:11px;color:var(--mute);line-height:1.7}
+
+  @media (max-width:1000px){
+    .kpi-grid{grid-template-columns:repeat(2,1fr)}
+    .dash, .dash2, .dash3{grid-template-columns:1fr}
+    .cases{grid-template-columns:1fr}
+  }
+  @media (max-width:680px){
+    h1{font-size:26px}
+    h2{font-size:17px}
+    .wrap{padding:20px 14px 60px}
+    table{font-size:12.5px}
+    td,th{padding:9px}
+    .kpi .num{font-size:24px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ============== HEADER ============== -->
+<div class="topbar">
+  <div class="brand">
+    <div class="mark">DPP</div>
+    <div>
+      <div class="meta">台灣政府預算追蹤 · 2016–2025</div>
+      <div class="name">國家隊與辦公室爭議儀表板</div>
+    </div>
+  </div>
+  <div class="tags">
+    <span>資料截止 <b>2026-04</b></span>
+    <span>分析項目 <b>30+</b></span>
+    <span>司法案件 <b>9件</b></span>
+  </div>
+</div>
+
+<h1>賴蔡十年：近 50 個國家隊、45 個辦公室委員會
+  <span class="sub">預算規模、爭議事件、司法判決與政策成效綜合儀表板（擴充版）</span>
+</h1>
+
+<div class="lede">
+本報告整理民進黨執政十年間任務編組型「國家隊」與「辦公室委員會」之預算規模、爭議焦點、司法案件與政策成效。<b style="color:var(--accent)">資料來源</b>包含立法院審議紀錄、立法院預算中心、行政院主計總處、監察院糾正案、各地檢署起訴書、地方法院判決書，以及《報導者》、《天下雜誌》、《聯合報》、《中央社》、《自由時報》、《公視新聞網》、《關鍵評論》等媒體深度調查報導。
+</div>
+
+<!-- ============== KPI ============== -->
+<div class="kpi-grid">
+  <div class="kpi">
+    <span class="badge up">↑ +21.2%</span>
+    <div class="lbl">人事費用增幅</div>
+    <div class="num bad">+877億</div>
+    <div class="desc">2017→2025 中央人事費由 4,142 億增至 5,019 億，十年累計</div>
+  </div>
+  <div class="kpi">
+    <span class="badge up">↑ 11×</span>
+    <div class="lbl">2024 詐騙財損</div>
+    <div class="num bad">1,300億</div>
+    <div class="desc">5 年內成長 11 倍，全年 22 萬件，台中地院判決點名「打詐國家隊未見成效」</div>
+  </div>
+  <div class="kpi">
+    <span class="badge flat">FLAT</span>
+    <div class="lbl">新設任務編組機構</div>
+    <div class="num">39+</div>
+    <div class="desc">部會署級任務編組，無《政府組織法》規範，多無法定員額限制</div>
+  </div>
+  <div class="kpi">
+    <span class="badge up">↑ 6.64%</span>
+    <div class="lbl">2025 預算遭刪減</div>
+    <div class="num bad">2,075億</div>
+    <div class="desc">占總預算 6.64%，史上最高刪幅，主因即各類「辦公室」與「國家隊」浮編</div>
+  </div>
+</div>
+
+<!-- ============== DASHBOARD: 預算規模對比 ============== -->
+<h2><span class="num">01</span>預算規模對比 — 各國家隊估算金額（新台幣億元）</h2>
+
+<div class="dash">
+  <div class="card">
+    <h4>國家隊估算預算規模 Top 10</h4>
+    <div class="cap">含特別預算、國營事業投資、跨年期建案；單位：新台幣億元</div>
+    <svg class="chart" viewBox="0 0 700 380" preserveAspectRatio="xMidYMid meet">
+      <!-- grid -->
+      <g class="grid">
+        <line x1="160" y1="20" x2="160" y2="340"/>
+        <line x1="240" y1="20" x2="240" y2="340"/>
+        <line x1="320" y1="20" x2="320" y2="340"/>
+        <line x1="400" y1="20" x2="400" y2="340"/>
+        <line x1="480" y1="20" x2="480" y2="340"/>
+        <line x1="560" y1="20" x2="560" y2="340"/>
+        <line x1="640" y1="20" x2="640" y2="340"/>
+      </g>
+      <!-- axis labels (bottom) -->
+      <g class="axis">
+        <text x="160" y="358" text-anchor="middle">0</text>
+        <text x="240" y="358" text-anchor="middle">500</text>
+        <text x="320" y="358" text-anchor="middle">1,000</text>
+        <text x="400" y="358" text-anchor="middle">1,500</text>
+        <text x="480" y="358" text-anchor="middle">2,000</text>
+        <text x="560" y="358" text-anchor="middle">2,500</text>
+        <text x="640" y="358" text-anchor="middle">3,000+</text>
+      </g>
+      <!-- bars: x_start=160, scale = 80px / 500億, max 525px → 3270億 wraps at 3000 marker visually -->
+      <!-- 綠能 3270 → use 525 width (scaled to fit, mark 3000+) -->
+      <g>
+        <text class="bar-label" x="155" y="44" text-anchor="end">綠能國家隊</text>
+        <rect x="160" y="30" width="523" height="22" fill="#9c2a2a"/>
+        <text class="bar-num" x="675" y="46" text-anchor="end">3,270</text>
+      </g>
+      <g>
+        <text class="bar-label" x="155" y="74" text-anchor="end">潛艦國家隊</text>
+        <rect x="160" y="60" width="454" height="22" fill="#1f3a68"/>
+        <text class="bar-num" x="606" y="76" text-anchor="end">2,840</text>
+      </g>
+      <g>
+        <text class="bar-label" x="155" y="104" text-anchor="end">電動巴士國家隊</text>
+        <rect x="160" y="90" width="103" height="22" fill="#1f3a68"/>
+        <text class="bar-num" x="255" y="106" text-anchor="end">643</text>
+      </g>
+      <g>
+        <text class="bar-label" x="155" y="134" text-anchor="end">無人機國家隊</text>
+        <rect x="160" y="120" width="71" height="22" fill="#1f3a68"/>
+        <text class="bar-num" x="223" y="136" text-anchor="end">442</text>
+      </g>
+      <g>
+        <text class="bar-label" x="155" y="164" text-anchor="end">太空國家隊</text>
+        <rect x="160" y="150" width="40" height="22" fill="#2c528f"/>
+        <text x="205" y="166" font-size="11" fill="var(--ink-2)">251 + 400 低軌</text>
+      </g>
+      <g>
+        <text class="bar-label" x="155" y="194" text-anchor="end">口罩國家隊</text>
+        <rect x="160" y="180" width="18" height="22" fill="#2c528f"/>
+        <text x="183" y="196" font-size="11" fill="var(--ink-2)">110</text>
+      </g>
+      <g>
+        <text class="bar-label" x="155" y="224" text-anchor="end">打詐國家隊</text>
+        <rect x="160" y="210" width="16" height="22" fill="#9c2a2a"/>
+        <text x="181" y="226" font-size="11" fill="var(--ink-2)">100+ <tspan fill="#9c2a2a">（裁罰 0 元）</tspan></text>
+      </g>
+      <g>
+        <text class="bar-label" x="155" y="254" text-anchor="end">疫苗國家隊（高端）</text>
+        <rect x="160" y="240" width="13" height="22" fill="#2c528f"/>
+        <text x="178" y="256" font-size="11" fill="var(--ink-2)">~80（500 萬劑採購）</text>
+      </g>
+      <g>
+        <text class="bar-label" x="155" y="284" text-anchor="end">影劇國家隊</text>
+        <rect x="160" y="270" width="2" height="22" fill="#4a78b5"/>
+        <text x="167" y="286" font-size="11" fill="var(--ink-2)">15</text>
+      </g>
+      <g>
+        <text class="bar-label" x="155" y="314" text-anchor="end">鳳梨國家隊</text>
+        <rect x="160" y="300" width="2" height="22" fill="#4a78b5"/>
+        <text x="167" y="316" font-size="11" fill="var(--ink-2)">10</text>
+      </g>
+      <!-- title legend -->
+      <g transform="translate(160,8)">
+        <rect width="11" height="11" fill="#9c2a2a"/>
+        <text x="18" y="9" font-size="10.5" fill="var(--ink-2)">具司法案件 / 重大爭議</text>
+        <rect x="180" width="11" height="11" fill="#1f3a68"/>
+        <text x="198" y="9" font-size="10.5" fill="var(--ink-2)">大型政策性投入</text>
+        <rect x="320" width="11" height="11" fill="#4a78b5"/>
+        <text x="338" y="9" font-size="10.5" fill="var(--ink-2)">小規模／推廣型</text>
+      </g>
+    </svg>
+    <div class="src">資料來源：立法院預算審議紀錄、行政院核定計畫、國防部預算書（2026 年度）。注意：綠能 3,270 億含國營事業投資；潛艦 2,840 億為 14 年期後續艦預算。</div>
+  </div>
+
+  <div class="card">
+    <h4>中央人事費十年趨勢</h4>
+    <div class="cap">2017–2025 年度中央政府人事費（億元）</div>
+    <svg class="chart" viewBox="0 0 360 280" preserveAspectRatio="xMidYMid meet">
+      <g class="grid">
+        <line x1="40" y1="40" x2="340" y2="40"/>
+        <line x1="40" y1="100" x2="340" y2="100"/>
+        <line x1="40" y1="160" x2="340" y2="160"/>
+        <line x1="40" y1="220" x2="340" y2="220"/>
+      </g>
+      <g class="axis">
+        <text x="36" y="44" text-anchor="end">5,200</text>
+        <text x="36" y="104" text-anchor="end">4,800</text>
+        <text x="36" y="164" text-anchor="end">4,400</text>
+        <text x="36" y="224" text-anchor="end">4,000</text>
+        <line x1="40" y1="220" x2="340" y2="220"/>
+      </g>
+      <!-- data points: years 2017-2025, values approximated linearly (4142 → 5019) -->
+      <!-- baseline: 220 = 4000, 40 = 5200; range 1200 over 180 -->
+      <!-- 2017:4142 → y=220-(142*0.15)=198.7
+           2018:4250 → 220-37.5=182.5
+           2019:4380 → 220-57=163
+           2020:4500 → 220-75=145
+           2021:4620 → 220-93=127
+           2022:4720 → 220-108=112
+           2023:4830 → 220-124.5=95.5
+           2024:4920 → 220-138=82
+           2025:5019 → 220-152.85=67.15 -->
+      <polyline fill="none" stroke="#1f3a68" stroke-width="2.2"
+        points="55,198.7 90,182.5 125,163 160,145 195,127 230,112 265,95.5 300,82 335,67"/>
+      <!-- shaded area -->
+      <polygon fill="#1f3a68" fill-opacity=".09"
+        points="55,198.7 90,182.5 125,163 160,145 195,127 230,112 265,95.5 300,82 335,67 335,220 55,220"/>
+      <!-- dots & labels -->
+      <g>
+        <circle cx="55" cy="198.7" r="3.2" fill="#1f3a68"/>
+        <text x="55" y="190" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="700">4,142</text>
+        <circle cx="335" cy="67" r="4" fill="#9c2a2a"/>
+        <text x="335" y="58" text-anchor="middle" font-size="11" fill="#9c2a2a" font-weight="700">5,019</text>
+      </g>
+      <g class="axis">
+        <text x="55" y="240" text-anchor="middle">'17</text>
+        <text x="125" y="240" text-anchor="middle">'19</text>
+        <text x="195" y="240" text-anchor="middle">'21</text>
+        <text x="265" y="240" text-anchor="middle">'23</text>
+        <text x="335" y="240" text-anchor="middle">'25</text>
+      </g>
+      <!-- annotation -->
+      <line x1="55" y1="198.7" x2="335" y2="67" stroke="#9c2a2a" stroke-width=".7" stroke-dasharray="3 3"/>
+      <text x="190" y="270" text-anchor="middle" font-size="11" fill="var(--accent)" font-weight="700">十年累計 +877 億 (+21.2%)</text>
+    </svg>
+    <div class="src">資料來源：行政院主計總處中央政府總預算。</div>
+  </div>
+</div>
+
+<!-- ============== DASHBOARD: 詐騙金額暴增 vs 打詐國家隊預算 ============== -->
+<h2><span class="num">02</span>政策成效落差 — 打詐國家隊預算 vs. 詐騙財損</h2>
+
+<div class="card">
+  <h4>2020–2025 年詐騙財損與政府打詐預算對照</h4>
+  <div class="cap">紅線：年度詐騙財損（億元，內政部 165 統計）｜藍柱：當年新編打詐國家隊預算（億元）</div>
+  <div class="legend">
+    <span><i style="background:#1f3a68"></i>打詐國家隊預算（年度新編）</span>
+    <span><i style="background:#9c2a2a"></i>全國詐騙財損</span>
+    <span><i style="background:#a06a13"></i>2024 年裁罰金額：<b style="color:var(--accent);margin-left:4px">0 元</b></span>
+  </div>
+  <svg class="chart" viewBox="0 0 800 320" preserveAspectRatio="xMidYMid meet">
+    <g class="grid">
+      <line x1="60" y1="40" x2="760" y2="40"/>
+      <line x1="60" y1="100" x2="760" y2="100"/>
+      <line x1="60" y1="160" x2="760" y2="160"/>
+      <line x1="60" y1="220" x2="760" y2="220"/>
+      <line x1="60" y1="280" x2="760" y2="280"/>
+    </g>
+    <g class="axis">
+      <text x="56" y="44" text-anchor="end">1,500</text>
+      <text x="56" y="104" text-anchor="end">1,000</text>
+      <text x="56" y="164" text-anchor="end">500</text>
+      <text x="56" y="224" text-anchor="end">200</text>
+      <text x="56" y="284" text-anchor="end">0</text>
+    </g>
+    <!-- bars (打詐預算): scaled with 1億 ≈ small -->
+    <!-- 2020:0, 2021:0, 2022:14 (1.0版), 2023:13 (1.5版), 2024:35 (split of 2.0), 2025:38 -->
+    <!-- max scale 50億 → bar height max 240 → 1億=4.8px (display only, not the line scale) -->
+    <!-- but to share scale with line chart visually, just make bars short ~10-50px -->
+    <!-- Use simple 1億 = 1.5px so bars stay readable beside huge line -->
+    <g>
+      <rect x="92" y="278" width="36" height="2" fill="#1f3a68"/><text x="110" y="298" text-anchor="middle" font-size="10.5" fill="var(--mute)">0.5</text>
+      <rect x="200" y="278" width="36" height="2" fill="#1f3a68"/><text x="218" y="298" text-anchor="middle" font-size="10.5" fill="var(--mute)">0.5</text>
+      <rect x="308" y="259" width="36" height="21" fill="#1f3a68"/><text x="326" y="298" text-anchor="middle" font-size="10.5" fill="var(--mute)">14</text>
+      <rect x="416" y="261" width="36" height="19" fill="#1f3a68"/><text x="434" y="298" text-anchor="middle" font-size="10.5" fill="var(--mute)">13</text>
+      <rect x="524" y="227" width="36" height="53" fill="#1f3a68"/><text x="542" y="298" text-anchor="middle" font-size="10.5" fill="var(--mute)">35</text>
+      <rect x="632" y="223" width="36" height="57" fill="#1f3a68"/><text x="650" y="298" text-anchor="middle" font-size="10.5" fill="var(--mute)">38</text>
+    </g>
+
+    <!-- line (詐騙財損): 2020:50, 2021:60, 2022:80, 2023:131, 2024:1300, 2025e:1500
+         scale: 0=280, 1500=40, range 1500/240 = 1億=0.16px ; y = 280 - val*0.16
+         2020:50→272, 2021:60→270.4, 2022:80→267.2, 2023:131→259, 2024:1300→72, 2025:1500→40 -->
+    <polyline fill="none" stroke="#9c2a2a" stroke-width="2.4"
+      points="110,272 218,270.4 326,267.2 434,259 542,72 650,40"/>
+    <g>
+      <circle cx="110" cy="272" r="3.3" fill="#9c2a2a"/>
+      <circle cx="218" cy="270.4" r="3.3" fill="#9c2a2a"/>
+      <circle cx="326" cy="267.2" r="3.3" fill="#9c2a2a"/>
+      <circle cx="434" cy="259" r="3.3" fill="#9c2a2a"/>
+      <circle cx="542" cy="72" r="4.5" fill="#9c2a2a"/>
+      <circle cx="650" cy="40" r="4.5" fill="#9c2a2a"/>
+      <text x="110" y="288" text-anchor="middle" font-size="10.5" fill="var(--accent)">50</text>
+      <text x="218" y="288" text-anchor="middle" font-size="10.5" fill="var(--accent)">60</text>
+      <text x="326" y="284" text-anchor="middle" font-size="10.5" fill="var(--accent)">80</text>
+      <text x="434" y="276" text-anchor="middle" font-size="10.5" fill="var(--accent)">131</text>
+      <text x="542" y="62" text-anchor="middle" font-size="12" fill="var(--accent)" font-weight="800">1,300</text>
+      <text x="650" y="30" text-anchor="middle" font-size="12" fill="var(--accent)" font-weight="800">1,500e</text>
+    </g>
+
+    <!-- annotation arrow -->
+    <text x="720" y="125" font-size="11" fill="var(--mute)">2025 預估</text>
+    <text x="540" y="130" font-size="11" fill="var(--accent)" font-weight="700">5 年內 +1,250 億</text>
+
+    <!-- x-axis years -->
+    <g class="axis">
+      <text x="110" y="313" text-anchor="middle">2020</text>
+      <text x="218" y="313" text-anchor="middle">2021</text>
+      <text x="326" y="313" text-anchor="middle">2022</text>
+      <text x="434" y="313" text-anchor="middle">2023</text>
+      <text x="542" y="313" text-anchor="middle">2024</text>
+      <text x="650" y="313" text-anchor="middle">2025e</text>
+    </g>
+  </svg>
+  <div class="src">資料來源：內政部刑事警察局「165 打詐儀錶板」（2024）、立法院打詐 1.0/1.5/2.0 版預算審議紀錄、台中地方法院判決書（2024）。台中地院判決直書「就算政府成立跨部會打詐國家隊，至今也未見任何明顯成效」。</div>
+</div>
+
+<!-- ============== DASHBOARD: 出生率 vs 少子化辦公室 ============== -->
+<h2><span class="num">03</span>政策成效落差 — 少子化辦公室「不存在」與出生率</h2>
+
+<div class="dash">
+  <div class="card">
+    <h4>2016–2025 年新生兒數量</h4>
+    <div class="cap">單位：人 / 年；2025/4 單月新生兒 8,684 人創史上新低</div>
+    <svg class="chart" viewBox="0 0 700 280" preserveAspectRatio="xMidYMid meet">
+      <g class="grid">
+        <line x1="60" y1="30" x2="680" y2="30"/>
+        <line x1="60" y1="90" x2="680" y2="90"/>
+        <line x1="60" y1="150" x2="680" y2="150"/>
+        <line x1="60" y1="210" x2="680" y2="210"/>
+      </g>
+      <g class="axis">
+        <text x="56" y="34" text-anchor="end">22萬</text>
+        <text x="56" y="94" text-anchor="end">18萬</text>
+        <text x="56" y="154" text-anchor="end">14萬</text>
+        <text x="56" y="214" text-anchor="end">10萬</text>
+      </g>
+      <!-- data 2016:208k 2017:194k 2018:181k 2019:177k 2020:165k 2021:153k 2022:139k 2023:135k 2024:135k 2025e:120k -->
+      <!-- y scale: 100k=210, 220k=30, range 120k=180px → 1k=1.5px; y = 210 - (val-100)*1.5 -->
+      <g>
+        <rect x="80" y="48" width="40" height="162" fill="#4a78b5"/><text x="100" y="44" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="700">208k</text>
+        <rect x="140" y="69" width="40" height="141" fill="#4a78b5"/><text x="160" y="65" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="700">194k</text>
+        <rect x="200" y="88.5" width="40" height="121.5" fill="#4a78b5"/><text x="220" y="84" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="700">181k</text>
+        <rect x="260" y="94.5" width="40" height="115.5" fill="#4a78b5"/><text x="280" y="90" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="700">177k</text>
+        <rect x="320" y="112.5" width="40" height="97.5" fill="#2c528f"/><text x="340" y="108" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="700">165k</text>
+        <rect x="380" y="130.5" width="40" height="79.5" fill="#2c528f"/><text x="400" y="126" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="700">153k</text>
+        <rect x="440" y="151.5" width="40" height="58.5" fill="#1f3a68"/><text x="460" y="147" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="700">139k</text>
+        <rect x="500" y="157.5" width="40" height="52.5" fill="#1f3a68"/><text x="520" y="153" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="700">135k</text>
+        <rect x="560" y="157.5" width="40" height="52.5" fill="#1f3a68"/><text x="580" y="153" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="700">135k</text>
+        <rect x="620" y="180" width="40" height="30" fill="#9c2a2a"/><text x="640" y="175" text-anchor="middle" font-size="10.5" fill="var(--accent)" font-weight="800">120k</text>
+      </g>
+      <!-- horizontal annotation: founded 2017 -->
+      <line x1="160" y1="20" x2="160" y2="220" stroke="#9c2a2a" stroke-width=".8" stroke-dasharray="3 3"/>
+      <text x="165" y="20" font-size="10.5" fill="var(--accent)" font-weight="700">2017：少子化辦公室宣稱成立</text>
+      <!-- x labels -->
+      <g class="axis">
+        <text x="100" y="232" text-anchor="middle">'16</text>
+        <text x="160" y="232" text-anchor="middle">'17</text>
+        <text x="220" y="232" text-anchor="middle">'18</text>
+        <text x="280" y="232" text-anchor="middle">'19</text>
+        <text x="340" y="232" text-anchor="middle">'20</text>
+        <text x="400" y="232" text-anchor="middle">'21</text>
+        <text x="460" y="232" text-anchor="middle">'22</text>
+        <text x="520" y="232" text-anchor="middle">'23</text>
+        <text x="580" y="232" text-anchor="middle">'24</text>
+        <text x="640" y="232" text-anchor="middle">'25e</text>
+      </g>
+      <text x="370" y="265" text-anchor="middle" font-size="11.5" fill="var(--accent)" font-weight="700">9 年累計減少約 8.8 萬新生兒（−42%）</text>
+    </svg>
+    <div class="src">資料來源：內政部戶政司戶口統計（2016–2024）、2025 數據據國發會推估與內政部 4 月起單月趨勢推算。</div>
+  </div>
+
+  <div class="card">
+    <h4>「4,000 億預算去向」爭議時序</h4>
+    <div class="cap">2017 任務編組成立 → 2026/1 部長坦承「沒成立」</div>
+    <svg class="chart" viewBox="0 0 460 320" preserveAspectRatio="xMidYMid meet">
+      <!-- vertical timeline -->
+      <line x1="50" y1="20" x2="50" y2="300" stroke="#1f3a68" stroke-width="2.5"/>
+      <!-- nodes -->
+      <g>
+        <circle cx="50" cy="35" r="6" fill="#1f3a68"/>
+        <text x="65" y="32" font-size="11" font-weight="700" fill="var(--ink)">2017/4</text>
+        <text x="65" y="48" font-size="11" fill="var(--ink-2)">陳時中宣布「少子化辦公室」</text>
+      </g>
+      <g>
+        <circle cx="50" cy="85" r="6" fill="#1f3a68"/>
+        <text x="65" y="82" font-size="11" font-weight="700" fill="var(--ink)">2017–2024</text>
+        <text x="65" y="98" font-size="11" fill="var(--ink-2)">行政院聲稱已編列約 4,000 億，發育兒津貼、托育補助</text>
+      </g>
+      <g>
+        <circle cx="50" cy="140" r="6" fill="#a06a13"/>
+        <text x="65" y="137" font-size="11" font-weight="700" fill="var(--ink)">2023 底</text>
+        <text x="65" y="153" font-size="11" fill="var(--ink-2)">立院預算中心：兒童教養補助執行率不到 75%</text>
+      </g>
+      <g>
+        <circle cx="50" cy="195" r="6" fill="#a06a13"/>
+        <text x="65" y="192" font-size="11" font-weight="700" fill="var(--ink)">2025/4–11</text>
+        <text x="65" y="208" font-size="11" fill="var(--ink-2)">單月新生兒連連破紀錄；11 月 7,946 人，年減 36%</text>
+      </g>
+      <g>
+        <circle cx="50" cy="255" r="7" fill="#9c2a2a"/>
+        <text x="65" y="252" font-size="11" font-weight="700" fill="var(--accent)">2026/1/7</text>
+        <text x="65" y="268" font-size="11" fill="var(--ink)" font-weight="700">衛福部長石崇良立院備詢承認：</text>
+        <text x="65" y="284" font-size="11" fill="var(--accent)" font-weight="700">「我們確實沒有成立少子女化對策辦公室」</text>
+      </g>
+      <g>
+        <circle cx="50" cy="305" r="6" fill="#9c2a2a"/>
+        <text x="65" y="312" font-size="10.5" fill="var(--ink-2)" font-style="italic">衛福部後改稱已編 5,931 億，但無辦公地點、員額、會議記錄</text>
+      </g>
+    </svg>
+    <div class="src">資料來源：立法院議事錄（2026/1/7 衛環委員會）、衛福部公告、國發會人口推估報告。</div>
+  </div>
+</div>
+
+<!-- ============== 司法案件分布 ============== -->
+<h2><span class="num">04</span>司法案件熱點分布 — 各國家隊涉案件數與起訴／判決</h2>
+
+<div class="card">
+  <h4>各領域刑事偵查與已起訴案件統計（2020–2026/4）</h4>
+  <div class="cap">含起訴、判決、約談、羈押禁見之公開報導案件</div>
+  <svg class="chart" viewBox="0 0 760 240" preserveAspectRatio="xMidYMid meet">
+    <g class="grid">
+      <line x1="40" y1="30" x2="40" y2="200"/>
+      <line x1="40" y1="80" x2="720" y2="80"/>
+      <line x1="40" y1="130" x2="720" y2="130"/>
+      <line x1="40" y1="180" x2="720" y2="180"/>
+      <line x1="40" y1="200" x2="720" y2="200"/>
+    </g>
+    <!-- categories: 綠能(8), 口罩(5), 進口蛋(4), 快篩(2), 疫苗(1), 潛艦(0 但行政爭議多), 巴士(2 起火事故) -->
+    <!-- y: 1案=15px ; bottom 200, max 8案=120px -->
+    <g>
+      <rect x="60" y="80" width="50" height="120" fill="#9c2a2a"/>
+      <text x="85" y="74" text-anchor="middle" font-size="11" fill="var(--accent)" font-weight="800">8</text>
+      <text x="85" y="216" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="700">綠能</text>
+      <text x="85" y="230" text-anchor="middle" font-size="9.5" fill="var(--mute)">鄭亦麟·台鹽·廖國棟</text>
+    </g>
+    <g>
+      <rect x="160" y="125" width="50" height="75" fill="#9c2a2a"/>
+      <text x="185" y="119" text-anchor="middle" font-size="11" fill="var(--accent)" font-weight="800">5</text>
+      <text x="185" y="216" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="700">口罩</text>
+      <text x="185" y="230" text-anchor="middle" font-size="9.5" fill="var(--mute)">加利·淨新·豪品·麥迪康</text>
+    </g>
+    <g>
+      <rect x="260" y="140" width="50" height="60" fill="#9c2a2a"/>
+      <text x="285" y="134" text-anchor="middle" font-size="11" fill="var(--accent)" font-weight="800">4</text>
+      <text x="285" y="216" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="700">進口蛋</text>
+      <text x="285" y="230" text-anchor="middle" font-size="9.5" fill="var(--mute)">超思·亮采·監院糾正</text>
+    </g>
+    <g>
+      <rect x="360" y="170" width="50" height="30" fill="#a06a13"/>
+      <text x="385" y="164" text-anchor="middle" font-size="11" fill="var(--warn)" font-weight="800">2</text>
+      <text x="385" y="216" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="700">快篩</text>
+      <text x="385" y="230" text-anchor="middle" font-size="9.5" fill="var(--mute)">高登·小吃店</text>
+    </g>
+    <g>
+      <rect x="460" y="170" width="50" height="30" fill="#a06a13"/>
+      <text x="485" y="164" text-anchor="middle" font-size="11" fill="var(--warn)" font-weight="800">2</text>
+      <text x="485" y="216" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="700">電動巴士</text>
+      <text x="485" y="230" text-anchor="middle" font-size="9.5" fill="var(--mute)">華德動能 2 起火</text>
+    </g>
+    <g>
+      <rect x="560" y="185" width="50" height="15" fill="#1f3a68"/>
+      <text x="585" y="179" text-anchor="middle" font-size="11" fill="var(--primary)" font-weight="800">1</text>
+      <text x="585" y="216" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="700">疫苗</text>
+      <text x="585" y="230" text-anchor="middle" font-size="9.5" fill="var(--mute)">違約金 1.97 億</text>
+    </g>
+    <g>
+      <rect x="660" y="185" width="50" height="15" fill="#1f3a68"/>
+      <text x="685" y="179" text-anchor="middle" font-size="11" fill="var(--primary)" font-weight="800">1</text>
+      <text x="685" y="216" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="700">潛艦</text>
+      <text x="685" y="230" text-anchor="middle" font-size="9.5" fill="var(--mute)">黃曙光告吳子嘉敗訴</text>
+    </g>
+    <!-- y axis -->
+    <g class="axis">
+      <text x="36" y="84" text-anchor="end">8</text>
+      <text x="36" y="134" text-anchor="end">4</text>
+      <text x="36" y="184" text-anchor="end">2</text>
+      <text x="36" y="204" text-anchor="end">0</text>
+    </g>
+  </svg>
+  <div class="src">資料來源：北檢、士檢、橋檢、台南地檢起訴書；台北、台中地院判決書；監察院 113 年糾正案。電動巴士 2 件為起火事故，非刑事案件。</div>
+</div>
+
+<!-- ============== 國家隊明細 ============== -->
+<h2><span class="num">05</span>國家隊預算與爭議明細（含補強）</h2>
+
+<table>
+<thead>
+<tr><th style="width:14%">單位</th><th style="width:16%">估算預算 / 標案規模</th><th style="width:14%">預算性質</th><th>爭議重點 / 司法與政策事證</th></tr>
+</thead>
+<tbody>
+
+<tr>
+<td class="name">綠能國家隊</td>
+<td class="budget">約 3,270 億</td>
+<td>含特別預算及國營事業投資</td>
+<td class="ctrl">
+<span class="case-no">①</span><b>聯合再生屏東辦公室酬庸案：</b>5,600 萬辦公室、年薪近 300 萬聘前縣府官員。<br>
+<span class="case-no">②</span><b>鄭亦麟（小英男孩）涉貪案 2025：</b>北檢依貪汙、財產來源不明、洗錢罪起訴，求刑 <em>14 年</em>。收賄 198 萬施壓台電饋電容量、財產來源不明 601 萬。<span class="tag judicial">司法案件</span><br>
+<span class="case-no">③</span><b>台鹽綠能光電弊案 2025：</b>南檢起訴前台鹽董事長陳啓昱、總經理蘇坤煌等 5 人。<span class="tag judicial">已起訴</span><br>
+<span class="case-no">④</span><b>廖國棟收 500 萬光電賄款案（牡丹水庫）：</b>北檢依貪污罪起訴。<span class="tag judicial">已起訴</span><br>
+<span class="case-no">⑤</span>經濟部長郭智輝向檢調表示「真正大尾還沒出現」。
+</td>
+</tr>
+
+<tr>
+<td class="name">無人機國家隊</td>
+<td class="budget">6 年 442 億；軍備局 500 億另計</td>
+<td>行政院無人載具產業計畫</td>
+<td class="ctrl">
+<span class="case-no">①</span><b>2022 國慶用陸製無人機事件：</b>立委揭發國家隊成員以中國製機表演，蘇貞昌震怒；<em>暴露長期「貼牌中國零件」生態</em>。<br>
+<span class="case-no">②</span>國發會主委劉鏡清承認「我們現在連一個無人機的晶片都沒有」，飛控／定位／通訊晶片仍仰賴進口。<br>
+<span class="case-no">③</span>2030 產值 400 億政策口號 vs. 完全去中國化時程一再延後（整機 2026、被動零組件 2027）。<br>
+<span class="case-no">④</span>軍備局 2025 年 500 億標案因美方規格要求推翻重來、整體延宕數月。
+</td>
+</tr>
+
+<tr>
+<td class="name">太空國家隊</td>
+<td class="budget">10 年 251 億 + 低軌衛星 400+</td>
+<td>太空科技長程計畫（2019–2028）</td>
+<td class="ctrl">
+立委批每年僅 25 億「有法無錢」；蔡政府後期再追加逾 400 億低軌衛星預算。國科會、數位部、中科院、工研院職能重疊。
+</td>
+</tr>
+
+<tr>
+<td class="name">潛艦國家隊（IDS）</td>
+<td class="budget">原型艦 493 億 + 後續艦 2,840 億</td>
+<td>14 年期；2025 年僅編 20 億（凍結 50%）</td>
+<td class="ctrl">
+<span class="case-no">①</span><b>海鯤號交艦持續跳票：</b>2023/9 「不沾水下水」後逾 400 天泊港，HAT 即發現數十項缺失；2025/11 交艦再度跳票。<br>
+<span class="case-no">②</span><b>系統整合失敗：</b>據前海軍司令部顧問郭璽爆料，IPMS 出問題，戰鬥系統訊號無法傳給魚雷管，韓國工程師三度修不好。<br>
+<span class="case-no">③</span><b>召集人黃曙光 2025/9 請辭：</b>以「家庭因素」獲准，被解讀為與海軍司令唐華不合、跟 IDS 切割。<br>
+<span class="case-no">④</span><b>單艦造價反高於原型艦：</b>後續 7 艘 2,840 億／單艦約 400 億 > 原型艦 493 億；廠商以「7 改 2 MOU 不符」要求重新報價，每艘只能買原本 60% 裝備。<br>
+<span class="case-no">⑤</span>2026 年度海鯤艦原應編 9.1 億只編 1.45 億，後續艦原應編 170 億只編 119.5 億。<span class="tag policy">政策延宕</span><br>
+<span class="case-no">⑥</span>名嘴吳子嘉指黃曙光「貪汙犯」遭提告，2025 北院判黃敗訴駁回。<span class="tag judicial">判決</span>
+</td>
+</tr>
+
+<tr>
+<td class="name">打詐國家隊</td>
+<td class="budget">三版合計 100 億+（1.0：14 億／1.5：13 億／2.0：73 億）</td>
+<td>跨部會專案，行政院主政</td>
+<td class="ctrl">
+<span class="case-no">①</span>1.5 版 13 億中逾 10 億花在場地整修及防詐宣導，<b>裁罰數始終為 0</b>。<br>
+<span class="case-no">②</span><b>詐騙金額連年創新高：</b>2024 年全年詐騙財損達 <em>1,300 億元</em>（全年 22 萬件，5 年增 11 倍）；2025/6 單月即 89 億元。<br>
+<span class="case-no">③</span><b>司法判決點名：</b>台中地院 2024 年裁定書直書「就算政府成立跨部會打詐國家隊，至今也未見任何明顯成效」。<span class="tag judicial">判決</span><br>
+<span class="case-no">④</span>GASA 2024 推估台灣詐騙損失達 GDP 的 1%，亞洲詐騙接觸率第三高。<br>
+<span class="case-no">⑤</span>內湖母女、台南情侶因假投資詐騙輕生案，引爆社會怒火。
+</td>
+</tr>
+
+<tr>
+<td class="name">電動巴士國家隊</td>
+<td class="budget">2030 計畫 643 億</td>
+<td>交通部主政，含購車補貼 + 維運補貼</td>
+<td class="ctrl">
+<span class="case-no">①</span><b>2021 桃園客運火災：</b>華德動能（國家隊）巴士充電起火連燒 7 輛。立委陳歐珀揭露起火車輛使用<em>中國製電池芯</em>，補助要點僅規定「電池組」國產化、未涵蓋電芯。<br>
+<span class="case-no">②</span><b>2025/9 二次起火：</b>華德動能新車型再度起火，當天才換上日本製電芯。<br>
+<span class="case-no">③</span><b>政策進度落後 7 成：</b>2024 年補助 2,080 輛、地方核定 1,404 輛、實際簽約僅 744 輛；全台電動公車僅 1,906 輛 vs 目標 3,300 輛。<br>
+<span class="case-no">④</span>先導期 8 家車廠僅華德、成運通過認證，車型不足。
+</td>
+</tr>
+
+<tr>
+<td class="name">口罩國家隊</td>
+<td class="budget">約 110 億</td>
+<td>新冠疫情緊急採購及產線補貼</td>
+<td class="ctrl">
+<span class="case-no">①</span><b>加利科技混充中國貨案：</b>負責人林明進進口 467 萬片中國非醫用口罩冒充台製流入實名制，犯罪所得逾 3,000 萬，2024 年法院判 <em>3 年 6 月</em>，公司罰金 40 萬。<span class="tag judicial">已判決</span><br>
+<span class="case-no">②</span><b>豪品國際案：</b>第二家「國家隊成員從中國進口非醫用口罩冒充台製」廠商遭查獲。<br>
+<span class="case-no">③</span><b>淨新科技案：</b>進口 550 萬片中國口罩、私設 22 條產線。<br>
+<span class="case-no">④</span><b>麥迪康黑工廠案 2025：</b>外商醫材大廠（國家隊成員），宜蘭五結廠區私設逾 10 條未登記產線、日產能 200 萬片，朱姓負責人 50 萬交保。<br>
+<span class="case-no">⑤</span>事件促政府推「雙鋼印」防偽，但已重創國家隊公信力。
+</td>
+</tr>
+
+<tr>
+<td class="name">疫苗國家隊（高端）</td>
+<td class="budget">採購 500 萬劑（單劑 881 元 / 810 元）</td>
+<td>含國產疫苗研發補助及採購</td>
+<td class="ctrl">
+<span class="case-no">①</span><b>二期未完成即下訂：</b>2021/5/28 解盲前即與高端、聯亞各簽 500 萬劑採購合約，遭批替國產疫苗炒股。<br>
+<span class="case-no">②</span><b>跳過三期試驗：</b>食藥署於高端解盲同日公布 EUA 標準，採全球首例「免疫橋接」取代三期。專家會議 21 人投票通過 3、有條件通過 15、補件再議 1、不通過 1。<br>
+<span class="case-no">③</span><b>EUA 審查委員疑遭撤換：</b>媒體揭審查前更換半數委員。<br>
+<span class="case-no">④</span><b>採購單劑 881 元</b>遠高於 AZ；保密合約簽署日（7/19）與 EUA 通過日緊密。<br>
+<span class="case-no">⑤</span>接種後 2021/8 桃園、新北、基隆等地通報死亡個案。<br>
+<span class="case-no">⑥</span>高端逾期交貨被罰違約金 <em>1.97 億</em>。<span class="tag audit">監察院關注</span>
+</td>
+</tr>
+
+<tr>
+<td class="name">快篩國家隊</td>
+<td class="budget">寄附防疫預算；含 16.5 億高登標案爭議</td>
+<td>無獨立預算，依託疫情特別預算</td>
+<td class="ctrl">
+<span class="case-no">①</span><b>「小吃店變生醫公司」事件 2022/5：</b>國民黨團踢爆指揮中心向<em>高登環球生醫</em>採購 1,700 萬劑韓國快篩、訂單 16.5 億元；<b>該公司前身為長庚醫院美食街小吃店「順益屋食品」</b>，2020/11 才改名變更為生醫公司，資本額僅 200 萬。<span class="tag judicial">採購法疑慮</span><br>
+<span class="case-no">②</span>負責人劉緯澤 2020 年才因 62 萬債務遭法院強制執行，1.5 年後接下 16.5 億政府單；產品繞道美國向韓國 Celltrion 採購（韓國原廠在台已有分公司與進口商）。<br>
+<span class="case-no">③</span>食藥署核准日 2021/8/5（成立後僅 8 個月）即列入醫材輸入核准名單。工程會主委吳澤成允諾介入了解。<br>
+<span class="case-no">④</span>事件爆發後，高登環球發聲明「決定不參與投標」，希望「國民黨組團採購」。<br>
+<span class="case-no">⑤</span>2022/4 疫情高峰快篩短缺、實名制大排長龍，民眾仍買不到。
+</td>
+</tr>
+
+<tr>
+<td class="name">雞蛋國家隊（進口蛋 / 超思案）</td>
+<td class="budget">2023 進口 1.5 億顆、補助 1.75 億；爆發前現任農業部長下台</td>
+<td>農業部專案進口計畫</td>
+<td class="ctrl">
+<span class="case-no">①</span><b>「資本額 50 萬一人公司接 7 億單」：</b>2023 蛋荒期間，<em>超思公司資本額僅 50 萬</em>，從巴西進口 8,814 萬顆雞蛋（佔總進口量約 60%），合約金額逾 7 億。<br>
+<span class="case-no">②</span><b>監察院 2024/8/30 提 5 項糾正、6 項改善：</b>畜產會與超思簽履約書時<b>公司根本還沒成立</b>；採購過程「價錢只靠電話確認、進口時連基本數量品質都沒驗收、寄空白確認書讓超思自行填」。<span class="tag audit">監院糾正</span><br>
+<span class="case-no">③</span><b>巴西蛋效期誤標／臭蛋事件 2023/9：</b>台農蛋品販售之巴西蛋製造日 9/6、效期標到 10/5（一個月效期顯與冷鏈不符），全聯下架。<br>
+<span class="case-no">④</span><b>過期蛋遍布 13 個倉儲中的 12 個：</b>農業部原稱進口蛋「噴膜塗蠟」可延期，內部簡報揭露<em>根本沒塗蠟</em>，5,170 萬顆封存銷毀。<br>
+<span class="case-no">⑤</span><b>價格貴日本 3 成：</b>巴西到日本每顆 3.8 元、到台灣每顆 5.1 元；陳吉仲稱「搶日本訂單到台灣」遭打臉。<br>
+<span class="case-no">⑥</span><b>陳吉仲 2023/9/19 道歉並請辭、林聰賢辭中央畜產會董事長。</b><br>
+<span class="case-no">⑦</span><b>北檢 2024/9 兵分 14 路搜索：</b>檢調列陳吉仲、陳駿季、林聰賢為被告偵訊；超思秦語喬 200 萬交保、亮采林宜龍 100 萬交保。<span class="tag judicial">司法偵辦中</span>
+</td>
+</tr>
+
+<tr>
+<td class="name">AI 國家隊</td>
+<td class="budget">寄附各部會</td>
+<td>分散於數位部、科技部、國科會</td>
+<td class="ctrl">
+無獨立預算亦無 KPI；國科會 TAIDE 大型語言模型投入逾 2 億，發布後表現遭社群評為與開源 Llama 模型差距明顯。數位部 2025 年遭立法院提案刪減「促進數位創新動能轉型升級」預算（國民黨提案剩 1 元、民眾黨提案減 2 億）。
+</td>
+</tr>
+
+<tr>
+<td class="name">影劇國家隊</td>
+<td class="budget">約 15 億</td>
+<td>文化部影視補助</td>
+<td class="ctrl">
+文策院（TAICCA）成立後補助對象屢遭質疑與特定製片公司關係過密；「斯卡羅」「茶金」票房口碑兩極、外銷成效未達預期。國發基金投資多家串流／製作公司之選案標準被立委質疑黑箱。
+</td>
+</tr>
+
+<tr>
+<td class="name">金融國家隊</td>
+<td class="budget">無獨立預算</td>
+<td>金管會整合八大公股銀行</td>
+<td class="ctrl">
+2018 起多次「政策性護盤」要求公股行庫進場買台股；2022 熊市再次動員，遭批以全民存戶資金承擔政策風險。對綠能、離岸風電專案融資集中於公股行庫，鄭亦麟弊案凸顯饋電容量與聯貸案間政商利益鏈。
+</td>
+</tr>
+
+<tr>
+<td class="name">農業國家隊（台農發）</td>
+<td class="budget">約 10 億</td>
+<td>農業部相關計畫</td>
+<td class="ctrl">
+2016 年成立的台灣國際農業開發公司（台農發），鳳梨、釋迦、蓮霧、葡萄柚等水果至今 95% 以上仍集中銷往中國；公司歷年虧損、董事長頻繁更替。
+</td>
+</tr>
+
+<tr>
+<td class="name">番薯／雜糧國家隊</td>
+<td class="budget">各約 500 萬–700 萬</td>
+<td>農業部推廣計畫</td>
+<td class="ctrl">
+預算規模極小、無實質產業政策。雜糧自給率（不含稻米）十年仍維持個位數。
+</td>
+</tr>
+
+<tr>
+<td class="name">鳳梨國家隊</td>
+<td class="budget">2021 護盤約 10 億（最後支出 5.6 億）</td>
+<td>因應中國 2021/3 禁止台灣鳳梨輸入</td>
+<td class="ctrl">
+<span class="case-no">①</span><b>史上最高運費補助亂象：</b>對澳洲空運每公斤補 105 元、海運 23 元，造成「<em>運費比鳳梨貴</em>」全球華人愛國鳳梨亂象；蔡英文宣傳銷澳「大突破」實際僅 56 公斤鳳梨乾。<br>
+<span class="case-no">②</span><b>削價競爭、黑心鳳梨：</b>新進口商高價向農民收購、低報價賣給日本進口商「賺補助款」，破壞既有日本通路與台灣品牌。<br>
+<span class="case-no">③</span>「入選東奧選手村」獎勵每公斤再加 2 元，最終東奧選手村台灣水果並無鳳梨。
+</td>
+</tr>
+
+<tr>
+<td class="name">外送國家隊</td>
+<td class="budget">約 1.65 億</td>
+<td>勞動部、農業部合辦</td>
+<td class="ctrl">
+<span class="case-no">①</span>外送員 2019 年 4 萬暴增至 2023 年 14.5 萬；單筆報酬從 70 元降至 40 元甚至 64 元跑兩單。<br>
+<span class="case-no">②</span><b>外送專法初審爭議 2025/12：</b>勞動部版「保底 45 元 + 最低工資時薪 1.25 倍」遭全國外送產業工會批為「平台利益保護法」，剔除原雙軌制中的里程加成。<br>
+<span class="case-no">③</span>UberEats 2025/7 再次片面降疊單報酬（第二單降至 0 元），勞動部僅能發函要求停止。
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<!-- ============== 辦公室 ============== -->
+<h2><span class="num">06</span>辦公室 / 委員會明細</h2>
+
+<table>
+<thead>
+<tr><th style="width:14%">單位</th><th style="width:18%">估算預算規模</th><th style="width:14%">人員編制</th><th>爭議重點</th></tr>
+</thead>
+<tbody>
+
+<tr>
+<td class="name">新南向辦公室</td>
+<td class="budget">業務年約 195 萬；整體 8 年 506.9 億</td>
+<td>2016–2018 任務編組於總統府</td>
+<td class="ctrl">
+<span class="case-no">①</span><b>8 年 506.9 億換來對東協出口比例下降：</b>2017 對東協 18.5% → 2020 跌至 15.4%，2022 才回升到 16.8%。<br>
+<span class="case-no">②</span>同期對中／港出口占比反而從 40% 升至 41.2%。<br>
+<span class="case-no">③</span><b>教育合作淪勞力輸入：</b>2020 中山警分局臨檢爆 7 名持新南向學生簽證越南女大生於酒店坐檯。<br>
+<span class="case-no">④</span>政院辦公室 2018 年裁撤後業務分散，預算追蹤更困難。
+</td>
+</tr>
+
+<tr>
+<td class="name">少子化辦公室</td>
+<td class="budget">聲稱 7 年 4,000 億；後改稱已編 5,931 億</td>
+<td>「任務編組」（爭議焦點）</td>
+<td class="ctrl">
+<span class="case-no">①</span><b>「辦公室不存在」打臉行政院 2026/1：</b>衛福部長石崇良立法院備詢親口承認「<em>我們確實沒有成立少子女化對策辦公室</em>」。<br>
+<span class="case-no">②</span><b>4,000 億去向不明：</b>民眾黨索資被衛福部回函「沒有成立」；無辦公地點、員額編制、會議記錄。<br>
+<span class="case-no">③</span><b>出生率歷年新低：</b>2025/4 單月 8,684 人、2025/11 降至 7,946 人（年減 36%）；2070 年人口推估減 844 萬。<br>
+<span class="case-no">④</span>立法院預算中心：2023 年「兒童教養補助」執行率未達 75%，「有錢沒人領」。<span class="tag legi">立委關切</span>
+</td>
+</tr>
+
+<tr>
+<td class="name">中部 / 南部 / 東部 / 雲嘉南辦公室</td>
+<td class="budget">無獨立預算</td>
+<td>行政院派駐辦公室</td>
+<td class="ctrl">
+被批為「政治酬庸旗艦店」。中部辦公室於 2024/4/3 嘉義地震期間未第一時間關心災情、反發文政治鬥爭。歷任主任如吳音寧、許銘春等人事任命屢遭爭議。
+</td>
+</tr>
+
+<tr>
+<td class="name">不當黨產處理委員會</td>
+<td class="budget">年約 5,250 萬（114 年原列 1,173 萬）</td>
+<td>獨立機關</td>
+<td class="ctrl">
+2025 立院審議中，國民黨提案刪除 90% 預算。歷年訴訟敗訴比例不低，被批選擇性辦案；對民眾服務社、婦聯會處分後續訴訟仍纏訟中。
+</td>
+</tr>
+
+<tr>
+<td class="name">能源及減碳辦公室</td>
+<td class="budget">寄附各部會</td>
+<td>國發會主政，跨部會協調</td>
+<td class="ctrl">
+鄭亦麟即為本辦公室首任主任（2016 林全延攬），其後轉任綠推中心副執行長並涉貪 198 萬。本辦公室主導「2025 非核家園」目標，目標跳票後改稱「2030 減碳路徑」。<span class="tag judicial">司法案件主嫌前主任</span>
+</td>
+</tr>
+
+<tr>
+<td class="name">國土安全辦公室</td>
+<td class="budget">寄附各部會</td>
+<td>國安會及相關部會</td>
+<td class="ctrl">
+2025 年遭藍白凍結相關特別預算。職權與國安會、海巡署、警政署多有重疊，被批層級疊床架屋。
+</td>
+</tr>
+
+<tr>
+<td class="name">年金改革辦公室</td>
+<td class="budget">已功成身退</td>
+<td>任務完成後裁撤</td>
+<td class="ctrl">
+2018 年完成軍公教年金改革後結束。但所得替代率改革爭議延續至今；2025 年退休軍公教因通膨議題再度提出補償訴求。
+</td>
+</tr>
+
+<tr>
+<td class="name">智慧機械辦公室</td>
+<td class="budget">寄附各部會</td>
+<td>經濟部主政</td>
+<td class="ctrl">
+2016 成立目標把台中打造成「智慧機械之都」。2024 起工具機產業遭遇出口寒冬（對中、對歐均下滑超過兩成），五加二產業成績單被質疑。
+</td>
+</tr>
+
+<tr>
+<td class="name">洗錢防制辦公室</td>
+<td class="budget">寄附法務部</td>
+<td>法務部主政</td>
+<td class="ctrl">
+2018 通過 APG 第三輪相互評鑑為「一般追蹤」雖屬國際肯定，但同期間虛擬貨幣洗錢、人頭帳戶、「水房」案件數仍持續攀升，2024 年詐騙集團洗錢金流估逾千億。
+</td>
+</tr>
+
+<tr>
+<td class="name">災害防救辦公室</td>
+<td class="budget">寄附內政部</td>
+<td>消防署主政</td>
+<td class="ctrl">
+2024 花蓮 0403 地震、2025 颱風與台南登革熱期間，跨部會協調仍以行政院災害應變中心為主，本辦公室定位重複。
+</td>
+</tr>
+
+<tr>
+<td class="name">科技會報辦公室</td>
+<td class="budget">寄附國科會</td>
+<td>行政院科技會報幕僚機構</td>
+<td class="ctrl">
+與國科會、數位部、經濟部技術處職能重疊，2025 立委質詢科技預算分配時多次點名「角色不清」。
+</td>
+</tr>
+
+<tr>
+<td class="name">經貿談判辦公室</td>
+<td class="budget">寄附經濟部</td>
+<td>行政院任務編組</td>
+<td class="ctrl">
+新南向辦公室 2018 裁撤後業務多由本辦公室承接。CPTPP 申請進度停滯、台美 21 世紀貿易倡議首批協議內容遭批「無實質市場進入」、台英、台加 CIA 進度緩慢。
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<!-- ============== 重大案件聚焦 ============== -->
+<h2><span class="num">07</span>重大酬庸與弊案聚焦（依公開報導與司法案件整理）</h2>
+
+<div class="cases">
+
+  <div class="case">
+    <div class="ttl">綠能弊案連環爆 — 鄭亦麟、台鹽綠能、廖國棟（2025）</div>
+    <div class="meta"><span class="tag judicial">司法案件</span><span class="tag legi">起訴中</span></div>
+    <p class="desc">「小英男孩」鄭亦麟收賄 198 萬施壓台電喬饋電容量、求刑 14 年；前台鹽董事長陳啓昱涉光電土地開發弊案；前立委廖國棟收 500 萬光電業者賄款。<b>經濟部長郭智輝向檢調暗示「真正大尾還沒出現」</b>，案件持續擴大。</p>
+  </div>
+
+  <div class="case policy">
+    <div class="ttl">海鯤號爛尾徵兆 — 黃曙光請辭（2025/9）</div>
+    <div class="meta"><span class="tag policy">重大專案延宕</span><span class="tag policy">2,840 億預算</span></div>
+    <p class="desc">原型艦超過 400 天未真正出海、系統整合失敗（戰鬥系統訊號無法傳給魚雷管），韓國工程師三度修不好；召集人請辭、後續艦預算付款大幅延後、單艦造價反高於原型艦。</p>
+  </div>
+
+  <div class="case">
+    <div class="ttl">加利科技混充中國口罩案 — 國家隊成員詐領徵用款</div>
+    <div class="meta"><span class="tag judicial">已判決</span></div>
+    <p class="desc">負責人林明進進口 467 萬片中國非醫用口罩冒充 MIT 流入實名制，犯罪所得逾 3,000 萬，2024 年判刑 3 年 6 月。同期淨新科技、豪品國際、麥迪康等多家國家隊廠商陸續涉案。</p>
+  </div>
+
+  <div class="case">
+    <div class="ttl">高登環球生醫「小吃店變生醫公司」16.5 億快篩標案（2022/5）</div>
+    <div class="meta"><span class="tag judicial">採購法疑慮</span><span class="tag legi">立委爆料</span></div>
+    <p class="desc">資本額僅 200 萬、前身為長庚醫院美食街小吃店「順益屋食品」的高登環球生醫公司，2020/11 改名後 1.5 年內就接下 1,700 萬劑韓國快篩、訂單金額 16.5 億。負責人劉緯澤 2020 年才因 62 萬債務遭強制執行。事件爆發後高登宣布「不參與投標」。</p>
+  </div>
+
+  <div class="case audit">
+    <div class="ttl">超思進口蛋 / 巴西臭蛋案 — 陳吉仲下台（2023/9）</div>
+    <div class="meta"><span class="tag audit">監院糾正</span><span class="tag judicial">司法偵辦中</span></div>
+    <p class="desc">資本額 50 萬一人公司「超思」進口 8,814 萬顆巴西雞蛋（佔總量 60%）、合約逾 7 億；簽履約書時公司還沒成立。台農巴西蛋效期誤標一個月、全聯下架；13 個倉儲中 12 個有過期蛋、5,170 萬顆封存銷毀；農業部宣稱噴膜塗蠟，內部簡報揭露<b>根本沒塗蠟</b>。陳吉仲、林聰賢請辭。北檢 2024/9 列前後任農業部長為被告。</p>
+  </div>
+
+  <div class="case audit">
+    <div class="ttl">少子化辦公室「不存在」 — 4,000 億預算去向爭議（2026/1）</div>
+    <div class="meta"><span class="tag legi">立法院質詢</span><span class="tag audit">2026 焦點</span></div>
+    <p class="desc">衛福部長石崇良親口承認「沒有成立少子女化對策辦公室」，與行政院先前說法相左；同期間 2025/11 新生兒銳減 36%、創史上單月新低；2070 人口推估減 844 萬。</p>
+  </div>
+
+  <div class="case policy">
+    <div class="ttl">電動巴士國家隊兩度起火 — 中國電芯隱憂</div>
+    <div class="meta"><span class="tag policy">產業安全</span></div>
+    <p class="desc">2021 年華德動能（國家隊）巴士充電起火連燒 7 輛，揭出補助規定僅要求電池組國產化、不含電芯，廠商使用中國電芯；2025/9 新車型再次起火。2024 年計畫進度落後逾 3 成。</p>
+  </div>
+
+  <div class="case policy">
+    <div class="ttl">鳳梨國家隊外銷亂象 — 政府補助製造黑心鳳梨</div>
+    <div class="meta"><span class="tag policy">政策設計缺陷</span></div>
+    <p class="desc">2021 年史上最高運費補助（澳洲空運每公斤 105 元）造成「運費比鳳梨貴」、新進口商靠補助賺錢、品質崩壞；蔡英文宣傳銷澳「大突破」實際僅 56 公斤鳳梨乾。結構性問題（過度依賴中國市場）十年未解。</p>
+  </div>
+
+  <div class="case">
+    <div class="ttl">打詐國家隊 vs. 詐騙金額連年暴增</div>
+    <div class="meta"><span class="tag judicial">判決點名</span><span class="tag policy">政策成效爭議</span></div>
+    <p class="desc">2024 年詐騙財損 1,300 億、22 萬件，創歷史新高且 5 年增 11 倍；台中地院判決書直接寫入「打詐國家隊至今未見明顯成效」；GASA 推估台灣詐騙損失達 GDP 的 1%。1.5 版 13 億預算逾 10 億花在場地整修與宣導，<b>裁罰數為 0</b>。</p>
+  </div>
+
+  <div class="case">
+    <div class="ttl">高端疫苗 EUA 爭議 — 全球首例免疫橋接</div>
+    <div class="meta"><span class="tag policy">政治決策爭議</span></div>
+    <p class="desc">二期未解盲即下訂 500 萬劑、跳過三期試驗、EUA 審查日同日簽保密合約、審查委員疑遭撤換、單劑採購價遠高於 AZ；逾期交貨違約金 1.97 億。台灣為全球唯一以免疫橋接通過 EUA 國家。</p>
+  </div>
+
+</div>
+
+<!-- ============== 結構性觀察 ============== -->
+<h2><span class="num">08</span>結構性觀察 — 為何 877 億人事費換不到政策成效？</h2>
+
+<div class="dash3">
+  <div class="card">
+    <h4 style="color:var(--accent)">1. 預算分散化</h4>
+    <p style="font-size:13px;color:var(--ink-2);margin:8px 0 0;line-height:1.7">
+    大多數國家隊與辦公室<b style="color:var(--accent)">沒有獨立預算書</b>，資金隱沒於各部會（如 AI 國家隊、洗錢防制辦公室、智慧機械辦公室），立委難以追蹤整體花費。<br><br>
+    監察院 2024/8 對進口蛋案提出之 5 項糾正即點名：畜產會驗收作業、履約情形、經費核銷「全都便宜行事」。
+    </p>
+  </div>
+  <div class="card">
+    <h4 style="color:var(--accent)">2. 法外行政空間</h4>
+    <p style="font-size:13px;color:var(--ink-2);margin:8px 0 0;line-height:1.7">
+    任務編組型機構不受《政府組織法》規範，<b style="color:var(--accent)">無需通過立法院設立審查</b>，人事任命亦無公開審議程序。<br><br>
+    少子化辦公室 2026/1 自爆「不存在」即為極端案例 — 部會聲稱已運作 7 年、編列數千億，但無辦公地點、員額編制、會議記錄。
+    </p>
+  </div>
+  <div class="card">
+    <h4 style="color:var(--accent)">3. 政治酬庸鏈</h4>
+    <p style="font-size:13px;color:var(--ink-2);margin:8px 0 0;line-height:1.7">
+    各行政院派駐辦公室（中、南、東、雲嘉南）正職及政務職缺被批<b style="color:var(--accent)">圈養政治人物</b>。<br><br>
+    能源減碳辦公室 → 綠推中心 → 台船環海 → 台智電的人事鏈，培養出 28 歲掌握離岸風電饋電容量配發的鄭亦麟，並在 34 歲被起訴求刑 14 年。
+    </p>
+  </div>
+</div>
+
+<footer>
+資料來源：立法院審議紀錄、立法院預算中心、行政院主計總處、內政部「打詐儀錶板」、監察院 113 年糾正案、北檢／南檢／士檢起訴書、台北地院／台中地院／桃園地院判決書；《報導者》、《天下雜誌》、《聯合報》、《自由時報》、《中央社》、《公視新聞網》、《中時電子報》、《關鍵評論》、《今周刊》、《知新聞》、《NOWnews》、《TVBS》、Wikipedia 中文版。
+<br>最後更新：2026 年 4 月（擴充版 v2）· 部分數據為估算值，精確數字應參照行政院主計總處官方預算書。本表所列爭議均為公開報導或司法已揭露之事實，不代表終局判決。
+</footer>
+
+</div>
+</body>
+</html>

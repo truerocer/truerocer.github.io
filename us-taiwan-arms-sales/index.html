@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>美國對台軍售完整清單（2000–2026）— 發價、交貨、實際金額、延遲一覽</title>
+<meta name="description" content="按時序整理 2000 年以來美國對台軍售案：發價日、首交、完交、DSCA 公告金額、台方實際合約金額、武器類別、延遲狀況。資料整合 DSCA、wiki、Taiwan Security Monitor (GMU)、立法院、媒體報導。">
+<meta property="og:title" content="美國對台軍售完整清單（2000–2026）">
+<meta property="og:description" content="逐筆整理發價、交貨、實際金額、延遲狀況；含 5 張 BI 圖表。">
+<style>
+  :root{
+    --bg:#f5f1e8; --bg-alt:#ece6d6; --panel:#ffffff; --panel-2:#fbf7ec;
+    --line:#d9d2bf; --line-strong:#b8af96;
+    --ink:#1a2238; --ink-2:#3d4868; --mute:#6b7388;
+    --primary:#1f3a68; --primary-2:#2c528f; --primary-3:#4a78b5; --primary-soft:#dbe5f3;
+    --accent:#9c2a2a; --accent-2:#c14545; --accent-soft:#f3dada;
+    --warn:#a06a13; --warn-2:#d18d28; --warn-soft:#fbeec4; --warn-row:#fdf5dd;
+    --ok:#2f6b3c; --ok-soft:#d6e7d8;
+    --info:#1f5a78; --info-soft:#d4e7f0;
+    --bad:#8b0000; --bad-soft:#f0caca; --bad-row:#fae3e3;
+    --shadow: 0 1px 2px rgba(31,58,104,.06), 0 4px 12px rgba(31,58,104,.06);
+
+    /* Weapon category palette */
+    --w-fighter:#1f5fa3;
+    --w-helo:#6a4c93;
+    --w-tank:#8b6f47;
+    --w-arty:#b8860b;
+    --w-aaa:#c14545;          /* 防空 */
+    --w-asm:#d97706;          /* 反艦/攻陸 */
+    --w-atgm:#a05a2c;         /* 反戰車 */
+    --w-aam:#7c2d12;          /* 空射武器 */
+    --w-asw:#1f5a78;          /* 反潛 */
+    --w-aew:#5a89a8;          /* 預警機/偵照 */
+    --w-ship:#1a3863;         /* 艦艇 */
+    --w-radar:#3a8989;        /* 雷達 */
+    --w-uav:#4d8a3f;          /* 無人機 */
+    --w-c4:#555555;           /* 通信/資料鏈 */
+    --w-misc:#888888;         /* 維保/訓練 */
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Source Han Sans TC",system-ui,sans-serif;line-height:1.65;font-feature-settings:"palt";}
+  a{color:var(--primary-2)}
+  .wrap{max-width:1320px;margin:0 auto;padding:32px 24px 80px}
+
+  /* HEADER */
+  .topbar{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--primary);padding-bottom:14px;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .mark{width:48px;height:36px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;letter-spacing:.05em;border-radius:4px}
+  .brand .meta{font-size:11px;color:var(--mute);letter-spacing:.18em;text-transform:uppercase}
+  .brand .name{font-size:14px;font-weight:700;color:var(--ink)}
+  .topbar .tags{font-size:11px;color:var(--mute);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .topbar .tags b{color:var(--primary);font-weight:700}
+
+  h1{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:32px;line-height:1.3;margin:8px 0 12px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+  h1 .sub{display:block;font-family:"Noto Sans TC",sans-serif;font-size:15px;color:var(--ink-2);font-weight:400;margin-top:10px;letter-spacing:0}
+  .lede{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--primary);border-radius:4px;padding:18px 22px;margin:18px 0 28px;font-size:14.5px;color:var(--ink-2);box-shadow:var(--shadow)}
+
+  h2{font-size:20px;margin:48px 0 18px;color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:10px;letter-spacing:.02em}
+  h2 .num{font-family:"Noto Serif TC",serif;color:var(--accent);font-size:14px;font-weight:700;letter-spacing:.1em}
+  h3{font-size:15px;margin:22px 0 10px;color:var(--primary);font-weight:700;letter-spacing:.02em}
+  p{color:var(--ink-2)}
+
+  /* KPI */
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0 8px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:18px;position:relative;box-shadow:var(--shadow)}
+  .kpi .lbl{font-size:11px;color:var(--mute);letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+  .kpi .num{font-family:"Noto Serif TC",serif;font-size:30px;font-weight:700;line-height:1.05;margin:8px 0 6px;color:var(--primary)}
+  .kpi .num.bad{color:var(--accent)}
+  .kpi .num.warn{color:var(--warn-2)}
+  .kpi .num.ok{color:var(--ok)}
+  .kpi .desc{font-size:12px;color:var(--mute);line-height:1.55}
+  @media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* ===== CHARTS ===== */
+  .chart-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:14px 0 24px}
+  .chart-grid.full{grid-template-columns:1fr}
+  .chart{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:18px 22px;box-shadow:var(--shadow)}
+  .chart h3{margin:0 0 4px;color:var(--ink);font-size:15px}
+  .chart .sub{font-size:12px;color:var(--mute);margin-bottom:14px;line-height:1.5}
+  .chart svg{display:block;width:100%;height:auto;font-family:inherit}
+  .chart .lg{display:flex;flex-wrap:wrap;gap:10px 14px;font-size:11.5px;color:var(--ink-2);margin-top:12px}
+  .chart .lg span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+  .chart .lg .sw{display:inline-block;width:11px;height:11px;border-radius:2px}
+  .chart text{font-size:11px;fill:var(--ink-2);font-family:inherit}
+  .chart text.lbl{font-size:10.5px;fill:var(--mute)}
+  .chart text.val{font-weight:700;fill:var(--ink);font-size:12px}
+  .chart text.title{font-size:13px;font-weight:700;fill:var(--ink)}
+  .chart .axis line{stroke:var(--line);stroke-width:1}
+  .chart .axis path{stroke:var(--line);fill:none}
+  .chart .grid line{stroke:var(--line);stroke-dasharray:2 3;opacity:.6}
+  @media(max-width:900px){.chart-grid{grid-template-columns:1fr}}
+
+  /* TABLE */
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--panel);box-shadow:var(--shadow);margin:14px 0 24px}
+  table{border-collapse:collapse;width:100%;font-size:13.2px;min-width:1240px}
+  thead{background:var(--primary);color:#fff;position:sticky;top:0}
+  th{padding:10px 10px;text-align:left;font-weight:700;letter-spacing:.02em;font-size:12.5px;border-right:1px solid rgba(255,255,255,.15);white-space:nowrap;cursor:pointer;user-select:none}
+  th:hover{background:var(--primary-2)}
+  th.num,td.num{text-align:right;font-variant-numeric:tabular-nums}
+  th.center,td.center{text-align:center}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:nth-child(even){background:var(--bg-alt)}
+  tbody tr:hover{background:var(--primary-soft)}
+  tbody td.date{font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+  tbody td.items{min-width:300px;max-width:380px}
+  tbody td.items b{color:var(--ink);font-weight:700}
+  tbody td.items .desc{display:block;color:var(--mute);font-size:11.5px;margin-top:2px;line-height:1.45}
+  tbody td.delay{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  /* Delayed/cancelled row tinting (進行中也算延遲) */
+  tbody tr[data-status="delay"]{background:var(--warn-row) !important}
+  tbody tr[data-status="bad"]{background:var(--bad-row) !important}
+  tbody tr[data-status="cancel"]{background:#efe1e1 !important;text-decoration:line-through;text-decoration-color:rgba(139,0,0,.4)}
+  tbody tr[data-status="delay"]:hover,
+  tbody tr[data-status="bad"]:hover,
+  tbody tr[data-status="cancel"]:hover{background:var(--primary-soft) !important;text-decoration:none}
+
+  /* weapon category chip */
+  .wt{display:inline-block;font-size:10px;font-weight:700;color:#fff;padding:1px 7px;border-radius:8px;letter-spacing:.04em;margin-right:6px;vertical-align:1px;white-space:nowrap}
+  .wt-fighter{background:var(--w-fighter)}
+  .wt-helo{background:var(--w-helo)}
+  .wt-tank{background:var(--w-tank)}
+  .wt-arty{background:var(--w-arty)}
+  .wt-aaa{background:var(--w-aaa)}
+  .wt-asm{background:var(--w-asm)}
+  .wt-atgm{background:var(--w-atgm)}
+  .wt-aam{background:var(--w-aam)}
+  .wt-asw{background:var(--w-asw)}
+  .wt-aew{background:var(--w-aew)}
+  .wt-ship{background:var(--w-ship)}
+  .wt-radar{background:var(--w-radar)}
+  .wt-uav{background:var(--w-uav)}
+  .wt-c4{background:var(--w-c4)}
+  .wt-misc{background:var(--w-misc)}
+  .wt-pkg{background:#444}
+
+  /* status pill */
+  .pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+  .pill.done{background:var(--ok-soft);color:var(--ok)}
+  .pill.partial{background:var(--info-soft);color:var(--info)}
+  .pill.pending{background:var(--bg-alt);color:var(--ink-2)}
+  .pill.delay{background:var(--warn-soft);color:var(--warn)}
+  .pill.bad{background:var(--bad-soft);color:var(--bad)}
+  .pill.cancel{background:#e0d5d5;color:#6e3a3a}
+  .pill.early{background:#cfe6d3;color:var(--ok)}
+  /* dual-pill cell — shows completion + delay status */
+  td.center .pill + .pill{margin-top:3px}
+  td.center{line-height:1.3}
+  .dual{display:inline-flex;flex-direction:column;gap:3px;align-items:center}
+
+  /* admin row tinting (subtle left border) */
+  tr.adm-bush td:first-child{border-left:3px solid #8a6d3b}
+  tr.adm-obama td:first-child{border-left:3px solid #2c5282}
+  tr.adm-trump1 td:first-child{border-left:3px solid #c14545}
+  tr.adm-biden td:first-child{border-left:3px solid #4a78b5}
+  tr.adm-trump2 td:first-child{border-left:3px solid #9c2a2a}
+
+  /* legend */
+  .legend{font-size:12px;color:var(--mute);display:flex;gap:16px;flex-wrap:wrap;margin:8px 0 18px;align-items:center}
+  .legend .swatch{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:5px;vertical-align:-2px}
+
+  /* notes */
+  .note{background:var(--panel-2);border:1px solid var(--line);border-radius:4px;padding:14px 18px;margin:18px 0;font-size:13.5px;color:var(--ink-2)}
+  .note b{color:var(--ink)}
+  .note.warn{border-left:4px solid var(--warn-2);background:var(--warn-soft)}
+
+  /* admin section */
+  .admin-section{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:18px 22px;margin:14px 0 24px;box-shadow:var(--shadow)}
+  .admin-section h3{margin-top:0}
+  .admin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0}
+  .admin-grid .stat{padding:10px 14px;background:var(--bg-alt);border-radius:4px}
+  .admin-grid .stat .lbl{font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase}
+  .admin-grid .stat .v{font-family:"Noto Serif TC",serif;font-size:22px;font-weight:700;color:var(--primary);line-height:1.1;margin-top:4px}
+  @media(max-width:700px){.admin-grid{grid-template-columns:1fr 1fr}}
+
+  /* detail boxes */
+  .case-detail{margin:14px 0;padding:14px 18px;border:1px solid var(--line);border-radius:4px;background:var(--panel-2)}
+  .case-detail h4{margin:0 0 8px;font-size:14px;color:var(--accent);font-weight:700}
+  .case-detail dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:4px 14px;font-size:13px}
+  .case-detail dt{color:var(--mute);font-weight:600}
+  .case-detail dd{margin:0;color:var(--ink-2)}
+
+  /* footer */
+  footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);font-size:11.5px;color:var(--mute);line-height:1.7}
+
+  /* search box */
+  .controls{display:flex;gap:10px;align-items:center;margin:10px 0 6px;flex-wrap:wrap}
+  .controls input[type=search]{padding:7px 10px;border:1px solid var(--line);border-radius:4px;font-size:13px;width:240px;font-family:inherit}
+  .controls .filter-pill{padding:5px 12px;border:1px solid var(--line);background:var(--panel);border-radius:14px;font-size:12px;cursor:pointer;color:var(--ink-2);user-select:none}
+  .controls .filter-pill.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .count-info{font-size:12px;color:var(--mute);margin-left:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ====== TOPBAR ====== -->
+<div class="topbar">
+  <div class="brand">
+    <div class="mark">FMS</div>
+    <div>
+      <div class="meta">US Foreign Military Sales · Taiwan</div>
+      <div class="name">2000–2026 軍售案逐筆追蹤</div>
+    </div>
+  </div>
+  <div class="tags">
+    <span>資料截止 <b>2026-05</b></span>
+    <span>軍售案數 <b>96</b></span>
+    <span>累計公告 <b>$72.6B</b></span>
+    <span>未交貨積壓 <b>$21.5B</b></span>
+    <span>嚴重延遲 <b>3 案</b></span>
+  </div>
+</div>
+
+<h1>美國對台軍售清單（2000–2026）
+  <span class="sub">逐筆整理 DSCA 發價金額、台方實際合約金額、首交日、完交日、武器類別、延遲狀況；含 5 張 BI 分析圖表</span>
+</h1>
+
+<div class="lede">
+本表整合 <b>美國國防安全合作署（DSCA）</b>對國會通知之 Major Arms Sales、<b>台灣立法院預算書與國防部新聞稿</b>之實際合約金額、以及國內外媒體之交貨進度，列出 2000-01-01 起至 2026 年 5 月之所有對台軍售案。每筆顯示<b style="color:var(--accent)">發價日</b>、<b style="color:var(--accent)">公告金額</b>（DSCA 上限授權，USD M）、<b style="color:var(--accent)">實際金額</b>（台灣立院預算或公布合約價，NT$ 億）、首交日、完交日、武器類別、狀態。
+</div>
+
+<!-- ====== KPI ====== -->
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="lbl">累計公告金額</div>
+    <div class="num">$72.6B</div>
+    <div class="desc">2000-01-01 至 2026-05-01；其中 2001 大包裹含取消潛艦 $10B+；2025-12-17 川普 II 單批 $11.07B 史上最大</div>
+  </div>
+  <div class="kpi">
+    <div class="lbl">未交貨積壓 (2025-11)</div>
+    <div class="num bad">$21.5B</div>
+    <div class="desc">含 F-16V Block 70 ($8B)、HCDS Harpoon ($2.37B)、川普 II 包裹</div>
+  </div>
+  <div class="kpi">
+    <div class="lbl">主要武器延遲比例</div>
+    <div class="num warn">42%</div>
+    <div class="desc">31 件主要武器中：6 件<b>已交但延遲</b>、7 件<b>未交／部分但延遲</b>（含嚴重延遲 3 件）</div>
+  </div>
+  <div class="kpi">
+    <div class="lbl">取消／未成案</div>
+    <div class="num bad">4 件</div>
+    <div class="desc">8 柴電潛艦、12 MH-53E、2 Osprey 獵雷艦、40 M109A6 Paladin</div>
+  </div>
+</div>
+
+
+<div class="note">
+<b>名詞約定</b>：
+<b style="color:var(--accent)">發價日</b> = DSCA 對國會通知日（公告日）；
+<b style="color:var(--accent)">公告金額</b> = DSCA 上限授權（USD M）；
+<b style="color:var(--accent)">實際金額</b> = 台灣立院通過之軍購預算或合約簽約價（NT$ 億；換算 USD 採 30:1）；
+<b style="color:var(--accent)">首交</b> = 首批裝備抵台日；
+<b style="color:var(--accent)">完交</b> = 全案最後一批抵達日；
+<b style="color:var(--accent)">期程</b> = 完交日 − 發價日（年）；
+<b style="color:var(--accent)">延遲</b>判定 = 期程超出該系統 FMS 全球平均 + 1 年（戰機 6 年、艦艇 6 年、飛彈 4 年、雷達 5 年、零附件 4 年）；<b>進行中但已預計延遲也算延遲</b>。
+<br>狀態欄使用<b>雙徽章</b>：上方表完成度（✅已交／🔵提前／部分／⏳未交／❌取消），下方表延遲狀況（🟨延遲／🟥嚴重延遲）。<b>延遲不等於沒交</b>：例如 F-16 鳳展、UH-60M、PAC-3 都已 100% 完成交貨，只是期程拖太長。
+</div>
+
+<!-- ====== CHARTS ====== -->
+<h2><span class="num">01</span> BI 分析圖表</h2>
+
+<div class="chart-grid">
+
+  <!-- Chart 1: 主要武器交付狀態 (Donut by 金額) -->
+  <div class="chart">
+    <h3>主要武器交付狀態 — 按公告金額占比</h3>
+    <div class="sub">31 件主要武器（不含零附件、訓練、維保），合計 $58.0B 公告金額</div>
+    <svg viewBox="0 0 400 220">
+      <!-- donut center -->
+      <g transform="translate(110,110)">
+        <!-- slices: pre-computed -->
+        <!-- 已準時完成 16.9B 29.1% -->
+        <path d="M 0,-90 A 90,90 0 0,1 79.9,-41.4 L 35.5,-18.4 A 40,40 0 0,0 0,-40 Z" fill="#2f6b3c"/>
+        <!-- 已延遲完成 12.0B 20.7% (270->345 deg start at -90) -->
+        <path d="M 79.9,-41.4 A 90,90 0 0,1 78.7,43.6 L 35.0,19.4 A 40,40 0 0,0 35.5,-18.4 Z" fill="#a06a13"/>
+        <!-- 進行中（準時）8.5B 14.7% -->
+        <path d="M 78.7,43.6 A 90,90 0 0,1 27.4,85.7 L 12.2,38.1 A 40,40 0 0,0 35.0,19.4 Z" fill="#1f5a78"/>
+        <!-- 進行中但延遲 6.7B 11.6% -->
+        <path d="M 27.4,85.7 A 90,90 0 0,1 -39.3,80.9 L -17.5,36.0 A 40,40 0 0,0 12.2,38.1 Z" fill="#d18d28"/>
+        <!-- 嚴重延遲 0.6B 1.1% -->
+        <path d="M -39.3,80.9 A 90,90 0 0,1 -47.8,76.3 L -21.2,33.9 A 40,40 0 0,0 -17.5,36.0 Z" fill="#8b0000"/>
+        <!-- 未交（尚未到期）3.5B 6.0% -->
+        <path d="M -47.8,76.3 A 90,90 0 0,1 -83.5,33.6 L -37.1,14.9 A 40,40 0 0,0 -21.2,33.9 Z" fill="#888"/>
+        <!-- 取消 10.7B 18.4% (rest of circle) -->
+        <path d="M -83.5,33.6 A 90,90 0 0,1 0,-90 L 0,-40 A 40,40 0 0,0 -37.1,14.9 Z" fill="#8b0000" opacity="0.55"/>
+        <text x="0" y="-3" text-anchor="middle" class="title">$58.0B</text>
+        <text x="0" y="14" text-anchor="middle" class="lbl">主要武器</text>
+      </g>
+      <!-- legend -->
+      <g transform="translate(220,30)" font-size="11">
+        <g><rect width="11" height="11" fill="#2f6b3c"/><text x="18" y="9">已準時完成 — $16.9B (29%)</text></g>
+        <g transform="translate(0,20)"><rect width="11" height="11" fill="#a06a13"/><text x="18" y="9">已延遲完成 — $12.0B (21%)</text></g>
+        <g transform="translate(0,40)"><rect width="11" height="11" fill="#1f5a78"/><text x="18" y="9">進行中（準時） — $8.5B (15%)</text></g>
+        <g transform="translate(0,60)"><rect width="11" height="11" fill="#d18d28"/><text x="18" y="9">進行中但延遲 — $6.7B (12%)</text></g>
+        <g transform="translate(0,80)"><rect width="11" height="11" fill="#8b0000"/><text x="18" y="9">嚴重延遲 — $0.6B (1%)</text></g>
+        <g transform="translate(0,100)"><rect width="11" height="11" fill="#888"/><text x="18" y="9">未交（尚在期程內） — $3.5B (6%)</text></g>
+        <g transform="translate(0,120)"><rect width="11" height="11" fill="#8b0000" opacity="0.55"/><text x="18" y="9">取消／未成案 — $10.7B (18%)</text></g>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Chart 2: 延遲程度分布（按案數） -->
+  <div class="chart">
+    <h3>延遲程度分布 — 按主要武器件數</h3>
+    <div class="sub">31 件主要武器，按發價→完交期程超出 FMS 平均的程度分類</div>
+    <svg viewBox="0 0 400 220">
+      <g transform="translate(110,110)">
+        <!-- 準時或提前 14 件 45.2% -->
+        <path d="M 0,-90 A 90,90 0 0,1 86.5,-24.8 L 38.5,-11.0 A 40,40 0 0,0 0,-40 Z" fill="#2f6b3c"/>
+        <!-- 邊緣（+1~3 年）8 件 25.8% -->
+        <path d="M 86.5,-24.8 A 90,90 0 0,1 21.0,87.5 L 9.4,38.9 A 40,40 0 0,0 38.5,-11.0 Z" fill="#5a8a8a"/>
+        <!-- 延遲（+4~7 年）5 件 16.1% -->
+        <path d="M 21.0,87.5 A 90,90 0 0,1 -71.0,55.4 L -31.6,24.6 A 40,40 0 0,0 9.4,38.9 Z" fill="#d18d28"/>
+        <!-- 嚴重延遲（+8 年以上）3 件 9.7% -->
+        <path d="M -71.0,55.4 A 90,90 0 0,1 -89.4,-9.4 L -39.8,-4.2 A 40,40 0 0,0 -31.6,24.6 Z" fill="#8b0000"/>
+        <!-- 取消 4 件 12.9%(actually this overlaps; recompute) -->
+        <!-- recompute: 14+8+5+3+4=34?? let's recount.
+             Actually let me redo: 14準時+5延遲+3嚴重+4取消 = 26, plus borderline 5 = 31 OK
+             14/31=45.2%, 5/31=16.1%(borderline), 5/31=16.1%(delay), 3/31=9.7%(severe), 4/31=12.9%(cancel) = 100% -->
+        <!-- restart pie: 45.2% green, 16.1% teal, 16.1% yellow, 9.7% red, 12.9% darkred -->
+        <!-- I need to redraw -->
+      </g>
+      <!-- redraw pie cleanly with calculated arcs -->
+      <g transform="translate(110,110)">
+        <!-- start at -90deg (top), go clockwise -->
+        <!-- segment 1: 45.2% (162.7 deg) green 準時 -->
+        <path d="M 0,-90 A 90,90 0 0,1 86.0,26.7 L 38.2,11.9 A 40,40 0 0,0 0,-40 Z" fill="#2f6b3c"/>
+        <!-- segment 2: 16.1% (58.0 deg) teal 邊緣 (cumul 220.7 deg from top) -->
+        <path d="M 86.0,26.7 A 90,90 0 0,1 38.7,81.2 L 17.2,36.1 A 40,40 0 0,0 38.2,11.9 Z" fill="#5a8a8a"/>
+        <!-- segment 3: 16.1% (58 deg) yellow 延遲 (cumul 278.7) -->
+        <path d="M 38.7,81.2 A 90,90 0 0,1 -42.4,79.4 L -18.8,35.3 A 40,40 0 0,0 17.2,36.1 Z" fill="#d18d28"/>
+        <!-- segment 4: 9.7% (34.9 deg) red 嚴重 (cumul 313.6) -->
+        <path d="M -42.4,79.4 A 90,90 0 0,1 -80.5,40.4 L -35.8,17.9 A 40,40 0 0,0 -18.8,35.3 Z" fill="#8b0000"/>
+        <!-- segment 5: 12.9% (46.4 deg) darkred 取消 (cumul 360) -->
+        <path d="M -80.5,40.4 A 90,90 0 0,1 0,-90 L 0,-40 A 40,40 0 0,0 -35.8,17.9 Z" fill="#5a1a1a"/>
+        <text x="0" y="-3" text-anchor="middle" class="title">31 件</text>
+        <text x="0" y="14" text-anchor="middle" class="lbl">主要武器</text>
+      </g>
+      <g transform="translate(220,30)" font-size="11">
+        <g><rect width="11" height="11" fill="#2f6b3c"/><text x="18" y="9">準時或提前 — 14 件 (45%)</text></g>
+        <g transform="translate(0,20)"><rect width="11" height="11" fill="#5a8a8a"/><text x="18" y="9">邊緣（+1~3 年） — 5 件 (16%)</text></g>
+        <g transform="translate(0,40)"><rect width="11" height="11" fill="#d18d28"/><text x="18" y="9">延遲（+4~7 年） — 5 件 (16%)</text></g>
+        <g transform="translate(0,60)"><rect width="11" height="11" fill="#8b0000"/><text x="18" y="9">嚴重延遲（+8 年以上） — 3 件 (10%)</text></g>
+        <g transform="translate(0,80)"><rect width="11" height="11" fill="#5a1a1a"/><text x="18" y="9">取消／未成案 — 4 件 (13%)</text></g>
+      </g>
+    </svg>
+  </div>
+
+</div>
+
+<!-- Chart 1b/2b: 近十年版本 (與 Chart 1/2 同欄位、同分類，僅資料範圍縮為 2017-2026) -->
+<div class="chart-grid">
+
+  <!-- Chart 1b: 主要武器交付狀態 — 近十年 by 金額 -->
+  <div class="chart">
+    <h3>主要武器交付狀態 — 近十年 (2017-2026)，按公告金額占比</h3>
+    <div class="sub">20 件主要武器，合計 $26.65B 公告金額（範圍：2017-06-29 起至 2026-04-22）</div>
+    <svg viewBox="0 0 400 220">
+      <g transform="translate(110,110)">
+        <!-- Seg 1: 已準時/提前 $2.72B 10.2% (36.7°) -->
+        <path d="M 0,-90 A 90,90 0 0,1 53.78,-72.16 L 23.90,-32.07 A 40,40 0 0,0 0,-40 Z" fill="#2f6b3c"/>
+        <!-- Seg 2: 進行中(準時) $1.27B 4.8% (17.1°) -->
+        <path d="M 53.78,-72.16 A 90,90 0 0,1 72.64,-53.16 L 32.28,-23.63 A 40,40 0 0,0 23.90,-32.07 Z" fill="#1f5a78"/>
+        <!-- Seg 3: 進行中但延遲 $11.38B 42.7% (153.7°) -->
+        <path d="M 72.64,-53.16 A 90,90 0 0,1 -41.55,79.83 L -18.47,35.48 A 40,40 0 0,0 32.28,-23.63 Z" fill="#d18d28"/>
+        <!-- Seg 4: 嚴重延遲 $0.62B 2.3% (8.3°) -->
+        <path d="M -41.55,79.83 A 90,90 0 0,1 -52.69,72.96 L -23.42,32.43 A 40,40 0 0,0 -18.47,35.48 Z" fill="#8b0000"/>
+        <!-- Seg 5: 未交(尚在期程) $9.92B 37.2% (134°) -->
+        <path d="M -52.69,72.96 A 90,90 0 0,1 -15.94,-88.58 L -7.08,-39.37 A 40,40 0 0,0 -23.42,32.43 Z" fill="#888"/>
+        <!-- Seg 6: 取消 $0.75B 2.8% (10.2°) -->
+        <path d="M -15.94,-88.58 A 90,90 0 0,1 0,-90 L 0,-40 A 40,40 0 0,0 -7.08,-39.37 Z" fill="#5a1a1a"/>
+        <text x="0" y="-3" text-anchor="middle" class="title">$26.65B</text>
+        <text x="0" y="14" text-anchor="middle" class="lbl">近十年主要武器</text>
+      </g>
+      <g transform="translate(220,30)" font-size="11">
+        <g><rect width="11" height="11" fill="#2f6b3c"/><text x="18" y="9">已準時／提前完成 — $2.72B (10%)</text></g>
+        <g transform="translate(0,20)"><rect width="11" height="11" fill="#1f5a78"/><text x="18" y="9">進行中（準時） — $1.27B (5%)</text></g>
+        <g transform="translate(0,40)"><rect width="11" height="11" fill="#d18d28"/><text x="18" y="9">進行中但延遲 — $11.38B (43%)</text></g>
+        <g transform="translate(0,60)"><rect width="11" height="11" fill="#8b0000"/><text x="18" y="9">嚴重延遲 — $0.62B (2%)</text></g>
+        <g transform="translate(0,80)"><rect width="11" height="11" fill="#888"/><text x="18" y="9">未交（尚在期程） — $9.92B (37%)</text></g>
+        <g transform="translate(0,100)"><rect width="11" height="11" fill="#5a1a1a"/><text x="18" y="9">取消／未成案 — $0.75B (3%)</text></g>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Chart 2b: 延遲程度分布 — 近十年 by 件數 -->
+  <div class="chart">
+    <h3>延遲程度分布 — 近十年 (2017-2026)，按主要武器件數</h3>
+    <div class="sub">20 件主要武器，按發價→完交期程超出 FMS 平均的程度分類</div>
+    <svg viewBox="0 0 400 220">
+      <g transform="translate(110,110)">
+        <!-- Seg 1: 準時或提前 4 件 20% (72°) -->
+        <path d="M 0,-90 A 90,90 0 0,1 85.60,-27.81 L 38.04,-12.36 A 40,40 0 0,0 0,-40 Z" fill="#2f6b3c"/>
+        <!-- Seg 2: 邊緣（部分到貨／進行中） 3 件 15% (54°) -->
+        <path d="M 85.60,-27.81 A 90,90 0 0,1 72.81,52.90 L 32.36,23.51 A 40,40 0 0,0 38.04,-12.36 Z" fill="#5a8a8a"/>
+        <!-- Seg 3: 延遲（+4~7 年） 3 件 15% (54°) -->
+        <path d="M 72.81,52.90 A 90,90 0 0,1 0,90 L 0,40 A 40,40 0 0,0 32.36,23.51 Z" fill="#d18d28"/>
+        <!-- Seg 4: 嚴重延遲（+8 年以上） 3 件 15% (54°) -->
+        <path d="M 0,90 A 90,90 0 0,1 -72.81,52.90 L -32.36,23.51 A 40,40 0 0,0 0,40 Z" fill="#8b0000"/>
+        <!-- Seg 5: 取消／未成案 1 件 5% (18°) -->
+        <path d="M -72.81,52.90 A 90,90 0 0,1 -85.60,27.81 L -38.04,12.36 A 40,40 0 0,0 -32.36,23.51 Z" fill="#5a1a1a"/>
+        <!-- Seg 6: 未到期 6 件 30% (108°) -->
+        <path d="M -85.60,27.81 A 90,90 0 0,1 0,-90 L 0,-40 A 40,40 0 0,0 -38.04,12.36 Z" fill="#888"/>
+        <text x="0" y="-3" text-anchor="middle" class="title">20 件</text>
+        <text x="0" y="14" text-anchor="middle" class="lbl">近十年主要武器</text>
+      </g>
+      <g transform="translate(220,30)" font-size="11">
+        <g><rect width="11" height="11" fill="#2f6b3c"/><text x="18" y="9">準時或提前 — 4 件 (20%)</text></g>
+        <g transform="translate(0,20)"><rect width="11" height="11" fill="#5a8a8a"/><text x="18" y="9">邊緣（部分／進行中） — 3 件 (15%)</text></g>
+        <g transform="translate(0,40)"><rect width="11" height="11" fill="#d18d28"/><text x="18" y="9">延遲（+4~7 年） — 3 件 (15%)</text></g>
+        <g transform="translate(0,60)"><rect width="11" height="11" fill="#8b0000"/><text x="18" y="9">嚴重延遲（+8 年以上） — 3 件 (15%)</text></g>
+        <g transform="translate(0,80)"><rect width="11" height="11" fill="#5a1a1a"/><text x="18" y="9">取消／未成案 — 1 件 (5%)</text></g>
+        <g transform="translate(0,100)"><rect width="11" height="11" fill="#888"/><text x="18" y="9">未到期（剛公告／簽約） — 6 件 (30%)</text></g>
+      </g>
+    </svg>
+  </div>
+
+</div>
+
+<!-- Chart 3: Stacked horizontal bars by administration -->
+<div class="chart-grid full">
+  <div class="chart">
+    <h3>各總統時期 — 公告金額與交貨狀態（堆疊長條）</h3>
+    <div class="sub">每條代表該總統任內對台軍售公告金額（USD B）；段別顯示已交、進行中、未交、取消</div>
+    <svg viewBox="0 0 900 290">
+      <!-- y-axis: 5 bars at y=30, 70, 110, 150, 190 -->
+      <!-- x-axis: 0 to 25B, scale 30 px = 1B -->
+      <g transform="translate(110,30)">
+        <!-- grid lines -->
+        <g class="grid">
+          <line x1="0" y1="0" x2="0" y2="220"/>
+          <line x1="150" y1="0" x2="150" y2="220"/>
+          <line x1="300" y1="0" x2="300" y2="220"/>
+          <line x1="450" y1="0" x2="450" y2="220"/>
+          <line x1="600" y1="0" x2="600" y2="220"/>
+          <line x1="750" y1="0" x2="750" y2="220"/>
+        </g>
+        <!-- x labels -->
+        <g font-size="10" fill="#6b7388">
+          <text x="0" y="240" text-anchor="middle">$0</text>
+          <text x="150" y="240" text-anchor="middle">$5B</text>
+          <text x="300" y="240" text-anchor="middle">$10B</text>
+          <text x="450" y="240" text-anchor="middle">$15B</text>
+          <text x="600" y="240" text-anchor="middle">$20B</text>
+          <text x="750" y="240" text-anchor="middle">$25B</text>
+        </g>
+        <!-- Bush 19.4B: 完成 7.3 / 進行中 0 / 取消 12.1 -->
+        <text x="-8" y="14" text-anchor="end" font-size="12" fill="#1a2238" font-weight="700">Bush</text>
+        <text x="-8" y="28" text-anchor="end" font-size="10" fill="#6b7388">2001-2009</text>
+        <rect x="0" y="4" width="219" height="28" fill="#2f6b3c"/>
+        <rect x="219" y="4" width="363" height="28" fill="#5a1a1a"/>
+        <text x="291" y="22" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">$19.4B（含潛艦取消 $10B+）</text>
+        <!-- Obama 14.0B: 完成 12.4 / 取消 1.6 -->
+        <text x="-8" y="54" text-anchor="end" font-size="12" fill="#1a2238" font-weight="700">Obama</text>
+        <text x="-8" y="68" text-anchor="end" font-size="10" fill="#6b7388">2009-2017</text>
+        <rect x="0" y="44" width="372" height="28" fill="#2f6b3c"/>
+        <rect x="372" y="44" width="48" height="28" fill="#5a1a1a"/>
+        <text x="186" y="62" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">$14.0B（F-16 升級 / PAC-3）</text>
+        <!-- Trump1 18.3B: 完成 4.1 / 進行中 5.0 / 進行中延遲 8.6 / 嚴重延遲 0.6 -->
+        <text x="-8" y="94" text-anchor="end" font-size="12" fill="#1a2238" font-weight="700">Trump I</text>
+        <text x="-8" y="108" text-anchor="end" font-size="10" fill="#6b7388">2017-2021</text>
+        <rect x="0" y="84" width="123" height="28" fill="#2f6b3c"/>
+        <rect x="123" y="84" width="150" height="28" fill="#1f5a78"/>
+        <rect x="273" y="84" width="258" height="28" fill="#d18d28"/>
+        <rect x="531" y="84" width="18" height="28" fill="#8b0000"/>
+        <text x="274" y="102" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">$18.3B（含 F-16V $8B 延遲）</text>
+        <!-- Biden 8.4B: 完成 2.6 / 進行中 4.8 / 取消 0.75 / 未交 0.25 -->
+        <text x="-8" y="134" text-anchor="end" font-size="12" fill="#1a2238" font-weight="700">Biden</text>
+        <text x="-8" y="148" text-anchor="end" font-size="10" fill="#6b7388">2021-2025</text>
+        <rect x="0" y="124" width="78" height="28" fill="#2f6b3c"/>
+        <rect x="78" y="124" width="144" height="28" fill="#1f5a78"/>
+        <rect x="222" y="124" width="8" height="28" fill="#888"/>
+        <rect x="230" y="124" width="22" height="28" fill="#5a1a1a"/>
+        <text x="125" y="142" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">$8.4B（19 案；多彈藥維保）</text>
+        <!-- Trump2 12.5B: 全部未交 / 部分剛簽 -->
+        <text x="-8" y="174" text-anchor="end" font-size="12" fill="#1a2238" font-weight="700">Trump II</text>
+        <text x="-8" y="188" text-anchor="end" font-size="10" fill="#6b7388">2025-2026/05</text>
+        <rect x="0" y="164" width="375" height="28" fill="#888"/>
+        <text x="187" y="182" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">$12.5B（含 12-17 聖誕禮包 $11.07B）</text>
+      </g>
+      <!-- legend -->
+      <g transform="translate(110,260)" font-size="11">
+        <g><rect width="11" height="11" fill="#2f6b3c"/><text x="18" y="9">已交完成</text></g>
+        <g transform="translate(110,0)"><rect width="11" height="11" fill="#1f5a78"/><text x="18" y="9">進行中（準時）</text></g>
+        <g transform="translate(240,0)"><rect width="11" height="11" fill="#d18d28"/><text x="18" y="9">進行中但延遲</text></g>
+        <g transform="translate(360,0)"><rect width="11" height="11" fill="#8b0000"/><text x="18" y="9">嚴重延遲</text></g>
+        <g transform="translate(470,0)"><rect width="11" height="11" fill="#888"/><text x="18" y="9">未交（尚在期程）</text></g>
+        <g transform="translate(610,0)"><rect width="11" height="11" fill="#5a1a1a"/><text x="18" y="9">取消／未成案</text></g>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<!-- Chart 4: Annual notification amount timeline -->
+<div class="chart-grid full">
+  <div class="chart">
+    <h3>年度公告金額時序 — 1999–2026</h3>
+    <div class="sub">每條長度 = 該年 DSCA 公告金額（USD B）；顏色 = 當時美國總統。注意 2001、2008、2010、2019、2025 五次「大年」</div>
+    <svg viewBox="0 0 900 240">
+      <g transform="translate(50,20)">
+        <!-- y axis -->
+        <g class="grid">
+          <line x1="0" y1="0" x2="0" y2="180"/>
+          <line x1="0" y1="180" x2="830" y2="180"/>
+          <line x1="0" y1="135" x2="830" y2="135"/>
+          <line x1="0" y1="90" x2="830" y2="90"/>
+          <line x1="0" y1="45" x2="830" y2="45"/>
+          <line x1="0" y1="0" x2="830" y2="0"/>
+        </g>
+        <g font-size="10" fill="#6b7388">
+          <text x="-6" y="183" text-anchor="end">$0</text>
+          <text x="-6" y="138" text-anchor="end">$5B</text>
+          <text x="-6" y="93" text-anchor="end">$10B</text>
+          <text x="-6" y="48" text-anchor="end">$15B</text>
+          <text x="-6" y="3" text-anchor="end">$20B</text>
+        </g>
+        <!-- bars: 27 years × 30px width = 810. Each bar 24 wide, gap 6.
+             Year x = i*30 + 3, y = 180 - amount*9 (1B = 9px)
+             Cap at 180 height (20B max) -->
+        <!-- 2000: $1.866B Bush (#8a6d3b) -->
+        <rect x="3" y="163.2" width="24" height="16.8" fill="#8a6d3b"><title>2000: $1.87B</title></rect>
+        <!-- 2001: $18.288B Bush -->
+        <rect x="33" y="15.4" width="24" height="164.6" fill="#8a6d3b"><title>2001: $18.29B (含 $18B 大包裹)</title></rect>
+        <!-- 2002: 0 -->
+        <!-- 2003: $0.14B -->
+        <rect x="93" y="178.7" width="24" height="1.3" fill="#8a6d3b"><title>2003: $0.14B</title></rect>
+        <!-- 2004: $1.776B -->
+        <rect x="123" y="164.0" width="24" height="16.0" fill="#8a6d3b"><title>2004: $1.78B (PAVE PAWS)</title></rect>
+        <!-- 2005: 0, 2006: 0 -->
+        <!-- 2007: $3.717B -->
+        <rect x="213" y="146.5" width="24" height="33.5" fill="#8a6d3b"><title>2007: $3.72B</title></rect>
+        <!-- 2008: $6.445B -->
+        <rect x="243" y="121.9" width="24" height="58.1" fill="#8a6d3b"><title>2008: $6.45B (Obama 接手前最後一批)</title></rect>
+        <!-- 2009: 0 -->
+        <!-- 2010: $6.392B Obama (#2c5282) -->
+        <rect x="303" y="122.5" width="24" height="57.5" fill="#2c5282"><title>2010: $6.39B (大批六案)</title></rect>
+        <!-- 2011: $5.852B -->
+        <rect x="333" y="127.3" width="24" height="52.7" fill="#2c5282"><title>2011: $5.85B (F-16 鳳展)</title></rect>
+        <!-- 2012-2014: 0 -->
+        <!-- 2015: $1.826B -->
+        <rect x="453" y="163.6" width="24" height="16.4" fill="#2c5282"><title>2015: $1.83B (歐巴馬最後一批)</title></rect>
+        <!-- 2016: 0 -->
+        <!-- 2017: $1.363B Trump1 (#c14545) -->
+        <rect x="513" y="167.7" width="24" height="12.3" fill="#c14545"><title>2017: $1.36B (川普首批)</title></rect>
+        <!-- 2018: $0.330B -->
+        <rect x="543" y="177.0" width="24" height="3.0" fill="#c14545"><title>2018: $0.33B</title></rect>
+        <!-- 2019: $10.724B -->
+        <rect x="573" y="83.5" width="24" height="96.5" fill="#c14545"><title>2019: $10.72B (M1A2T + F-16V $8B)</title></rect>
+        <!-- 2020: $5.881B -->
+        <rect x="603" y="127.1" width="24" height="52.9" fill="#c14545"><title>2020: $5.88B (HCDS / HIMARS / SLAM-ER / MQ-9B)</title></rect>
+        <!-- 2021: $0.750B Biden (#4a78b5) -->
+        <rect x="633" y="173.3" width="24" height="6.7" fill="#4a78b5"><title>2021: $0.75B (M109A6 — 後取消)</title></rect>
+        <!-- 2022: $2.137B -->
+        <rect x="663" y="160.8" width="24" height="19.2" fill="#4a78b5"><title>2022: $2.14B</title></rect>
+        <!-- 2023: $1.859B -->
+        <rect x="693" y="163.3" width="24" height="16.7" fill="#4a78b5"><title>2023: $1.86B</title></rect>
+        <!-- 2024: $2.951B -->
+        <rect x="723" y="153.4" width="24" height="26.6" fill="#4a78b5"><title>2024: $2.95B</title></rect>
+        <!-- 2025: $11.4B Trump2 (#9c2a2a) -->
+        <rect x="753" y="77.4" width="24" height="102.6" fill="#9c2a2a"><title>2025: $11.40B (12-17 聖誕禮包 $11.07B)</title></rect>
+        <!-- 2026: TBD -->
+        <!-- year labels -->
+        <g font-size="9" fill="#6b7388" text-anchor="middle">
+          <text x="15" y="195">'00</text>
+          <text x="45" y="195">'01</text>
+          <text x="75" y="195">'02</text>
+          <text x="105" y="195">'03</text>
+          <text x="135" y="195">'04</text>
+          <text x="165" y="195">'05</text>
+          <text x="195" y="195">'06</text>
+          <text x="225" y="195">'07</text>
+          <text x="255" y="195">'08</text>
+          <text x="285" y="195">'09</text>
+          <text x="315" y="195">'10</text>
+          <text x="345" y="195">'11</text>
+          <text x="375" y="195">'12</text>
+          <text x="405" y="195">'13</text>
+          <text x="435" y="195">'14</text>
+          <text x="465" y="195">'15</text>
+          <text x="495" y="195">'16</text>
+          <text x="525" y="195">'17</text>
+          <text x="555" y="195">'18</text>
+          <text x="585" y="195">'19</text>
+          <text x="615" y="195">'20</text>
+          <text x="645" y="195">'21</text>
+          <text x="675" y="195">'22</text>
+          <text x="705" y="195">'23</text>
+          <text x="735" y="195">'24</text>
+          <text x="765" y="195">'25</text>
+          <text x="795" y="195">'26</text>
+        </g>
+        <!-- annotations -->
+        <g font-size="10" fill="#9c2a2a" font-weight="700">
+          <text x="45" y="10" text-anchor="middle">$18.3B</text>
+          <text x="585" y="78" text-anchor="middle">$10.7B</text>
+          <text x="765" y="72" text-anchor="middle">$11.4B</text>
+        </g>
+      </g>
+      <!-- legend -->
+      <g transform="translate(50,220)" font-size="11">
+        <g><rect width="11" height="11" fill="#8a6d3b"/><text x="18" y="9">Bush</text></g>
+        <g transform="translate(85,0)"><rect width="11" height="11" fill="#2c5282"/><text x="18" y="9">Obama</text></g>
+        <g transform="translate(180,0)"><rect width="11" height="11" fill="#c14545"/><text x="18" y="9">Trump I</text></g>
+        <g transform="translate(280,0)"><rect width="11" height="11" fill="#4a78b5"/><text x="18" y="9">Biden</text></g>
+        <g transform="translate(370,0)"><rect width="11" height="11" fill="#9c2a2a"/><text x="18" y="9">Trump II</text></g>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<!-- Chart 5: Top delays bar chart -->
+<div class="chart-grid">
+
+  <div class="chart">
+    <h3>延遲時間排行 — 主要武器 Top 10</h3>
+    <div class="sub">期程 = 完交（或預計完交）− 發價，單位：年。橘色＝延遲，深紅＝嚴重延遲</div>
+    <svg viewBox="0 0 400 320">
+      <g transform="translate(160,20)">
+        <!-- bars: each 22px tall, 7px gap -->
+        <!-- 1. Mk-48 重型魚雷 13 yr -->
+        <rect x="0" y="0" width="195" height="20" fill="#8b0000"/>
+        <text x="-6" y="14" text-anchor="end" font-size="11" fill="#1a2238">Mk-48 重型魚雷</text>
+        <text x="200" y="14" font-size="11" fill="#1a2238" font-weight="700">13 年</text>
+        <!-- 2. F-16A/B 升級鳳展 12.2 yr -->
+        <rect x="0" y="29" width="183" height="20" fill="#a06a13"/>
+        <text x="-6" y="43" text-anchor="end" font-size="11" fill="#1a2238">F-16A/B 升級鳳展</text>
+        <text x="188" y="43" font-size="11" fill="#1a2238" font-weight="700">12.2 年</text>
+        <!-- 3. AGM-154C JSOW 11 yr -->
+        <rect x="0" y="58" width="165" height="20" fill="#8b0000"/>
+        <text x="-6" y="72" text-anchor="end" font-size="11" fill="#1a2238">AGM-154C JSOW</text>
+        <text x="170" y="72" font-size="11" fill="#1a2238" font-weight="700">11 年</text>
+        <!-- 4. Mk-48 (2020 加碼) 10 yr -->
+        <rect x="0" y="87" width="150" height="20" fill="#8b0000"/>
+        <text x="-6" y="101" text-anchor="end" font-size="11" fill="#1a2238">Mk-48 (2020 加碼)</text>
+        <text x="155" y="101" font-size="11" fill="#1a2238" font-weight="700">10 年</text>
+        <!-- 5. P-3C 反潛機 9.8 yr -->
+        <rect x="0" y="116" width="147" height="20" fill="#a06a13"/>
+        <text x="-6" y="130" text-anchor="end" font-size="11" fill="#1a2238">P-3C 反潛機</text>
+        <text x="152" y="130" font-size="11" fill="#1a2238" font-weight="700">9.8 年</text>
+        <!-- 6. PAVE PAWS 樂山雷達 8.8 yr -->
+        <rect x="0" y="145" width="132" height="20" fill="#a06a13"/>
+        <text x="-6" y="159" text-anchor="end" font-size="11" fill="#1a2238">PAVE PAWS 樂山</text>
+        <text x="137" y="159" font-size="11" fill="#1a2238" font-weight="700">8.8 年</text>
+        <!-- 7. PAC-3 (2008) 8.7 yr -->
+        <rect x="0" y="174" width="131" height="20" fill="#a06a13"/>
+        <text x="-6" y="188" text-anchor="end" font-size="11" fill="#1a2238">PAC-3 (2008 案)</text>
+        <text x="136" y="188" font-size="11" fill="#1a2238" font-weight="700">8.7 年</text>
+        <!-- 8. UH-60M 黑鷹 8.5 yr -->
+        <rect x="0" y="203" width="128" height="20" fill="#a06a13"/>
+        <text x="-6" y="217" text-anchor="end" font-size="11" fill="#1a2238">UH-60M 黑鷹</text>
+        <text x="133" y="217" font-size="11" fill="#1a2238" font-weight="700">8.5 年</text>
+        <!-- 9. SLAM-ER 8 yr (預計) -->
+        <rect x="0" y="232" width="120" height="20" fill="#d18d28"/>
+        <text x="-6" y="246" text-anchor="end" font-size="11" fill="#1a2238">SLAM-ER（預）</text>
+        <text x="125" y="246" font-size="11" fill="#1a2238" font-weight="700">8 年</text>
+        <!-- 10. F-16V Block 70 7.5 yr (預計) -->
+        <rect x="0" y="261" width="113" height="20" fill="#d18d28"/>
+        <text x="-6" y="275" text-anchor="end" font-size="11" fill="#1a2238">F-16V Block 70（預）</text>
+        <text x="118" y="275" font-size="11" fill="#1a2238" font-weight="700">7.5 年</text>
+      </g>
+      <!-- x axis -->
+      <line x1="160" y1="290" x2="395" y2="290" stroke="#d9d2bf"/>
+      <g font-size="9" fill="#6b7388">
+        <text x="160" y="305" text-anchor="middle">0</text>
+        <text x="235" y="305" text-anchor="middle">5</text>
+        <text x="310" y="305" text-anchor="middle">10</text>
+        <text x="385" y="305" text-anchor="middle">15 年</text>
+      </g>
+    </svg>
+    <div class="lg">
+      <span><span class="sw" style="background:#a06a13"></span>已延遲完成</span>
+      <span><span class="sw" style="background:#d18d28"></span>進行中但延遲</span>
+      <span><span class="sw" style="background:#8b0000"></span>嚴重延遲</span>
+    </div>
+  </div>
+
+  <!-- Chart 6: Weapon-type composition by amount -->
+  <div class="chart">
+    <h3>武器類別構成 — 按公告金額占比</h3>
+    <div class="sub">95 件軍售案的金額構成；色碼與下方表格中之武器類別標籤一致</div>
+    <svg viewBox="0 0 400 320">
+      <!-- horizontal bars -->
+      <g transform="translate(120,15)">
+        <!-- 戰機 18.0B 20.6% (max bar = 240px = 20.6B) -->
+        <rect x="0" y="0" width="210" height="22" fill="#1f5fa3"/>
+        <text x="-6" y="15" text-anchor="end" font-size="11" fill="#1a2238">戰機</text>
+        <text x="215" y="15" font-size="11" fill="#1a2238" font-weight="700">$18.0B</text>
+        <!-- 艦艇 11.0B (內含取消潛艦) -->
+        <rect x="0" y="28" width="128" height="22" fill="#1a3863"/>
+        <text x="-6" y="43" text-anchor="end" font-size="11" fill="#1a2238">艦艇</text>
+        <text x="133" y="43" font-size="11" fill="#1a2238" font-weight="700">$11.0B</text>
+        <!-- 火砲火箭 9.27B -->
+        <rect x="0" y="56" width="108" height="22" fill="#b8860b"/>
+        <text x="-6" y="71" text-anchor="end" font-size="11" fill="#1a2238">火砲火箭</text>
+        <text x="113" y="71" font-size="11" fill="#1a2238" font-weight="700">$9.3B</text>
+        <!-- 防空 8.95B -->
+        <rect x="0" y="84" width="104" height="22" fill="#c14545"/>
+        <text x="-6" y="99" text-anchor="end" font-size="11" fill="#1a2238">防空飛彈</text>
+        <text x="109" y="99" font-size="11" fill="#1a2238" font-weight="700">$8.9B</text>
+        <!-- 反艦/攻陸 6.10B -->
+        <rect x="0" y="112" width="71" height="22" fill="#d97706"/>
+        <text x="-6" y="127" text-anchor="end" font-size="11" fill="#1a2238">反艦/攻陸</text>
+        <text x="76" y="127" font-size="11" fill="#1a2238" font-weight="700">$6.1B</text>
+        <!-- 直升機 5.63B -->
+        <rect x="0" y="140" width="66" height="22" fill="#6a4c93"/>
+        <text x="-6" y="155" text-anchor="end" font-size="11" fill="#1a2238">直升機</text>
+        <text x="71" y="155" font-size="11" fill="#1a2238" font-weight="700">$5.6B</text>
+        <!-- 反潛偵照 3.04B -->
+        <rect x="0" y="168" width="35" height="22" fill="#1f5a78"/>
+        <text x="-6" y="183" text-anchor="end" font-size="11" fill="#1a2238">反潛/偵照</text>
+        <text x="40" y="183" font-size="11" fill="#1a2238" font-weight="700">$3.0B</text>
+        <!-- 反戰車 2.43B -->
+        <rect x="0" y="196" width="28" height="22" fill="#a05a2c"/>
+        <text x="-6" y="211" text-anchor="end" font-size="11" fill="#1a2238">反戰車</text>
+        <text x="33" y="211" font-size="11" fill="#1a2238" font-weight="700">$2.4B</text>
+        <!-- 戰車裝甲 2.38B -->
+        <rect x="0" y="224" width="28" height="22" fill="#8b6f47"/>
+        <text x="-6" y="239" text-anchor="end" font-size="11" fill="#1a2238">戰車/裝甲</text>
+        <text x="33" y="239" font-size="11" fill="#1a2238" font-weight="700">$2.4B</text>
+        <!-- 雷達 4.39B -->
+        <rect x="0" y="252" width="51" height="22" fill="#3a8989"/>
+        <text x="-6" y="267" text-anchor="end" font-size="11" fill="#1a2238">雷達</text>
+        <text x="56" y="267" font-size="11" fill="#1a2238" font-weight="700">$4.4B</text>
+        <!-- 無人機 2.06B -->
+        <rect x="0" y="280" width="24" height="22" fill="#4d8a3f"/>
+        <text x="-6" y="295" text-anchor="end" font-size="11" fill="#1a2238">無人機</text>
+        <text x="29" y="295" font-size="11" fill="#1a2238" font-weight="700">$2.1B</text>
+      </g>
+    </svg>
+  </div>
+
+</div>
+
+
+<div class="note">
+<b>圖表觀察</b>：
+（1）<b>主要武器中已有 42% 延遲或進行中延遲</b>（含嚴重延遲 3 件），按金額計則為 33%；
+（2）<b>艦艇類佔 $11B</b>，但其中 $10B 是 2001 取消的 8 艘柴電潛艦 — 真正交貨的艦艇僅 $1B（紀德級 + Perry 級）；
+（3）<b>2001、2010、2019、2025 是四個「大年」</b>：2001 Bush 包裹 $18B、2010 歐巴馬大批 $6.4B、2019 川普 I 含 F-16V $10.7B、2025 川普 II 聖誕禮包 $11.4B；
+（4）<b>2002、2005、2006、2009、2012–2014、2016 完全空窗</b> — 對應兩岸關係或政治週期；
+（5）<b>戰機（$18B）+ 艦艇（$11B）+ 火砲（$9.3B）+ 防空（$8.9B）= 53%</b> — 大型平台仍主導，但 2020 年後不對稱武器（HIMARS、HCDS、SLAM-ER、無人機）金額快速攀升。
+</div>
+
+<!-- ====== ADMIN OVERVIEW ====== -->
+<h2><span class="num">02</span> 五任美國總統的軍售概況</h2>
+
+<div class="admin-section">
+  <h3 style="color:#8a6d3b">小布希 George W. Bush（2001–2009）— 約 $19.4B</h3>
+  <div class="admin-grid">
+    <div class="stat"><div class="lbl">公告案數</div><div class="v">12 批</div></div>
+    <div class="stat"><div class="lbl">代表案</div><div class="v">Kidd 級驅逐艦</div></div>
+    <div class="stat"><div class="lbl">未成案</div><div class="v">8 柴電潛艦</div></div>
+  </div>
+  <p style="margin-top:10px">2001-04-24 公布大包裹（紀德級 4 艦、潛艦 8 艘、P-3C 12 架、MH-53E 12 架、M109A6 144 門等），多數項目<b>拆案重發或取消</b>。藍營主導的立法院在 2001–2007 凍結預算 64 次，柴電潛艦最終轉為 2014 年起的 IDS 自製計畫（海鯤 SS-711 於 2026-01 首次潛航）。Bush 任內後段才陸續通過 P-3C、PAC-3、AH-64E、E-2K 升級等案。</p>
+</div>
+
+<div class="admin-section">
+  <h3 style="color:#2c5282">歐巴馬 Barack Obama（2009–2017）— 約 $14.0B</h3>
+  <div class="admin-grid">
+    <div class="stat"><div class="lbl">公告案數</div><div class="v">3 批 / 16 案</div></div>
+    <div class="stat"><div class="lbl">代表案</div><div class="v">F-16A/B 鳳展升級</div></div>
+    <div class="stat"><div class="lbl">空窗期</div><div class="v">2011–2015 之間</div></div>
+  </div>
+  <p style="margin-top:10px">三個主要批次：2010-01-29（$6.4B，PAC-3、UH-60M、Osprey 獵雷艦）、2011-09-21（$5.85B，F-16A/B 升級為 F-16V）、2015-12-16（$1.83B，AAV-7、Perry 級巡防艦、TOW 等）。F-16C/D Block 50/52 新機案被擋（拒絕惹中）。</p>
+</div>
+
+<div class="admin-section">
+  <h3 style="color:#c14545">川普第一任 Donald Trump I（2017–2021）— 約 $18.3B</h3>
+  <div class="admin-grid">
+    <div class="stat"><div class="lbl">公告案數</div><div class="v">11 批 / 30+ 案</div></div>
+    <div class="stat"><div class="lbl">代表案</div><div class="v">66 架 F-16V Block 70</div></div>
+    <div class="stat"><div class="lbl">節奏</div><div class="v">每年皆有</div></div>
+  </div>
+  <p style="margin-top:10px">突破歐巴馬時代「集中大批」的慣例，<b>改為小批高頻</b>。最大單案為 2019-08-20 的 66 架新造 F-16V Block 70（$8B）— 1992 年 Bush Sr. 賣 150 架 F-16A/B 之後，<b>近 27 年首批新造戰機</b>。任內亦首批授權 MQ-9B 大型無人機、HIMARS、SLAM-ER、Harpoon 岸射系統等遠程／不對稱武器。多項案延遲至今未交（F-16V Block 70、AGM-154C、Mk-48）。</p>
+</div>
+
+<div class="admin-section">
+  <h3 style="color:#4a78b5">拜登 Joe Biden（2021–2025）— 約 $8.4B</h3>
+  <div class="admin-grid">
+    <div class="stat"><div class="lbl">公告案數</div><div class="v">19 案</div></div>
+    <div class="stat"><div class="lbl">特色</div><div class="v">維保／彈藥／零附件為主</div></div>
+    <div class="stat"><div class="lbl">取消案</div><div class="v">M109A6 自走砲</div></div>
+  </div>
+  <p style="margin-top:10px">FMS 公告金額 $8.377B（US-TBC 官方統計，2021-01 至 2025-01），但<b>另首度啟用 PDA（總統撥款）</b>從美軍庫存直接撥交部分裝備（不計入 FMS 公告）。受烏克蘭戰爭排擠美國軍工產能，許多案被迫延遲。2022-05 美方通知無法 2025 交貨 M109A6 Paladin，台灣 12 月正式取消，改採 HIMARS。Volcano 反戰車佈雷、Switchblade 自殺無人機、ALTIUS、NASAMS 等不對稱裝備陸續通過。</p>
+</div>
+
+<div class="admin-section">
+  <h3 style="color:#9c2a2a">川普第二任 Donald Trump II（2025–）— 約 $12.5B（迄 2026-05）</h3>
+  <div class="admin-grid">
+    <div class="stat"><div class="lbl">公告案數</div><div class="v">10 案（迄今）</div></div>
+    <div class="stat"><div class="lbl">代表案</div><div class="v">2025-12-17 聖誕禮包</div></div>
+    <div class="stat"><div class="lbl">單批最大</div><div class="v">$11.07B</div></div>
+  </div>
+  <p style="margin-top:10px">2025-12-17 一口氣公告 9 案、總額 $11.07B：82 套 HIMARS、420 枚 ATACMS、1,545 套 TOW、1,050 套 Javelin、60 門 M109A7 自走砲、AH-1W 零附件、ALTIUS-700M/600 自殺無人機、戰術網路軟體 — <b>單批規模史上最大</b>。但實際交貨期程未公布，預計 2027 起。</p>
+</div>
+
+<!-- ====== MAIN TABLE ====== -->
+<h2><span class="num">03</span> 完整軍售案清單（按時序）</h2>
+
+<div class="legend">
+  <span><b>總統色碼：</b></span>
+  <span><span class="swatch" style="background:#8a6d3b"></span>Bush</span>
+  <span><span class="swatch" style="background:#2c5282"></span>Obama</span>
+  <span><span class="swatch" style="background:#c14545"></span>Trump I</span>
+  <span><span class="swatch" style="background:#4a78b5"></span>Biden</span>
+  <span><span class="swatch" style="background:#9c2a2a"></span>Trump II</span>
+</div>
+<div class="legend">
+  <span><b>武器類別：</b></span>
+  <span class="wt wt-fighter">戰機</span>
+  <span class="wt wt-helo">直升機</span>
+  <span class="wt wt-ship">艦艇</span>
+  <span class="wt wt-tank">戰車裝甲</span>
+  <span class="wt wt-arty">火砲火箭</span>
+  <span class="wt wt-aaa">防空飛彈</span>
+  <span class="wt wt-asm">反艦/攻陸</span>
+  <span class="wt wt-atgm">反戰車</span>
+  <span class="wt wt-aam">空射武器</span>
+  <span class="wt wt-asw">反潛</span>
+  <span class="wt wt-aew">預警/偵照</span>
+  <span class="wt wt-radar">雷達</span>
+  <span class="wt wt-uav">無人機</span>
+  <span class="wt wt-c4">通信/資料鏈</span>
+  <span class="wt wt-misc">維保/訓練</span>
+</div>
+<div class="legend">
+  <span><b>狀態（雙徽章）：</b></span>
+  <span style="display:inline-flex;flex-direction:column;gap:2px;align-items:center">
+    <span class="pill done" style="font-size:10px">✅ 已交</span><span class="pill delay" style="font-size:10px">🟨 延遲</span>
+  </span>
+  <span style="font-size:11px;color:var(--ink-2)">↑ 上：完成度 / 下：延遲狀況</span>
+  <span style="margin-left:8px"><b>完成度：</b></span>
+  <span class="pill done">✅ 已交</span>
+  <span class="pill early">🔵 提前</span>
+  <span class="pill partial">部分／進行中</span>
+  <span class="pill pending">⏳ 未交</span>
+  <span class="pill cancel">❌ 取消</span>
+  <span style="margin-left:8px"><b>延遲：</b></span>
+  <span class="pill delay">🟨 延遲</span>
+  <span class="pill bad">🟥 嚴重延遲</span>
+  <br>
+  <span style="color:var(--warn-2)"><b>淡黃底列</b> = 延遲（含已交但延遲、進行中延遲）</span>
+  <span style="color:var(--bad)"><b>淡紅底列</b> = 嚴重延遲</span>
+</div>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="搜尋武器／年份…" oninput="filter()">
+  <span class="filter-pill active" data-f="all" onclick="setFilter(this)">全部</span>
+  <span class="filter-pill" data-f="adm-bush" onclick="setFilter(this)">Bush</span>
+  <span class="filter-pill" data-f="adm-obama" onclick="setFilter(this)">Obama</span>
+  <span class="filter-pill" data-f="adm-trump1" onclick="setFilter(this)">Trump I</span>
+  <span class="filter-pill" data-f="adm-biden" onclick="setFilter(this)">Biden</span>
+  <span class="filter-pill" data-f="adm-trump2" onclick="setFilter(this)">Trump II</span>
+  <span class="filter-pill" data-f="status-delay" onclick="setFilter(this)">🟨 延遲</span>
+  <span class="filter-pill" data-f="status-bad" onclick="setFilter(this)">🟥 嚴重延遲</span>
+  <span class="filter-pill" data-f="status-cancel" onclick="setFilter(this)">❌ 取消</span>
+  <span class="filter-pill" data-f="major" onclick="setFilter(this)">主要武器</span>
+  <span class="count-info" id="count">共 96 筆</span>
+</div>
+
+<div class="table-wrap">
+<table id="t">
+<thead>
+<tr>
+  <th>發價日</th>
+  <th>武器類別 / 主要內容</th>
+  <th class="num">公告 USDM</th>
+  <th class="num">實際 NT$ 億</th>
+  <th>首交</th>
+  <th>完交</th>
+  <th class="num">期程</th>
+  <th class="center">狀態</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- ===== 2000 ===== -->
+<tr class="adm-bush" data-major><td class="date">2000-03-02</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>HAWK 防空飛彈</b> 162 枚<span class="desc">改良型攔截彈</span></td>
+  <td class="num">106</td><td class="num">~32</td>
+  <td class="date">~2002</td><td class="date">2003</td>
+  <td class="num delay" style="color:var(--ok)">3 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2000-03-16</td>
+  <td class="items"><span class="wt wt-radar">雷達</span><b>TPS-43F → TPS-75V 升級</b><span class="desc">空軍預警雷達</span></td>
+  <td class="num">96</td><td class="num">未公開</td>
+  <td class="date">2002</td><td class="date">2004</td>
+  <td class="num delay" style="color:var(--ok)">4 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2000-06-07</td>
+  <td class="items"><span class="wt wt-fighter">戰機</span><b>LANTIRN 導航瞄準莢艙</b> 39 套<span class="desc">F-16 夜戰能力</span></td>
+  <td class="num">234</td><td class="num">~70</td>
+  <td class="date">2002</td><td class="date">2004</td>
+  <td class="num delay" style="color:var(--ok)">4 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2000-06-07</td>
+  <td class="items"><span class="wt wt-fighter">戰機</span><b>AN/ALQ-184 電戰莢艙</b> 48 套<span class="desc">F-16 干擾莢艙</span></td>
+  <td class="num">122</td><td class="num">未公開</td>
+  <td class="date">2002</td><td class="date">2004</td>
+  <td class="num delay" style="color:var(--ok)">4 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2000-09-27</td>
+  <td class="items"><span class="wt wt-c4">通信</span><b>IMSE 改良型行動用戶通信</b></td>
+  <td class="num">513</td><td class="num">未公開</td>
+  <td class="date">2003</td><td class="date">2006</td>
+  <td class="num delay" style="color:var(--ok)">6 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush" data-major><td class="date">2000-09-27</td>
+  <td class="items"><span class="wt wt-arty">火砲</span><b>M109A5 自走砲</b> 146 門<span class="desc">+ M2 機槍 79、夜視鏡、車輛</span></td>
+  <td class="num">405</td><td class="num">~120</td>
+  <td class="date">2003</td><td class="date">2005</td>
+  <td class="num delay" style="color:var(--ok)">5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2000-09-27</td>
+  <td class="items"><span class="wt wt-asm">反艦</span><b>RGM-84L Harpoon</b> 71 枚<span class="desc">艦載 Block II</span></td>
+  <td class="num">240</td><td class="num">未公開</td>
+  <td class="date">2003</td><td class="date">2005</td>
+  <td class="num delay" style="color:var(--ok)">5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2000-09-27</td>
+  <td class="items"><span class="wt wt-aam">空對空</span><b>AIM-120 AMRAAM</b> 200 + 292 launchers</td>
+  <td class="num">150</td><td class="num">未公開</td>
+  <td class="date">2003</td><td class="date">2005</td>
+  <td class="num delay" style="color:var(--ok)">5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+
+<!-- ===== 2001 ===== -->
+<tr class="adm-bush" data-status="cancel" data-major><td class="date">2001-04-24</td>
+  <td class="items"><span class="wt wt-pkg">包裹</span><b>2001 大包裹</b><span class="desc">紀德 4、柴電潛艦 8、P-3C 12、MH-53E 12、Mk-48 54、Harpoon 44、Paladin 144、AAV7A1 54、F-16 ALE-50</span></td>
+  <td class="num">~18,000</td><td class="num">部分</td>
+  <td class="date">混合</td><td class="date">混合</td>
+  <td class="num delay" style="color:var(--warn-2)">混合</td>
+  <td class="center"><span class="pill partial">拆案／部分取消</span></td>
+</tr>
+<tr class="adm-bush" data-major><td class="date">2001-04-24</td>
+  <td class="items"><span class="wt wt-ship">艦艇</span>　└ <b>Kidd 紀德級驅逐艦</b> 4 艘<span class="desc">改名「基隆級」DDG-1801~1805</span></td>
+  <td class="num">~875</td><td class="num">243</td>
+  <td class="date">2005-11-01</td><td class="date">2006-12</td>
+  <td class="num delay" style="color:var(--ok)">5.7 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush" data-status="cancel" data-major><td class="date">2001-04-24</td>
+  <td class="items"><span class="wt wt-ship">艦艇</span>　└ <b>柴電潛艦</b> 8 艘<span class="desc">美國未產柴電艦／立院凍 64 次預算 → 2014 改 IDS 自製</span></td>
+  <td class="num">~10,000</td><td class="num">—</td>
+  <td class="date">—</td><td class="date">—</td>
+  <td class="num delay" style="color:var(--accent)">取消</td>
+  <td class="center"><span class="pill cancel">❌</span></td>
+</tr>
+<tr class="adm-bush" data-status="cancel" data-major><td class="date">2001-04-24</td>
+  <td class="items"><span class="wt wt-helo">直升機</span>　└ <b>MH-53E 反水雷直升機</b> 12 架</td>
+  <td class="num">—</td><td class="num">—</td>
+  <td class="date">—</td><td class="date">—</td>
+  <td class="num delay" style="color:var(--accent)">取消</td>
+  <td class="center"><span class="pill cancel">❌</span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2001-10-30</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>F-16 / IDF / 諸機型零附件</b></td>
+  <td class="num">288</td><td class="num">未公開</td>
+  <td class="date">2002</td><td class="date">2004</td>
+  <td class="num delay" style="color:var(--ok)">3 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+
+<!-- ===== 2003 ===== -->
+<tr class="adm-bush"><td class="date">2003-11</td>
+  <td class="items"><span class="wt wt-aam">空對空</span><b>AIM-120C-5 AMRAAM</b> 200 枚</td>
+  <td class="num">~140</td><td class="num">未公開</td>
+  <td class="date">2005</td><td class="date">2006</td>
+  <td class="num delay" style="color:var(--ok)">3 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+
+<!-- ===== 2004 ===== -->
+<tr class="adm-bush" data-status="delay" data-major><td class="date">2004-03-30</td>
+  <td class="items"><span class="wt wt-radar">雷達</span><b>AN/FPS-115 PAVE PAWS 長程預警雷達</b> 2 部<span class="desc">樂山雷達站</span></td>
+  <td class="num">1,776</td><td class="num">~410</td>
+  <td class="date">2013-02-01</td><td class="date">2013-02-01</td>
+  <td class="num delay" style="color:var(--warn-2)">8.8 年</td>
+  <td class="center"><span class="dual"><span class="pill done">✅ 已交</span><span class="pill delay">🟨 延遲</span></span></td>
+</tr>
+
+<!-- ===== 2007 ===== -->
+<tr class="adm-bush"><td class="date">2007-02-28</td>
+  <td class="items"><span class="wt wt-aam">空對空</span><b>AIM-120C / AGM-65 飛彈</b> 218 + 235 枚</td>
+  <td class="num">125</td><td class="num">未公開</td>
+  <td class="date">2009</td><td class="date">2010</td>
+  <td class="num delay" style="color:var(--ok)">3 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2007-08-08</td>
+  <td class="items"><span class="wt wt-asm">反艦</span><b>AGM-84L Harpoon 空射型</b> 60 枚<span class="desc">配合 P-3C 與 F-16</span></td>
+  <td class="num">421</td><td class="num">未公開</td>
+  <td class="date">2010</td><td class="date">2013</td>
+  <td class="num delay" style="color:var(--ok)">6 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2007-09-13</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>RIM-66K SM-2 防空飛彈</b> 144 枚<span class="desc">基隆級用</span></td>
+  <td class="num">272</td><td class="num">未公開</td>
+  <td class="date">2010</td><td class="date">2012</td>
+  <td class="num delay" style="color:var(--ok)">5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush" data-status="delay" data-major><td class="date">2007-09-13</td>
+  <td class="items"><span class="wt wt-asw">反潛</span><b>P-3C Orion 反潛機</b> 12 架<span class="desc">取代 S-2T；2001 案拆出重發</span></td>
+  <td class="num">1,960</td><td class="num">610</td>
+  <td class="date">2013-09-25</td><td class="date">2017-07</td>
+  <td class="num delay" style="color:var(--warn-2)">9.8 年</td>
+  <td class="center"><span class="dual"><span class="pill done">✅ 已交</span><span class="pill delay">🟨 延遲</span></span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2007-11-13</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>Patriot II 升級套件</b><span class="desc">PAC-2 → PAC-3 GEM-T 介面</span></td>
+  <td class="num">939</td><td class="num">未公開</td>
+  <td class="date">2010</td><td class="date">2014</td>
+  <td class="num delay" style="color:var(--ok)">7 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+
+<!-- ===== 2008 ===== -->
+<tr class="adm-bush" data-status="delay" data-major><td class="date">2008-10-03</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>PAC-3 飛彈</b> 330 枚 + 4 火力單元<span class="desc">含 2010 案共 6 個火單；NT$1,791 億整案</span></td>
+  <td class="num">3,100</td><td class="num">~1,200</td>
+  <td class="date">2014-08</td><td class="date">2017</td>
+  <td class="num delay" style="color:var(--warn-2)">8.7 年</td>
+  <td class="center"><span class="dual"><span class="pill done">✅ 已交</span><span class="pill delay">🟨 延遲</span></span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2008-10-03</td>
+  <td class="items"><span class="wt wt-asm">反艦</span><b>UGM-84L Harpoon 潛射型</b> 32 枚<span class="desc">配合海龍級潛艦</span></td>
+  <td class="num">200</td><td class="num">未公開</td>
+  <td class="date">2013</td><td class="date">2014</td>
+  <td class="num delay" style="color:var(--ok)">6 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2008-10-03</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>F-16 / C-130H / F-5 / IDF 零附件</b></td>
+  <td class="num">334</td><td class="num">未公開</td>
+  <td class="date">2009</td><td class="date">2013</td>
+  <td class="num delay" style="color:var(--ok)">5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush"><td class="date">2008-10-03</td>
+  <td class="items"><span class="wt wt-atgm">反戰車</span><b>FGM-148 Javelin</b> 107 枚</td>
+  <td class="num">29</td><td class="num">未公開</td>
+  <td class="date">2014</td><td class="date">2015</td>
+  <td class="num delay" style="color:var(--ok)">7 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush" data-major><td class="date">2008-10-03</td>
+  <td class="items"><span class="wt wt-aew">預警</span><b>E-2T → E-2K Hawkeye 2000 升級</b> 4 架</td>
+  <td class="num">250</td><td class="num">未公開</td>
+  <td class="date">2010</td><td class="date">2013</td>
+  <td class="num delay" style="color:var(--ok)">5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-bush" data-major><td class="date">2008-10-03</td>
+  <td class="items"><span class="wt wt-helo">直升機</span><b>AH-64E Apache Guardian 攻擊直升機</b> 30 架<span class="desc">601 空騎旅；NT$593-635 億</span></td>
+  <td class="num">2,532</td><td class="num">593</td>
+  <td class="date">2013-11-04</td><td class="date">2014-10</td>
+  <td class="num delay" style="color:var(--ok)">6 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+
+<!-- ===== 2010 ===== -->
+<tr class="adm-obama" data-status="delay" data-major><td class="date">2010-01-29</td>
+  <td class="items"><span class="wt wt-helo">直升機</span><b>UH-60M 黑鷹直升機</b> 60 架<span class="desc">取代 UH-1H；含 15 架轉內政部空勤；天鳶專案 NT$847 億</span></td>
+  <td class="num">3,100</td><td class="num">847</td>
+  <td class="date">2014-12-12</td><td class="date">2018-08</td>
+  <td class="num delay" style="color:var(--warn-2)">8.5 年</td>
+  <td class="center"><span class="dual"><span class="pill done">✅ 已交</span><span class="pill delay">🟨 延遲</span></span></td>
+</tr>
+<tr class="adm-obama"><td class="date">2010-01-29</td>
+  <td class="items"><span class="wt wt-c4">資料鏈</span><b>MIDS / LVT 資料鏈</b> 35 套</td>
+  <td class="num">340</td><td class="num">未公開</td>
+  <td class="date">2013</td><td class="date">2017</td>
+  <td class="num delay" style="color:var(--ok)">7 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-obama" data-status="cancel" data-major><td class="date">2010-01-29</td>
+  <td class="items"><span class="wt wt-ship">艦艇</span><b>Osprey-class 獵雷艦</b> 2 艘<span class="desc">2012 取消（艦況、預算）</span></td>
+  <td class="num">105</td><td class="num">—</td>
+  <td class="date">—</td><td class="date">—</td>
+  <td class="num delay" style="color:var(--accent)">取消</td>
+  <td class="center"><span class="pill cancel">❌</span></td>
+</tr>
+<tr class="adm-obama"><td class="date">2010-01-29</td>
+  <td class="items"><span class="wt wt-asm">反艦</span><b>RTM-84L Harpoon 訓練彈</b> 10 枚</td>
+  <td class="num">37</td><td class="num">未公開</td>
+  <td class="date">2013</td><td class="date">2014</td>
+  <td class="num delay" style="color:var(--ok)">4 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-obama" data-status="delay" data-major><td class="date">2010-01-29</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>PAC-3 飛彈</b> 114 枚 + 3 火力單元<span class="desc">與 2008 案合併共 6 火單</span></td>
+  <td class="num">2,810</td><td class="num">~580</td>
+  <td class="date">2014-08</td><td class="date">2017</td>
+  <td class="num delay" style="color:var(--warn-2)">7.4 年</td>
+  <td class="center"><span class="dual"><span class="pill done">✅ 已交</span><span class="pill delay">🟨 延遲</span></span></td>
+</tr>
+
+<!-- ===== 2011 ===== -->
+<tr class="adm-obama"><td class="date">2011-09-21</td>
+  <td class="items"><span class="wt wt-misc">訓練</span><b>F-16 飛行員訓練計畫</b><span class="desc">Luke AFB</span></td>
+  <td class="num">500</td><td class="num">未公開</td>
+  <td class="date">2012</td><td class="date">持續</td>
+  <td class="num delay" style="color:var(--ok)">持續</td>
+  <td class="center"><span class="pill done">持續</span></td>
+</tr>
+<tr class="adm-obama" data-status="bad" data-major><td class="date">2011-09-21</td>
+  <td class="items"><span class="wt wt-fighter">戰機</span><b>F-16A/B → F-16V 升級「鳳展」</b> 145→139 架<span class="desc">FMS 史上最大 F-16 改裝；NT$1,100→1,296 億；6 架損耗</span></td>
+  <td class="num">5,300</td><td class="num">1,296</td>
+  <td class="date">2018-10</td><td class="date">2023-12-19</td>
+  <td class="num delay" style="color:var(--accent)">12.2 年</td>
+  <td class="center"><span class="dual"><span class="pill done">✅ 已交</span><span class="pill bad">🟥 嚴重延遲</span></span></td>
+</tr>
+<tr class="adm-obama"><td class="date">2011-09-21</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>CLSSA 零附件協議</b></td>
+  <td class="num">52</td><td class="num">未公開</td>
+  <td class="date">2012</td><td class="date">持續</td>
+  <td class="num delay" style="color:var(--ok)">持續</td>
+  <td class="center"><span class="pill done">持續</span></td>
+</tr>
+
+<!-- ===== 2015 ===== -->
+<tr class="adm-obama"><td class="date">2015-12-16</td>
+  <td class="items"><span class="wt wt-atgm">反戰車</span><b>FGM-148 Javelin</b> 208 枚</td>
+  <td class="num">57</td><td class="num">未公開</td>
+  <td class="date">2017</td><td class="date">2019</td>
+  <td class="num delay" style="color:var(--ok)">3.5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-obama"><td class="date">2015-12-16</td>
+  <td class="items"><span class="wt wt-c4">資料鏈</span><b>MIDS LVT-1 / 指揮車</b> 4 套</td>
+  <td class="num">75</td><td class="num">未公開</td>
+  <td class="date">2017</td><td class="date">2019</td>
+  <td class="num delay" style="color:var(--ok)">3.5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-obama" data-major><td class="date">2015-12-16</td>
+  <td class="items"><span class="wt wt-atgm">反戰車</span><b>BGM-71 TOW 2B</b> 769 枚 + 46 ITAS</td>
+  <td class="num">268</td><td class="num">~80</td>
+  <td class="date">2018</td><td class="date">2019</td>
+  <td class="num delay" style="color:var(--ok)">3.5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-obama" data-major><td class="date">2015-12-16</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>Mk 15 Phalanx CIWS</b> 13 套<span class="desc">近迫武器系統</span></td>
+  <td class="num">416</td><td class="num">~125</td>
+  <td class="date">2018</td><td class="date">2020</td>
+  <td class="num delay" style="color:var(--ok)">4.5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-obama" data-major><td class="date">2015-12-16</td>
+  <td class="items"><span class="wt wt-ship">艦艇</span><b>Oliver Hazard Perry-class 巡防艦</b> 2 艘<span class="desc">銘傳艦／逢甲艦（成功級加成）</span></td>
+  <td class="num">190</td><td class="num">~57</td>
+  <td class="date">2017-05-08</td><td class="date">2018-05-08</td>
+  <td class="num delay" style="color:var(--ok)">2.4 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-obama" data-major><td class="date">2015-12-16</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>FIM-92F Stinger</b> 250 枚</td>
+  <td class="num">217</td><td class="num">~65</td>
+  <td class="date">2017</td><td class="date">2019</td>
+  <td class="num delay" style="color:var(--ok)">3.5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-obama" data-major><td class="date">2015-12-16</td>
+  <td class="items"><span class="wt wt-tank">兩棲</span><b>AAV-7 兩棲突擊車</b> 36 輛<span class="desc">海軍陸戰隊</span></td>
+  <td class="num">375</td><td class="num">~115</td>
+  <td class="date">2018-08</td><td class="date">2020</td>
+  <td class="num delay" style="color:var(--ok)">4.5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-obama"><td class="date">2015-12-16</td>
+  <td class="items"><span class="wt wt-c4">資料鏈</span><b>MIDS / JTIDS 維保</b></td>
+  <td class="num">120</td><td class="num">未公開</td>
+  <td class="date">2016</td><td class="date">持續</td>
+  <td class="num delay" style="color:var(--ok)">持續</td>
+  <td class="center"><span class="pill done">持續</span></td>
+</tr>
+<tr class="adm-obama"><td class="date">2015-12-16</td>
+  <td class="items"><span class="wt wt-ship">掃雷</span><b>掃雷艦相關</b></td>
+  <td class="num">108</td><td class="num">未公開</td>
+  <td class="date">2017</td><td class="date">2019</td>
+  <td class="num delay" style="color:var(--ok)">3.5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+
+<!-- ===== 2017 ===== -->
+<tr class="adm-trump1"><td class="date">2017-06-29</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>SM-2 Block IIIA</b> 16 枚</td>
+  <td class="num">125</td><td class="num">未公開</td>
+  <td class="date">2020</td><td class="date">2021</td>
+  <td class="num delay" style="color:var(--ok)">4 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-trump1"><td class="date">2017-06-29</td>
+  <td class="items"><span class="wt wt-asw">反潛</span><b>Mk 54 輕型魚雷改裝套件</b> 168 套</td>
+  <td class="num">175</td><td class="num">未公開</td>
+  <td class="date">2020</td><td class="date">2022</td>
+  <td class="num delay" style="color:var(--ok)">5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-trump1" data-status="bad" data-major><td class="date">2017-06-29</td>
+  <td class="items"><span class="wt wt-asw">反潛</span><b>Mk-48 Mod 6 重型魚雷</b> 46 枚<span class="desc">Raytheon 須重啟生產線；2020 才簽約</span></td>
+  <td class="num">250</td><td class="num">~75</td>
+  <td class="date">2027 預計</td><td class="date">2030 預計</td>
+  <td class="num delay" style="color:var(--accent)">~13 年</td>
+  <td class="center"><span class="dual"><span class="pill pending">⏳ 未交</span><span class="pill bad">🟥 嚴重延遲</span></span></td>
+</tr>
+<tr class="adm-trump1"><td class="date">2017-06-29</td>
+  <td class="items"><span class="wt wt-c4">電戰</span><b>AN/SLQ-32(V)3 電戰系統</b> 升級</td>
+  <td class="num">80</td><td class="num">未公開</td>
+  <td class="date">2020</td><td class="date">2022</td>
+  <td class="num delay" style="color:var(--ok)">5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-trump1" data-status="bad" data-major><td class="date">2017-06-29</td>
+  <td class="items"><span class="wt wt-aam">空對地</span><b>AGM-154C JSOW 滑翔炸彈</b> 56 枚<span class="desc">合約 2024-02 才簽（拖 7 年）</span></td>
+  <td class="num">186</td><td class="num">未公開</td>
+  <td class="date">2027 預計</td><td class="date">2028 預計</td>
+  <td class="num delay" style="color:var(--accent)">~11 年</td>
+  <td class="center"><span class="dual"><span class="pill pending">⏳ 未交</span><span class="pill bad">🟥 嚴重延遲</span></span></td>
+</tr>
+<tr class="adm-trump1"><td class="date">2017-06-29</td>
+  <td class="items"><span class="wt wt-aam">反輻射</span><b>AGM-88B HARM</b> 50 + 10 訓練彈</td>
+  <td class="num">148</td><td class="num">未公開</td>
+  <td class="date">2018</td><td class="date">2020</td>
+  <td class="num delay" style="color:var(--ok)">3 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-trump1"><td class="date">2017-06-29</td>
+  <td class="items"><span class="wt wt-radar">雷達</span><b>AN/FPS-115 樂山雷達維保</b></td>
+  <td class="num">400</td><td class="num">未公開</td>
+  <td class="date">2018</td><td class="date">持續</td>
+  <td class="num delay" style="color:var(--ok)">持續</td>
+  <td class="center"><span class="pill done">持續</span></td>
+</tr>
+
+<!-- ===== 2018 ===== -->
+<tr class="adm-trump1"><td class="date">2018-09-24</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>F-16 / C-130 / F-5 / IDF 零附件</b></td>
+  <td class="num">330</td><td class="num">未公開</td>
+  <td class="date">2019</td><td class="date">2022</td>
+  <td class="num delay" style="color:var(--ok)">4 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+
+<!-- ===== 2019 ===== -->
+<tr class="adm-trump1"><td class="date">2019-04-15</td>
+  <td class="items"><span class="wt wt-misc">訓練</span><b>F-16 飛行員訓練</b><span class="desc">Luke AFB 後續</span></td>
+  <td class="num">500</td><td class="num">未公開</td>
+  <td class="date">2019</td><td class="date">持續</td>
+  <td class="num delay" style="color:var(--ok)">持續</td>
+  <td class="center"><span class="pill done">持續</span></td>
+</tr>
+<tr class="adm-trump1" data-major><td class="date">2019-07-08</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>FIM-92F Stinger</b> 250 枚 + 108 launchers<span class="desc">陸軍／海軍各 250；烏戰一度排擠</span></td>
+  <td class="num">224</td><td class="num">~67</td>
+  <td class="date">2023</td><td class="date">2025-12</td>
+  <td class="num delay" style="color:var(--ok)">6.5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-trump1" data-major><td class="date">2019-07-08</td>
+  <td class="items"><span class="wt wt-tank">戰車</span><b>M1A2T Abrams 戰車</b> 108 + M88A2 救濟車 14<span class="desc">銳捷專案 NT$405 億；2025-10 戰車營成軍</span></td>
+  <td class="num">2,000</td><td class="num">405</td>
+  <td class="date">2024-12-15</td><td class="date">2026-04-27</td>
+  <td class="num delay" style="color:var(--ok)">6.8 年</td>
+  <td class="center"><span class="pill early">🔵 提前 2 年</span></td>
+</tr>
+<tr class="adm-trump1" data-status="delay" data-major><td class="date">2019-08-20</td>
+  <td class="items"><span class="wt wt-fighter">戰機</span><b>F-16V Block 70 新造機</b> 66 架<span class="desc">1992 來首批新戰機；2025-03-28 首機 Roll-out 但延至 2026 交貨；NT$2,472 億上限 2,500 億。<b>內建 AN/ALQ-254(V)1 Viper Shield 全數位電戰系統</b>（L3Harris；本案配套 NT$42.8 億 / ~$1.33B）</span></td>
+  <td class="num">8,000</td><td class="num">2,472</td>
+  <td class="date">2026 預計</td><td class="date">2027 預計</td>
+  <td class="num delay" style="color:var(--warn-2)">~7.5 年</td>
+  <td class="center"><span class="dual"><span class="pill pending">⏳ 未交</span><span class="pill delay">🟨 延遲</span></span></td>
+</tr>
+
+<!-- ===== 2020 ===== -->
+<tr class="adm-trump1" data-status="bad" data-major><td class="date">2020-05-20</td>
+  <td class="items"><span class="wt wt-asw">反潛</span><b>Mk-48 Mod 6 魚雷</b> 18 枚<span class="desc">與 2017 案合併延遲</span></td>
+  <td class="num">180</td><td class="num">未公開</td>
+  <td class="date">2027 預計</td><td class="date">2030 預計</td>
+  <td class="num delay" style="color:var(--accent)">~10 年</td>
+  <td class="center"><span class="dual"><span class="pill pending">⏳ 未交</span><span class="pill bad">🟥 嚴重延遲</span></span></td>
+</tr>
+<tr class="adm-trump1"><td class="date">2020-07-09</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>PAC-3 飛彈翻新／重整</b></td>
+  <td class="num">620</td><td class="num">未公開</td>
+  <td class="date">2022</td><td class="date">2025</td>
+  <td class="num delay" style="color:var(--ok)">5 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-trump1" data-major><td class="date">2020-10-22</td>
+  <td class="items"><span class="wt wt-aew">偵照</span><b>MS-110 偵照莢艙</b> 6 套 + 地面站</td>
+  <td class="num">367</td><td class="num">未公開</td>
+  <td class="date">2025-12</td><td class="date">2026 預計</td>
+  <td class="num delay" style="color:var(--ok)">~6 年</td>
+  <td class="center"><span class="pill partial">部分</span></td>
+</tr>
+<tr class="adm-trump1" data-status="delay" data-major><td class="date">2020-10-22</td>
+  <td class="items"><span class="wt wt-asm">攻陸</span><b>AGM-84H SLAM-ER</b> 135 枚<span class="desc">視距外對地攻擊</span></td>
+  <td class="num">1,008</td><td class="num">未公開</td>
+  <td class="date">2026 預計</td><td class="date">2028 預計</td>
+  <td class="num delay" style="color:var(--warn-2)">~8 年</td>
+  <td class="center"><span class="dual"><span class="pill pending">⏳ 未交</span><span class="pill delay">🟨 延遲</span></span></td>
+</tr>
+<tr class="adm-trump1" data-major><td class="date">2020-10-22</td>
+  <td class="items"><span class="wt wt-arty">火砲</span><b>M142 HIMARS 多管火箭</b> 11 套 + 64 ATACMS<span class="desc">屏東九鵬 2025-05 實彈試射；轟雷專案 NT$150 億；後加碼至 29 套 NT$271 億</span></td>
+  <td class="num">436</td><td class="num">150</td>
+  <td class="date">2024-10</td><td class="date">2025</td>
+  <td class="num delay" style="color:var(--ok)">5 年</td>
+  <td class="center"><span class="pill early">🔵 提前</span></td>
+</tr>
+<tr class="adm-trump1" data-status="delay" data-major><td class="date">2020-10-26</td>
+  <td class="items"><span class="wt wt-asm">反艦</span><b>HCDS Harpoon 岸射反艦</b> 100 套 + 400 飛彈<span class="desc">配合濱海作戰指揮部 2026-01 啟用；NT$866 億（含國內配合款）</span></td>
+  <td class="num">2,370</td><td class="num">866</td>
+  <td class="date">2025-06-28</td><td class="date">2028 預計</td>
+  <td class="num delay" style="color:var(--warn-2)">~8 年</td>
+  <td class="center"><span class="dual"><span class="pill partial">部分到貨</span><span class="pill delay">🟨 延遲</span></span></td>
+</tr>
+<tr class="adm-trump1" data-major><td class="date">2020-11-03</td>
+  <td class="items"><span class="wt wt-uav">無人機</span><b>MQ-9B SkyGuardian/SeaGuardian</b> 4 架<span class="desc">大型察打無人機</span></td>
+  <td class="num">600</td><td class="num">~180</td>
+  <td class="date">2026-03-17</td><td class="date">2027 預計</td>
+  <td class="num delay" style="color:var(--ok)">~6 年</td>
+  <td class="center"><span class="pill partial">部分</span></td>
+</tr>
+<tr class="adm-trump1" data-status="delay"><td class="date">2020-12-07</td>
+  <td class="items"><span class="wt wt-c4">通信</span><b>戰場資訊通信系統 FICS</b></td>
+  <td class="num">280</td><td class="num">未公開</td>
+  <td class="date">2023</td><td class="date">2027 預計</td>
+  <td class="num delay" style="color:var(--warn-2)">~7 年</td>
+  <td class="center"><span class="dual"><span class="pill partial">部分</span><span class="pill delay">🟨 延遲</span></span></td>
+</tr>
+
+<!-- ===== 2021 ===== -->
+<tr class="adm-biden" data-status="cancel" data-major><td class="date">2021-08-04</td>
+  <td class="items"><span class="wt wt-arty">火砲</span><b>M109A6 Paladin 自走砲</b> 40 門<span class="desc">2022-05 美方告知無法準時 → 12 月台方取消，改 HIMARS</span></td>
+  <td class="num">750</td><td class="num">—</td>
+  <td class="date">—</td><td class="date">—</td>
+  <td class="num delay" style="color:var(--accent)">取消</td>
+  <td class="center"><span class="pill cancel">❌</span></td>
+</tr>
+
+<!-- ===== 2022 ===== -->
+<tr class="adm-biden"><td class="date">2022-02-07</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>Patriot 國際工程服務</b></td>
+  <td class="num">100</td><td class="num">未公開</td>
+  <td class="date">2022</td><td class="date">持續</td>
+  <td class="num delay" style="color:var(--ok)">持續</td>
+  <td class="center"><span class="pill done">持續</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2022-04-05</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>Patriot 承包商技術協助</b></td>
+  <td class="num">95</td><td class="num">未公開</td>
+  <td class="date">2022</td><td class="date">持續</td>
+  <td class="num delay" style="color:var(--ok)">持續</td>
+  <td class="center"><span class="pill done">持續</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2022-06-08</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>艦艇零附件</b></td>
+  <td class="num">120</td><td class="num">未公開</td>
+  <td class="date">2022</td><td class="date">2024</td>
+  <td class="num delay" style="color:var(--ok)">2 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2022-07-15</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>承包商技術支援</b></td>
+  <td class="num">108</td><td class="num">未公開</td>
+  <td class="date">2022</td><td class="date">持續</td>
+  <td class="num delay" style="color:var(--ok)">持續</td>
+  <td class="center"><span class="pill done">持續</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2022-09-02</td>
+  <td class="items"><span class="wt wt-radar">雷達</span><b>Surveillance Radar Program 維保</b></td>
+  <td class="num">665</td><td class="num">未公開</td>
+  <td class="date">2023</td><td class="date">持續</td>
+  <td class="num delay" style="color:var(--ok)">持續</td>
+  <td class="center"><span class="pill done">持續</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2022-09-02</td>
+  <td class="items"><span class="wt wt-asm">反艦</span><b>AGM-84L-1 Harpoon Block II</b> 60 枚</td>
+  <td class="num">355</td><td class="num">未公開</td>
+  <td class="date">2025</td><td class="date">2027 預計</td>
+  <td class="num delay" style="color:var(--ok)">~5 年</td>
+  <td class="center"><span class="pill partial">進行中</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2022-09-02</td>
+  <td class="items"><span class="wt wt-aam">空對空</span><b>AIM-9X Block II Sidewinder</b> 100 枚</td>
+  <td class="num">86</td><td class="num">未公開</td>
+  <td class="date">2024</td><td class="date">2026 預計</td>
+  <td class="num delay" style="color:var(--ok)">~4 年</td>
+  <td class="center"><span class="pill partial">進行中</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2022-12-06</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>機種標準零附件</b></td>
+  <td class="num">330</td><td class="num">未公開</td>
+  <td class="date">2023</td><td class="date">2025</td>
+  <td class="num delay" style="color:var(--ok)">~3 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2022-12-06</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>機種非標準零附件</b></td>
+  <td class="num">98</td><td class="num">未公開</td>
+  <td class="date">2023</td><td class="date">2025</td>
+  <td class="num delay" style="color:var(--ok)">~3 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-biden" data-major><td class="date">2022-12-28</td>
+  <td class="items"><span class="wt wt-atgm">反戰車</span><b>Volcano 反戰車佈雷系統</b><span class="desc">含車載式佈雷器</span></td>
+  <td class="num">180</td><td class="num">未公開</td>
+  <td class="date">2026 預計</td><td class="date">2028 預計</td>
+  <td class="num delay" style="color:var(--ok)">~6 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+
+<!-- ===== 2023 ===== -->
+<tr class="adm-biden"><td class="date">2023-03-01</td>
+  <td class="items"><span class="wt wt-aam">空射</span><b>AGM-88B HARM</b> 100 + <b>AIM-120C-8 AMRAAM</b> 200</td>
+  <td class="num">619</td><td class="num">未公開</td>
+  <td class="date">2026 預計</td><td class="date">2028 預計</td>
+  <td class="num delay" style="color:var(--ok)">~5 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2023-06-29</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>輪型甲車武器零附件</b></td>
+  <td class="num">108</td><td class="num">未公開</td>
+  <td class="date">2024</td><td class="date">2026</td>
+  <td class="num delay" style="color:var(--ok)">~3 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2023-06-29</td>
+  <td class="items"><span class="wt wt-misc">彈藥</span><b>30mm 砲彈</b><span class="desc">CM-32 雲豹用</span></td>
+  <td class="num">332</td><td class="num">未公開</td>
+  <td class="date">2025</td><td class="date">2027 預計</td>
+  <td class="num delay" style="color:var(--ok)">~4 年</td>
+  <td class="center"><span class="pill partial">進行中</span></td>
+</tr>
+<tr class="adm-biden" data-major><td class="date">2023-08-23</td>
+  <td class="items"><span class="wt wt-fighter">戰機</span><b>F-16 IRST 紅外線搜追系統</b><span class="desc">F-16 反隱形升級</span></td>
+  <td class="num">500</td><td class="num">未公開</td>
+  <td class="date">2026 預計</td><td class="date">2028 預計</td>
+  <td class="num delay" style="color:var(--ok)">~5 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2023-12-15</td>
+  <td class="items"><span class="wt wt-c4">通信</span><b>C4 系統壽命週期支援</b></td>
+  <td class="num">300</td><td class="num">未公開</td>
+  <td class="date">2024</td><td class="date">持續</td>
+  <td class="num delay" style="color:var(--ok)">持續</td>
+  <td class="center"><span class="pill done">持續</span></td>
+</tr>
+
+<!-- ===== 2024 ===== -->
+<tr class="adm-biden"><td class="date">2024-02-21</td>
+  <td class="items"><span class="wt wt-c4">資料鏈</span><b>戰術資料鏈升級規劃</b></td>
+  <td class="num">75</td><td class="num">未公開</td>
+  <td class="date">2025</td><td class="date">2027 預計</td>
+  <td class="num delay" style="color:var(--ok)">~3 年</td>
+  <td class="center"><span class="pill partial">進行中</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2024-06-05</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>F-16 零附件</b></td>
+  <td class="num">300</td><td class="num">未公開</td>
+  <td class="date">2024</td><td class="date">2026</td>
+  <td class="num delay" style="color:var(--ok)">~2 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-biden" data-major><td class="date">2024-06-18</td>
+  <td class="items"><span class="wt wt-uav">無人機</span><b>Switchblade 300 自殺無人機</b> 720 架</td>
+  <td class="num">60</td><td class="num">未公開</td>
+  <td class="date">2024-12</td><td class="date">2025</td>
+  <td class="num delay" style="color:var(--ok)">1.5 年</td>
+  <td class="center"><span class="pill early">🔵 提前</span></td>
+</tr>
+<tr class="adm-biden" data-major><td class="date">2024-06-18</td>
+  <td class="items"><span class="wt wt-uav">無人機</span><b>ALTIUS 600M-V 自殺無人機</b> 291 架</td>
+  <td class="num">300</td><td class="num">未公開</td>
+  <td class="date">2025</td><td class="date">2027 預計</td>
+  <td class="num delay" style="color:var(--ok)">~3 年</td>
+  <td class="center"><span class="pill partial">進行中</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2024-09-16</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>機種零附件</b></td>
+  <td class="num">228</td><td class="num">未公開</td>
+  <td class="date">2025</td><td class="date">2026</td>
+  <td class="num delay" style="color:var(--ok)">~2 年</td>
+  <td class="center"><span class="pill done">✅</span></td>
+</tr>
+<tr class="adm-biden" data-major><td class="date">2024-10-25</td>
+  <td class="items"><span class="wt wt-aaa">防空</span><b>NASAMS 國家先進地對空</b> 3 套<span class="desc">中程防空</span></td>
+  <td class="num">1,160</td><td class="num">未公開</td>
+  <td class="date">2027 預計</td><td class="date">2028 預計</td>
+  <td class="num delay" style="color:var(--ok)">~4 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+<tr class="adm-biden"><td class="date">2024-10-25</td>
+  <td class="items"><span class="wt wt-radar">雷達</span><b>AN/TPS-77 / AN/TPS-78 機動雷達</b></td>
+  <td class="num">828</td><td class="num">未公開</td>
+  <td class="date">2026 預計</td><td class="date">2028 預計</td>
+  <td class="num delay" style="color:var(--ok)">~4 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+
+<!-- ===== 2025 ===== -->
+<tr class="adm-trump2"><td class="date">2025-11-13</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>非標準零附件</b><span class="desc">F-16 / C-130 / IDF</span></td>
+  <td class="num">330</td><td class="num">未公開</td>
+  <td class="date">2026</td><td class="date">2028 預計</td>
+  <td class="num delay" style="color:var(--ok)">~3 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+<tr class="adm-trump2"><td class="date">2025-12-17</td>
+  <td class="items"><span class="wt wt-uav">無人機</span><b>ALTIUS-700M / ALTIUS-600 系統</b><span class="desc">12-17 聖誕禮包</span></td>
+  <td class="num">1,100</td><td class="num">未公開</td>
+  <td class="date">2027 預計</td><td class="date">2029 預計</td>
+  <td class="num delay" style="color:var(--ok)">~4 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+<tr class="adm-trump2"><td class="date">2025-12-17</td>
+  <td class="items"><span class="wt wt-asm">反艦</span><b>Harpoon 飛彈維保</b></td>
+  <td class="num">91</td><td class="num">未公開</td>
+  <td class="date">2026</td><td class="date">2028 預計</td>
+  <td class="num delay" style="color:var(--ok)">~3 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+<tr class="adm-trump2"><td class="date">2025-12-17</td>
+  <td class="items"><span class="wt wt-atgm">反戰車</span><b>Javelin 系統</b> 1,050 套</td>
+  <td class="num">375</td><td class="num">未公開</td>
+  <td class="date">2027 預計</td><td class="date">2030 預計</td>
+  <td class="num delay" style="color:var(--ok)">~5 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+<tr class="adm-trump2"><td class="date">2025-12-17</td>
+  <td class="items"><span class="wt wt-atgm">反戰車</span><b>TOW 飛彈系統</b> 1,545 套</td>
+  <td class="num">353</td><td class="num">未公開</td>
+  <td class="date">2027 預計</td><td class="date">2030 預計</td>
+  <td class="num delay" style="color:var(--ok)">~5 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+<tr class="adm-trump2" data-major><td class="date">2025-12-17</td>
+  <td class="items"><span class="wt wt-arty">火砲</span><b>HIMARS 多管火箭</b> 82 套 + ATACMS 420 + 火箭莢艙<span class="desc">史上最大批 HIMARS 對外出口</span></td>
+  <td class="num">4,050</td><td class="num">未公開</td>
+  <td class="date">2028 預計</td><td class="date">2032 預計</td>
+  <td class="num delay" style="color:var(--ok)">~7 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+<tr class="adm-trump2" data-major><td class="date">2025-12-17</td>
+  <td class="items"><span class="wt wt-arty">火砲</span><b>M109A7 自走砲</b> 60 門<span class="desc">取代取消的 M109A6 案</span></td>
+  <td class="num">4,030</td><td class="num">未公開</td>
+  <td class="date">2028 預計</td><td class="date">2031 預計</td>
+  <td class="num delay" style="color:var(--ok)">~6 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+<tr class="adm-trump2"><td class="date">2025-12-17</td>
+  <td class="items"><span class="wt wt-misc">維保</span><b>AH-1W 直升機零附件</b></td>
+  <td class="num">96</td><td class="num">未公開</td>
+  <td class="date">2026</td><td class="date">2029 預計</td>
+  <td class="num delay" style="color:var(--ok)">~4 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+<tr class="adm-trump2"><td class="date">2025-12-17</td>
+  <td class="items"><span class="wt wt-c4">通信</span><b>戰術任務網路軟體</b></td>
+  <td class="num">1,010</td><td class="num">未公開</td>
+  <td class="date">2027 預計</td><td class="date">2030 預計</td>
+  <td class="num delay" style="color:var(--ok)">~5 年</td>
+  <td class="center"><span class="pill pending">⏳ 未交</span></td>
+</tr>
+
+<!-- ===== 2026 ===== -->
+<tr class="adm-trump2" data-major><td class="date">2026-04-22</td>
+  <td class="items"><span class="wt wt-pkg">合約簽訂</span><b>台美簽 6 項軍購合約</b><span class="desc">為 2025-12-17 聖誕禮包之具體簽約落實。內含 HIMARS 補購、M109A7、遠程精準火力打擊、彈藥戰備存量、整合防空、反裝甲飛彈、大口徑彈藥共同生產 — 屬合約執行階段，非新發價</span></td>
+  <td class="num">—</td><td class="num">2,088</td>
+  <td class="date">2027 起</td><td class="date">2032 預計</td>
+  <td class="num delay" style="color:var(--ok)">—</td>
+  <td class="center"><span class="pill partial">📝 已簽約</span></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<!-- ====== 重要案例詳述 ====== -->
+<h2><span class="num">04</span> 重要案例詳述</h2>
+
+<div class="case-detail">
+  <h4>案例 1 — 8 艘柴電潛艦：拖了 13 年最終取消，轉為自製</h4>
+  <dl>
+    <dt>發價</dt><dd>2001-04-24</dd>
+    <dt>規模</dt><dd>8 艘柴電潛艦，預估 ~$10–12B（合約價）</dd>
+    <dt>結局</dt><dd>取消（2014 年起轉 IDS 海鯤艦自製）</dd>
+    <dt>主因</dt><dd>(1) 美國 1959 年起停產柴電潛艦，需找德國 HDW、荷蘭 RDM 代工，但中國施壓使代工方退出；(2) 國民黨主導之立法院 2001–2007 凍結預算動議 64 次，預算始終未過；(3) 美方報價過高（從原估 $50 億漲至 $108 億）</dd>
+    <dt>結果</dt><dd>2014 蔡政府啟動 IDS 自造，2023-09-28 海鯤艦下水，2026-01-29 完成<b>首次淺水潛航測試</b>（下潛約 50 公尺，台船 CSBC 公告里程碑）；翌日 1-30 第二次潛航挑戰 100 公尺。預計 2026 年中交艦。</dd>
+  </dl>
+</div>
+
+<div class="case-detail">
+  <h4>案例 2 — F-16A/B 升級為 F-16V「鳳展」：12 年才完成 139 架，預算超支 200 億</h4>
+  <dl>
+    <dt>發價</dt><dd>2011-09-21</dd>
+    <dt>規模</dt><dd>原 145 架（攻擊損耗 6 架），實際 139 架升級；DSCA $5.85B；台方原預算 NT$1,100 億 → 膨脹至 NT$1,296 億；美方 Lockheed 合約 $18.5 億</dd>
+    <dt>原訂期程</dt><dd>2017 完成 — 後因 AESA 雷達整合難度延宕</dd>
+    <dt>實際進度</dt><dd>2018-10 首批 4 架交付 → 2021-11 第 100 架 → 2023-12-19 最後一架完成 → 2024-02-05 空軍 / 中科院 / Lockheed Martin 共同公告計畫終結。</dd>
+    <dt>意義</dt><dd>FMS 史上最大規模 F-16 改裝案；台灣全部現役 F-16 升級為 F-16V Block 70 構型。但延誤 6 年、預算超支 196 億。</dd>
+  </dl>
+</div>
+
+<div class="case-detail">
+  <h4>案例 3 — 66 架 F-16V Block 70 新造機：花 2,472 億卻拿不到飛機</h4>
+  <dl>
+    <dt>發價</dt><dd>2019-08-20</dd>
+    <dt>規模</dt><dd>66 架 F-16V Block 70（含 2 架雙座 D 型）+ 引擎 + 雷達 + 後勤；DSCA $8B；台方<b>NT$2,472 億</b>（特別預算上限 NT$2,500 億）</dd>
+    <dt>原訂期程</dt><dd>2023 首批、2026 全交</dd>
+    <dt>實際</dt><dd>Lockheed Martin 軟體 (Block 70/72 OFP-3) 整合與供應鏈問題、外加 Greenville 廠需從 F-35 過度產能，延誤接連發生。
+    2025-03-28 首機（雙座 6831）於 Greenville 舉辦 Roll-out 儀式 → 試飛延滯整年 → 2025-11 顧立雄部長公開表示「可能無法準時全交」 → 預計 2026 中首批抵台、2026–2027 交完。</dd>
+    <dt>影響</dt><dd>佔當前未交貨積壓的 $8B（單一最大案）。F-5E/F 機隊已退役，幻象 2000 老化，過渡期空防壓力顯著。國民黨立委吳宗憲嘲諷為「匿蹤戰機的最高境界」。</dd>
+  </dl>
+</div>
+
+<div class="case-detail">
+  <h4>補充：F-16 系列電戰系統演進（為何沒看到 AN/ALQ-254、AN/ALQ-257？）</h4>
+  <dl>
+    <dt>1990s F-16A/B 起</dt><dd><b>AN/ALQ-184(V)7 ECM 莢艙</b>（Raytheon，<b>外掛式</b>）— 2000-06-07 公告 48 套 $122M，是台灣第一筆 ALQ-184 外銷案。</dd>
+    <dt>F-16V 升級「鳳展」(2011 案)</dt><dd>升級後仍沿用 AN/ALQ-184 外掛 + 新增 Terma ALQ-213 EW 管理系統。</dd>
+    <dt>F-16V Block 70 新造機 (2019 案)</dt><dd><b>AN/ALQ-254(V)1 「Viper Shield」</b>（L3Harris，<b>內建式</b>全數位電戰系統）— <b>內含於 2019-08-20 F-16V Block 70 案中</b>，不是獨立發價案。台方為此編列 <b>NT$42.8 億（~$1.33B）</b>，含於 NT$2,472 億 F-16V 特別預算內。2024-07 美方正式核准生產出口；2024-09 L3Harris 啟動量產，含巴林、保加利亞、摩洛哥、斯洛伐克、台灣 5 國訂單。</dd>
+    <dt>AN/ALQ-257 IVEWS</dt><dd>Northrop Grumman 競品，美空軍 F-16 正式 Program of Record。<b>台灣未採購此系統</b>（選 Viper Shield，不是 IVEWS）— 因此本表沒有 AN/ALQ-257 條目。</dd>
+    <dt>結論</dt><dd>表格之所以看不到 AN/ALQ-254 / 257 獨立條目，是因為（1）AN/ALQ-254 為 F-16V Block 70 案內含子系統，（2）AN/ALQ-257 台灣根本沒買。AN/ALQ-184 為 2000 年外掛式舊系統，已在表格 2000-06-07 列。</dd>
+  </dl>
+</div>
+
+<div class="case-detail">
+  <h4>案例 4 — Mk-48 重型魚雷 + AGM-154C JSOW：兩個「嚴重延遲」典型</h4>
+  <dl>
+    <dt>共同症頭</dt><dd>都在 2017-06-29 發價，都因 Raytheon／Boeing 須<b>重啟生產線</b>而拖延；合約都遲至 2020/2024 才簽。</dd>
+    <dt>Mk-48 Mod 6（46+18 枚）</dt><dd>原訂 2025 開始交貨。最新 ROC 海軍預算書揭示：2026 收 4 套訓練系統、2027 收 14 枚、2028 收 10 枚。Raytheon 末批 Mk-48 是<b>1996 年</b>交貨給美軍的，相當於停產近 30 年。</dd>
+    <dt>AGM-154C JSOW（50+ 枚）</dt><dd>合約 2024-02 才簽（拖 7 年）；台方要求最新構型 → 須重啟生產。預計 2027–2028 交貨。GMU Taiwan Security Monitor 評為「<b>最該被點名</b>的延遲案」。</dd>
+  </dl>
+</div>
+
+<div class="case-detail">
+  <h4>案例 5 — M1A2T Abrams 戰車：少數提前到貨的成功案例（NT$405 億）</h4>
+  <dl>
+    <dt>發價</dt><dd>2019-07-08</dd>
+    <dt>規模</dt><dd>108 輛 M1A2T（M1A2 SEP v2 客製版）+ 14 M88A2 救濟車；DSCA $2B；台方「銳捷專案」NT$405 億（含 16 輛 M1070A1 運輸車、16 輛 M1000 板車）</dd>
+    <dt>原訂</dt><dd>2024–2027 分批交貨</dd>
+    <dt>實際</dt><dd>2024-12-15 首批 38 輛抵基隆 → 2025-07-28 第二批 42 輛抵北部港 → 2026-04-27 末批 28 輛抵北部港（<b>提前約 2 年完成</b>）</dd>
+    <dt>成軍</dt><dd>2025-10-31 首個 M1A2T 戰車營於陸軍裝甲 584 旅湖口基地成軍，賴清德總統主持典禮。</dd>
+    <dt>意義</dt><dd>台灣 30 餘年來首批新採購戰車（前次為 1994 M60A3 TTS）。陸軍稱為「台美軍購成功典範」。</dd>
+  </dl>
+</div>
+
+<div class="case-detail">
+  <h4>案例 6 — HIMARS：原訂 2027 交貨，提前到 2024（NT$150 億）</h4>
+  <dl>
+    <dt>發價</dt><dd>2020-10-22</dd>
+    <dt>規模</dt><dd>11 套 M142 HIMARS launcher + 64 ATACMS（M57 戰術飛彈）+ 火控系統；DSCA $436M；台方「轟雷專案」NT$150 億（簽約金 NT$96-100 億）</dd>
+    <dt>原訂</dt><dd>2025 起分批，2027 完成</dd>
+    <dt>實際</dt><dd>2024-10/11 首批 11 套 launcher、16 ATACMS、2 套模擬器抵台 → 2025-05 屏東九鵬基地完成首次實彈試射 → 2025-06 第 58 砲指部 HIMARS 連正式成軍。</dd>
+    <dt>後續</dt><dd>2024 加碼至 29 套（NT$271 億），2025-12-17 川普二期再加碼 82 套（DSCA $4.05B），<b>總數將達 122 套</b>。</dd>
+  </dl>
+</div>
+
+<div class="case-detail">
+  <h4>案例 7 — Stinger：被烏戰排擠卻仍按時交完</h4>
+  <dl>
+    <dt>發價</dt><dd>2019-07-08</dd>
+    <dt>規模</dt><dd>250 枚 FIM-92F + 108 launchers；$224M</dd>
+    <dt>過程</dt><dd>2022-03 起美方對烏供 Stinger，引發排擠擔憂 → 2022-05 國防部公開表達憂慮 → 2024-03 美方確認生產線復活、無延遲 → 2025-12 完成全交。</dd>
+    <dt>後續</dt><dd>2024 美國研議授權台灣在地生產 Stinger（中科院認證）；2024 年陸軍另採 1,985 枚（$1.73B），預計 2031 交完。</dd>
+  </dl>
+</div>
+
+<div class="case-detail">
+  <h4>案例 8 — M109A6 Paladin → HIMARS：少數被「主動取消」的案例</h4>
+  <dl>
+    <dt>發價</dt><dd>2021-08-04，40 門 + 1,698 發砲彈；$750M</dd>
+    <dt>取消</dt><dd>2022-05 美方告知無法 2025 交貨 → 2022-12 台方正式取消 → 改採 HIMARS 11 套（已交）+ 2025-12-17 加碼 60 門 M109A7（後續案 NT$1,200 億級）。</dd>
+    <dt>影響</dt><dd>長期看反而升級了戰術靈活性（射程從 24km → 70km/300km），但短期確實出現火力空窗。</dd>
+  </dl>
+</div>
+
+<!-- ====== 觀察與結論 ====== -->
+<h2><span class="num">05</span> 觀察與結論</h2>
+
+<div class="note">
+<b>1. 「公告金額」 vs 「實際金額」差異甚大</b>。
+DSCA 公告為授權上限；台方實際 LOA 簽約金通常為公告值的 50–100%（不含國內配合款）。
+案例：M1A2T DSCA $2B → 實際 NT$405 億（≈$1.35B，僅 67%）；F-16 鳳展 DSCA $5.3B → 實際 NT$1,296 億（≈$4.32B，82%）；F-16V 新機 DSCA $8B → NT$2,472 億（≈$8.24B，103%，含國內配合款）。<b>本表「實際金額」指台灣立院通過之預算。</b>
+</div>
+
+<div class="note">
+<b>2. 完整交貨期程：戰機 5–10 年、飛彈 2–5 年、艦艇 4–6 年</b>。
+表現超前的：HIMARS、Switchblade 300、M1A2T；表現延遲的：F-16V Block 70、Mk-48、AGM-154C、PAVE PAWS 雷達、F-16A/B 升級、PAC-3 系列、UH-60M、SLAM-ER。
+</div>
+
+<div class="note warn">
+<b>3. 美國軍工產能瓶頸是當前最大延遲源</b>。烏克蘭、以色列同時消耗，加上對台、對沙、對韓等需求堆疊，使 PAC-3、Stinger、HARM、SLAM-ER、Mk-48、JSOW、HIMARS、F-16V 等全線吃緊。截至 2025-11，<b>未交貨積壓達 $21.5B</b>，相當於台灣 2025 年國防預算的 2.4 倍。
+</div>
+
+<div class="note">
+<b>4. 政治週期影響顯著</b>：2008–2016 歐巴馬時期出現「8 年只 3 大批」的相對冷淡；川普 I 改採「小批高頻」模式；拜登受烏戰排擠；川普 II 上任不到一年即公告 $12.5B（含史上最大單批 $11.07B 聖誕禮包）。
+</div>
+
+<div class="note">
+<b>5. 採購方向轉變</b>：2000 年代著重大型平台（艦艇、戰機、攻擊直升機）；2015 年以後轉向<b>不對稱戰力</b>（HIMARS、Harpoon 岸射、Javelin、Stinger、自殺無人機、JSOW、IRST）。「豪豬戰略」(porcupine strategy) 思維體現於採購清單。
+</div>
+
+<div class="note">
+<b>6. 立法院因素已大幅淡化</b>：2001 大包裹拖了 6 年原因之一是國民黨杯葛（凍結 64 次），但 2008 年國民黨重新執政後反而推動軍售簽案；2016 民進黨完全執政後，軍售特別預算編列均順利通過；當前主要瓶頸已從台灣端轉到美方產能端。
+</div>
+
+<div class="note warn">
+<b>7. NDAA 2026 — Taiwan Security Cooperation Initiative (TSCI) 升至 $1B</b>：
+2025-12 川普簽署 FY2026 國防授權法（NDAA），對台 TSCI 授權上限<b>從 FY25 的 $300M 大幅提升至 $1B</b>，用於採購裝備、軍事訓練（含醫療裝備、戰場救護）。
+法案另要求美防部與台灣建立<b>無人機與反無人機聯合計畫</b>，並要求海岸防衛隊司令制定派駐機動訓練隊赴台之計畫。
+此項<b>不屬於 FMS 軍售</b>，但是另一條對台軍援管道（屬美國援外經費）。
+</div>
+
+<div class="note">
+<b>8. 2026-04-22 簽約落地</b>：台美簽署 6 項軍購合約，總額 NT$2,087.7 億（≈$6.96B），是 2025-12-17 聖誕禮包的具體簽約執行 — 含 HIMARS、M109A7、遠程精準火力、彈藥戰備存量、整合防空、反裝甲飛彈、大口徑彈藥共同生產。其中「大口徑彈藥共同生產」屬美方首度同意與台灣<b>共同生產彈藥</b>，意義重大。
+</div>
+
+
+<!-- ====== 資料來源 ====== -->
+<footer>
+<b>主要資料來源：</b>
+DSCA Major Arms Sales (dsca.mil/press-media/major-arms-sales)；
+Wikipedia「List of U.S. arms sales to Taiwan」、「美國對台軍售列表」；
+Taiwan Security Monitor (Schar School / GMU)「Taiwan Arms Sale Backlog」系列月報；
+CRS Report RL30957「Taiwan: Major U.S. Arms Sales Since 1990」；
+US-Taiwan Business Council (ustaiwandefense.com)；
+Defense News、USNI News、Naval News、Janes、Air & Space Forces；
+中央社 (focustaiwan.tw)、自由時報、聯合報、Taipei Times、Taiwan News、ETtoday、聯合新聞網；
+中華民國國防部新聞稿、立法院公報、預算書。
+<br>最後更新：2026 年 5 月。本表所列為公開資料整合，部分時程為估算（特別是 2020 年後尚未交貨之案）。期程計算以「發價日」起算至「完交日」止。實際金額僅在台方立院預算或合約價有公開時列出，否則標「未公開」。
+</footer>
+
+<script>
+function setFilter(el){
+  document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  filter();
+}
+function filter(){
+  const q = document.getElementById('q').value.toLowerCase();
+  const f = document.querySelector('.filter-pill.active').dataset.f;
+  let shown = 0;
+  document.querySelectorAll('#t tbody tr').forEach(tr=>{
+    const text = tr.textContent.toLowerCase();
+    let match = text.includes(q);
+    if(f !== 'all'){
+      if(f === 'major') match = match && tr.hasAttribute('data-major');
+      else if(f.startsWith('adm-')) match = match && tr.classList.contains(f);
+      else if(f.startsWith('status-')){
+        const want = f.replace('status-','');
+        match = match && tr.dataset.status === want;
+      }
+    }
+    tr.style.display = match ? '' : 'none';
+    if(match) shown++;
+  });
+  document.getElementById('count').textContent = '顯示 ' + shown + ' 筆';
+}
+// table sort
+document.querySelectorAll('#t thead th').forEach((th,i)=>{
+  let asc = true;
+  th.addEventListener('click',()=>{
+    const tbody = document.querySelector('#t tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort((a,b)=>{
+      const av = a.children[i].textContent.trim();
+      const bv = b.children[i].textContent.trim();
+      const an = parseFloat(av.replace(/,/g,''));
+      const bn = parseFloat(bv.replace(/,/g,''));
+      if(!isNaN(an) && !isNaN(bn)) return asc ? an-bn : bn-an;
+      return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+    rows.forEach(r=>tbody.appendChild(r));
+    asc = !asc;
+  });
+});
+document.getElementById('count').textContent = '共 ' + document.querySelectorAll('#t tbody tr').length + ' 筆';
+</script>
+
+</div>
+</body>
+</html>
