@@ -10,9 +10,9 @@
 <meta property="og:description" content="比較 2016 年以來台灣各民調機構封關前民調與實際開票的差距：總統、地方、公投、罷免，含調查方式、委託與執行單位、偏差方向與 2026 九合一民調。">
 <style>
 :root{--bg:#f5f1e8;--panel:#fff;--panel-2:#fbf7ec;--line:#d9d2bf;--ink:#1a2238;--ink-2:#3d4868;--mute:#6b7388;
---primary:#1f3a68;--link:#2c528f;--th:#ece6d6;--code:#efe9da}
+--primary:#1f3a68;--link:#2c528f;--th:#ece6d6;--code:#efe9da;--refbg:#fde7cf;--red:#c62828;--redbg:#fdecea}
 @media (prefers-color-scheme:dark){:root{--bg:#14171f;--panel:#1c2030;--panel-2:#22273a;--line:#343b52;--ink:#e6e8ef;
---ink-2:#c3c8d6;--mute:#8d94a8;--primary:#9fb8e6;--link:#8fb0ea;--th:#262c40;--code:#2a3044}}
+--ink-2:#c3c8d6;--mute:#8d94a8;--primary:#9fb8e6;--link:#8fb0ea;--th:#262c40;--code:#2a3044;--refbg:#4a3418;--red:#ff6b6b;--redbg:#3a1c1c}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
 header.hero{background:var(--primary);color:#fff;padding:2rem 16px 1.5rem}
@@ -38,6 +38,10 @@ summary{cursor:pointer;color:var(--link);font-weight:600}
 .toc{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:.6rem 1rem;font-size:.9rem}
 .toc ul{margin:.2rem 0;padding-left:1.2rem}
 footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute);font-size:.82rem;border-top:1px solid var(--line)}
+tr.refrow td{background:var(--refbg)!important}
+.refmark{background:var(--refbg);padding:0 .3em;border-radius:3px}
+.est{color:var(--red);font-weight:700}
+p.redwarn{color:var(--red);font-weight:700;border:2px solid var(--red);border-radius:6px;padding:.6rem .9rem;background:var(--redbg)}
 .ai-verified{color:#2e7d4f;cursor:help;border-bottom:1px dotted #2e7d4f;font-weight:600;margin-left:0.15em}
 
 .viz{--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--mute:#898781;--grid:#e1e0d9;--axis:#c3c2b7;
@@ -87,7 +91,7 @@ figure.fbimg figcaption{color:var(--mute,#6b7388);font-size:.82rem;margin-top:.3
 <li><a href="#42-vs">4.2 調查方式：市話 vs 手機</a></li>
 <li><a href="#43">4.3 投票率：民調一律高估</a></li>
 <li><a href="#44-2025">4.4 2025 大罷免逐區</a></li>
-<li><a href="#45-2020-06-06">4.5 罷韓（2020-06-06）另算</a></li>
+<li><a href="#45-2020-06-06">4.5 罷韓（2020-06-06）另列</a></li>
 <li><a href="#46-20192020">4.6 2019：反送中前後的翻轉（2020 總統趨勢）</a></li>
 <li><a href="#47-vs">4.7 公投：綁大選 vs 不綁大選</a></li>
 </ul>
@@ -2344,6 +2348,24 @@ figure.fbimg figcaption{color:var(--mute,#6b7388);font-size:.82rem;margin-top:.3
 <td>16.3</td>
 <td>鏡新聞／大地 31.4／51.8（38）</td>
 </tr>
+<tr class="refrow">
+<td>陳柏惟（參考，台中第 2 選區）</td>
+<td>2021-10-23</td>
+<td>51.5</td>
+<td>48.5</td>
+<td>51.7</td>
+<td>26.4 ✔（通過）</td>
+<td>TVBS（罷免方刪Q總部委託†）9/13 50.7／24.4（68）；同上 10/4 52.1／20.7（72）；美麗島 10/9 37.2／25.7（59）</td>
+</tr>
+<tr class="refrow">
+<td>林昶佐（參考，台北第 5 選區）</td>
+<td>2022-01-09</td>
+<td>55.8</td>
+<td>44.2</td>
+<td>41.9</td>
+<td>23.3（同意過半但未達門檻）</td>
+<td>循證（林昶佐陣營委託†）12/29 34.1／34.2（50）</td>
+</tr>
 </tbody>
 </table></div>
 <ul>
@@ -2351,52 +2373,239 @@ figure.fbimg figcaption{color:var(--mute,#6b7388);font-size:.82rem;margin-top:.3
 <li>7 區的同意票過了 25% 門檻，但不同意票都比同意票多，所以全部否決：大罷免是輸在「同意沒過半」，不是門檻。</li>
 <li>以同意比例計（民調同意 % − 開票同意 %）：鏡新聞／大地 23 份平均 +1.2；國安學會 8 份 +6.5；罷免方反共護台聯盟† 7 份 +6.5；國民黨委託† 8 份 −3.9。兩邊陣營相關單位各偏自己一側。（上面 a5 notes 的 6.4／5.6 是以差距計，口徑不同。）</li>
 </ul>
-<p><strong>其他兩次立委罷免</strong>（都是單一選區、單獨投票日）：</p>
-<div class="tw"><table>
-<thead>
-<tr>
-<th>被罷免人</th>
-<th>投票日</th>
-<th>開票同意 %</th>
-<th>開票不同意 %</th>
-<th>投票率</th>
-<th>同意占投票權人</th>
-<th>結果</th>
-<th>民調 同意／不同意（括號：扣除未表態後同意 %）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>陳柏惟（台中第 2 選區）</td>
-<td>2021-10-23</td>
-<td>51.5</td>
-<td>48.5</td>
-<td>51.7</td>
-<td>26.4 ✔</td>
-<td>通過</td>
-<td>TVBS（罷免方刪Q總部委託†）9/13 50.7／24.4（68）；同上 10/4 52.1／20.7（72）；美麗島 10/9 37.2／25.7（59）</td>
-</tr>
-<tr>
-<td>林昶佐（台北第 5 選區）</td>
-<td>2022-01-09</td>
-<td>55.8</td>
-<td>44.2</td>
-<td>41.9</td>
-<td>23.3</td>
-<td>不通過（同意多但未達門檻）</td>
-<td>循證（林昶佐陣營委託†，12/22–24 訪問、12/29 發布）34.1／34.2（50）</td>
-</tr>
-</tbody>
-</table></div>
+<p><strong>其他兩次立委罷免</strong>（陳柏惟、林昶佐；已列在上表最後兩列，<span class="refmark">橘底</span>為參考值）：</p>
 <ul>
 <li>民調很少，而且大多是陣營委託：陳柏惟案 3 份中 2 份是罷免方委託 TVBS 執行；林昶佐案只有林方自己的內參 1 份。沒有中立媒體自辦的選區民調。</li>
 <li>陳柏惟案三份都說同意方領先，方向對，但都高估同意方的領先幅度。罷免方公布的「會投且同意」約占選舉人 27–30%，跟實際 26.4% 相當接近。</li>
 <li>林昶佐案的內參同意、不同意幾乎平手（方向判為錯）；但只看「一定會投」的人，同意 19%、不同意 16.9%（占全體），方向對、低估了雙方的實際票數（23.3%／18.5%）。結果是同意過半、卻差門檻。</li>
 </ul>
-<h3 id="45-2020-06-06">4.5 罷韓（2020-06-06）另算</h3>
-<p>國民黨呼籲支持者不要去投，所以同意占有效票 97.4%，同意對不同意的比例沒有參考價值，不列入 §2。
-- 改用「同意票占選舉人」比較：實際 40.83%。
-- 寶島通訊估「一定會投且同意」占全體 41.9%，最接近；其他家低估 5–9 點〔a2 notes〕。</p>
+<h3 id="45-2020-06-06">4.5 罷韓（2020-06-06）另列</h3>
+<p class="redwarn">⚠ 國民黨呼籲支持者不要去投票，實際開票的不同意票極少（2.6%），無法反映真實的反對比例。下表紅字的「不同意」數字是依民調比例推算的估算值，不是開票結果。</p>
+
+<p><strong>實際開票</strong>：投票權人 2,299,981；投票率 42.14%；同意 939,090 票（占有效票 97.40%、占投票權人 40.83%）；不同意 25,051 票；通過，韓國瑜解職〔<a href="https://www.cec.gov.tw/khec/cms/latestNews/33405" target="_blank" rel="noopener noreferrer">中選會</a>〕。</p>
+<p><strong>估算方法</strong>：假設沒有人杯葛、同意方與不同意方的投票率相同，則不同意票 ≈ 實際同意票 939,090 × 民調（不同意 ÷ 同意）。「估算不同意 %」＝估算不同意票 ÷（實際同意票＋估算不同意票）。</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>發布</th>
+<th>委託／執行</th>
+<th>樣本</th>
+<th>調查方式</th>
+<th>同意</th>
+<th>不同意</th>
+<th>未表態</th>
+<th>一定會投</th>
+<th>一定會投且同意（占全體）</th>
+<th><span class="est">估算不同意票</span></th>
+<th><span class="est">估算不同意 %（占有效票）</span></th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020-05-26</td>
+<td>台灣民意基金會</td>
+<td>1085</td>
+<td>市話（山水執行）</td>
+<td>56.3</td>
+<td>28.2</td>
+<td>11.2</td>
+<td>47.9</td>
+<td>35.0</td>
+<td><span class="est">約 47 萬</span></td>
+<td><span class="est">33%</span></td>
+<td>全國樣本，高雄子樣本僅 129 人</td>
+</tr>
+<tr>
+<td>2020-05-25</td>
+<td>蘋果日報</td>
+<td>1079</td>
+<td>市話</td>
+<td>50.1</td>
+<td>22</td>
+<td>27.9</td>
+<td>39.0</td>
+<td>36.0</td>
+<td><span class="est">約 41 萬</span></td>
+<td><span class="est">31%</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-05-25</td>
+<td>時代力量†</td>
+<td>830</td>
+<td>陣營公布</td>
+<td>56.4</td>
+<td>28.9</td>
+<td>14.7</td>
+<td>46.4</td>
+<td>35.6</td>
+<td><span class="est">約 48 萬</span></td>
+<td><span class="est">34%</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-05-24</td>
+<td>寶島通訊</td>
+<td>1080</td>
+<td>市話</td>
+<td>57.3</td>
+<td>30</td>
+<td>12.7</td>
+<td>45.5</td>
+<td>41.9</td>
+<td><span class="est">約 49 萬</span></td>
+<td><span class="est">34%</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-05-22</td>
+<td>TVBS</td>
+<td>1237</td>
+<td>市話</td>
+<td>73</td>
+<td>10</td>
+<td>16</td>
+<td>51</td>
+<td>34</td>
+<td><span class="est">約 13 萬</span></td>
+<td><span class="est">12%</span></td>
+<td>以有投票意願者為基數；只算一定會投者，同意占全體 34%</td>
+</tr>
+<tr>
+<td>2020-05-19</td>
+<td>台灣基進†</td>
+<td>1072</td>
+<td>陣營公布</td>
+<td>54.4</td>
+<td>26.5</td>
+<td>19.0</td>
+<td>34.5</td>
+<td>31.9</td>
+<td><span class="est">約 46 萬</span></td>
+<td><span class="est">33%</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-05-11</td>
+<td>蘋果日報</td>
+<td>1082</td>
+<td>未載明</td>
+<td>65</td>
+<td>20.4</td>
+<td>14.6</td>
+<td>50.2</td>
+<td>37.3</td>
+<td><span class="est">約 29 萬</span></td>
+<td><span class="est">24%</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-05-05</td>
+<td>寶島通訊</td>
+<td>1090</td>
+<td>未載明</td>
+<td>55.1</td>
+<td>32</td>
+<td>12.9</td>
+<td>47.5</td>
+<td>36.0</td>
+<td><span class="est">約 55 萬</span></td>
+<td><span class="est">37%</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-04-20</td>
+<td>時代力量†</td>
+<td>805</td>
+<td>陣營公布</td>
+<td>52.1</td>
+<td>35.2</td>
+<td>12.7</td>
+<td>43.6</td>
+<td>33.0</td>
+<td><span class="est">約 63 萬</span></td>
+<td><span class="est">40%</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-03-20</td>
+<td>新台灣國策智庫</td>
+<td>1087</td>
+<td>市話</td>
+<td>59.5</td>
+<td>34.5</td>
+<td>6.0</td>
+<td>51.2</td>
+<td>39.5</td>
+<td><span class="est">約 54 萬</span></td>
+<td><span class="est">37%</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-02-11</td>
+<td>TVBS</td>
+<td>1213</td>
+<td>未載明</td>
+<td>53</td>
+<td>32</td>
+<td>16.0</td>
+<td>44.0</td>
+<td>34.8</td>
+<td><span class="est">約 57 萬</span></td>
+<td><span class="est">38%</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-01-17</td>
+<td>ETtoday／東森民調雲</td>
+<td>1768</td>
+<td>手機簡訊網路問卷</td>
+<td>63.4</td>
+<td>33.2</td>
+<td>3.4</td>
+<td>—</td>
+<td>—</td>
+<td><span class="est">約 49 萬</span></td>
+<td><span class="est">34%</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-01-15</td>
+<td>TVBS</td>
+<td>1030</td>
+<td>未載明</td>
+<td>53</td>
+<td>32</td>
+<td>15.0</td>
+<td>—</td>
+<td>—</td>
+<td><span class="est">約 57 萬</span></td>
+<td><span class="est">38%</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2020-01-14</td>
+<td>台灣指標民調</td>
+<td>1072</td>
+<td>市話</td>
+<td>58.5</td>
+<td>29.8</td>
+<td>11.7</td>
+<td>65.1</td>
+<td>58.2</td>
+<td><span class="est">約 48 萬</span></td>
+<td><span class="est">34%</span></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>依各家民調推算，若國民黨支持者照常投票，不同意票約在 13–63 萬之間，占有效票約 12–40%（TVBS 5/22 以有投票意願者為基數，已反映部分杯葛，所以最低；其餘多在 31–38%）；即使如此，同意票仍過半、也遠高於 25% 門檻（574,996 票），罷免結果不會改變。</li>
+<li>以「一定會投且同意」占全體比較實際同意票占投票權人（40.83%）：寶島通訊 41.9% 最接近，其他家多低估 5–9 點；台灣指標 1 月的 58.2% 高估最多。</li>
+<li>因為杯葛投票，同意對不同意的比例不列入 §2 的誤差計算。</li>
+<li>†＝陣營公布（時代力量、台灣基進）。</li>
+</ul>
 <h3 id="46-20192020">4.6 2019：反送中前後的翻轉（2020 總統趨勢）</h3>
 <div class="tw"><table>
 <thead>

@@ -10,9 +10,9 @@
 <meta property="og:description" content="依投票日排列：每次選舉的開票結果、期間重大事件、各家封關前最後一份民調與全部民調原始數字。">
 <style>
 :root{--bg:#f5f1e8;--panel:#fff;--panel-2:#fbf7ec;--line:#d9d2bf;--ink:#1a2238;--ink-2:#3d4868;--mute:#6b7388;
---primary:#1f3a68;--link:#2c528f;--th:#ece6d6;--code:#efe9da}
+--primary:#1f3a68;--link:#2c528f;--th:#ece6d6;--code:#efe9da;--refbg:#fde7cf;--red:#c62828;--redbg:#fdecea}
 @media (prefers-color-scheme:dark){:root{--bg:#14171f;--panel:#1c2030;--panel-2:#22273a;--line:#343b52;--ink:#e6e8ef;
---ink-2:#c3c8d6;--mute:#8d94a8;--primary:#9fb8e6;--link:#8fb0ea;--th:#262c40;--code:#2a3044}}
+--ink-2:#c3c8d6;--mute:#8d94a8;--primary:#9fb8e6;--link:#8fb0ea;--th:#262c40;--code:#2a3044;--refbg:#4a3418;--red:#ff6b6b;--redbg:#3a1c1c}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
 header.hero{background:var(--primary);color:#fff;padding:2rem 16px 1.5rem}
@@ -38,6 +38,10 @@ summary{cursor:pointer;color:var(--link);font-weight:600}
 .toc{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:.6rem 1rem;font-size:.9rem}
 .toc ul{margin:.2rem 0;padding-left:1.2rem}
 footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute);font-size:.82rem;border-top:1px solid var(--line)}
+tr.refrow td{background:var(--refbg)!important}
+.refmark{background:var(--refbg);padding:0 .3em;border-radius:3px}
+.est{color:var(--red);font-weight:700}
+p.redwarn{color:var(--red);font-weight:700;border:2px solid var(--red);border-radius:6px;padding:.6rem .9rem;background:var(--redbg)}
 .ai-verified{color:#2e7d4f;cursor:help;border-bottom:1px dotted #2e7d4f;font-weight:600;margin-left:0.15em}
 </style>
 </head>
