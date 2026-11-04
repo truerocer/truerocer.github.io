@@ -39,6 +39,31 @@ summary{cursor:pointer;color:var(--link);font-weight:600}
 .toc ul{margin:.2rem 0;padding-left:1.2rem}
 footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute);font-size:.82rem;border-top:1px solid var(--line)}
 .ai-verified{color:#2e7d4f;cursor:help;border-bottom:1px dotted #2e7d4f;font-weight:600;margin-left:0.15em}
+
+.viz{--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--mute:#898781;--grid:#e1e0d9;--axis:#c3c2b7;
+--g:#008300;--b:#2a78d6;--c1:#eb6834;--c2:#6250d6;--c3:#e87ba4;--gwash:rgba(0,131,0,.07);--bwash:rgba(42,120,214,.07)}
+@media (prefers-color-scheme:dark){.viz{--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--mute:#898781;--grid:#2c2c2a;
+--axis:#383835;--g:#2fa84f;--b:#3987e5;--c1:#d95926;--c2:#9085e9;--c3:#d55181;--gwash:rgba(47,168,79,.09);--bwash:rgba(57,135,229,.09)}}
+figure.viz{margin:1.4rem 0;padding:1rem 1rem .6rem;background:var(--surface);border:1px solid rgba(127,127,127,.25);border-radius:8px}
+figure.viz figcaption .t{font-weight:700;color:var(--ink);font-size:1.02rem;line-height:1.5}
+figure.viz figcaption .s{color:var(--ink2);font-size:.86rem;margin:.15rem 0 .5rem}
+figure.viz .sc{overflow-x:auto;-webkit-overflow-scrolling:touch}
+figure.viz svg{width:100%;min-width:620px;height:auto;display:block;font-family:inherit}
+figure.viz .note{color:var(--mute);font-size:.78rem;margin:.3rem 0 0}
+.viz text{fill:var(--ink2);font-size:12px}
+.viz text.v,.viz tspan.v{fill:var(--ink);font-weight:600}
+.viz text.m{fill:var(--mute);font-size:11px}
+.viz .grid{stroke:var(--grid);stroke-width:1}
+.viz .axis{stroke:var(--axis);stroke-width:1}
+.viz .lg{display:flex;flex-wrap:wrap;gap:.3rem 1rem;font-size:.82rem;color:var(--ink2);margin:.1rem 0 .4rem}
+.viz .lg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.35rem;vertical-align:-1px}
+.viz .lg i.ln{width:16px;height:0;border-radius:0;border-top:2px solid;vertical-align:3px}
+.viz [data-tip]{cursor:default}
+.viz [data-tip]:hover{opacity:1!important;stroke:var(--ink);stroke-width:1.5}
+#viztip{position:fixed;z-index:50;pointer-events:none;background:var(--panel,#fff);color:var(--ink,#1a2238);border:1px solid rgba(127,127,127,.35);
+border-radius:6px;padding:.35rem .55rem;font-size:.82rem;line-height:1.45;max-width:280px;box-shadow:0 4px 14px rgba(0,0,0,.15);display:none}
+figure.fbimg img{max-width:100%;height:auto;border:1px solid rgba(127,127,127,.3);border-radius:6px;background:#fff}
+figure.fbimg figcaption{color:var(--mute,#6b7388);font-size:.82rem;margin-top:.3rem}
 </style>
 </head>
 <body>
@@ -155,7 +180,7 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <h2 id="1">1. 結論摘要</h2>
 <ol>
 <li><strong>一般誤差</strong>：主流機構封關前最後一份，總統選舉的差距誤差中位數約 5–7 點（2016 6.3、2024 4.6；2020 是 14.4，見第 2 點）。地方選舉大很多，六都中位數常在 7–30 點。</li>
-<li><strong>2016–2022 候選人選舉的民調整體偏綠</strong>：60 天內最後一份的綠藍偏差平均，2016 +3.3、2018 +5.6、2020 +13.1、2022 +7.0。<strong>2024 是 −1.0</strong>，幾乎沒有偏差。</li>
+<li><strong>2016–2022 候選人選舉的民調整體偏綠</strong>：60 天內最後一份的綠藍偏差平均，2016 +3.2、2018 +5.2、2020 +13.1、2022 +8.7。<strong>2024 是 −1.0</strong>，幾乎沒有偏差。</li>
 <li><strong>純市話是最大的誤差來源</strong>：
    - 純市話 86 份，差距誤差中位 10.8，平均偏綠 +6.4。
    - 市話＋手機 31 份，中位 4.9，偏綠 +1.1。
@@ -167,12 +192,620 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
    - 受訪者自稱「一定會投」的比例在 49–62% 之間，實際投票率只有 41%。所有有附投票意願的民調，平均高估投票率 <strong>11.6 點</strong>（70 份）。
    - 2025 核三案的同意比例，三家都在 ±2 點內，但沒有一家預料到投票率只有 29.5%、過不了門檻。</li>
 <li><strong>陣營或立場鮮明的委託方，誤差多半偏向自己那邊</strong>，兩邊都是：
-   - 偏綠：自由時報 +18.7、三立 +14.1、兩岸政策協會 +11.1、中華亞太 +10.3。
+   - 偏綠：自由時報 +19.7、中華亞太 +14.7、新台灣國策智庫 +14.2、三立 +14.1、匯流 +13.9、兩岸政策協會 +10.3。
    - 偏藍：國民黨委託的 2025 罷免民調平均 −5.6；2021 公投時的十方、遠見、台北智會為 −25～−31。
-   - 也有長期接近中性的：聯合報 −0.5、TVBS −2.9、ETtoday +2.1、菱傳媒 +0.5（以上為候選人選舉）。</li>
+   - 也有長期接近中性的：聯合報 +0.7、TVBS −2.0、ETtoday +2.5、菱傳媒 +2.8（以上為候選人選舉）。</li>
 </ol>
+<figure class="viz"><figcaption><div class="t">2016–2022 民調一致偏綠，2024 年歸零</div><div class="s">候選人選舉，各機構投票前 60 天內最後一份（不含陣營公布）；綠藍偏差＝民調的（綠−藍）差距 − 實際差距</div></figcaption><div class="lg"><span><i style="background:var(--g)"></i>單份民調：偏綠</span><span><i style="background:var(--b)"></i>單份民調：偏藍</span><span><i class="ln" style="border-color:var(--ink)"></i>該年平均</span></div><div class="sc"><svg viewBox="0 0 760 360" role="img" aria-label="各年度封關前最後一份民調的綠藍偏差">
+<rect x="56" y="16" width="684" height="180.8" fill="var(--gwash)"/>
+<rect x="56" y="196.8" width="684" height="129.2" fill="var(--bwash)"/>
+<line class="grid" x1="56" x2="740" y1="326.0" y2="326.0"/>
+<text x="48" y="330.0" text-anchor="end">−40</text>
+<line class="grid" x1="56" x2="740" y1="261.4" y2="261.4"/>
+<text x="48" y="265.4" text-anchor="end">−20</text>
+<line class="grid" x1="56" x2="740" y1="196.8" y2="196.8"/>
+<text x="48" y="200.8" text-anchor="end">0</text>
+<line class="grid" x1="56" x2="740" y1="132.2" y2="132.2"/>
+<text x="48" y="136.2" text-anchor="end">+20</text>
+<line class="grid" x1="56" x2="740" y1="67.7" y2="67.7"/>
+<text x="48" y="71.7" text-anchor="end">+40</text>
+<line class="axis" x1="56" x2="740" y1="196.8" y2="196.8" style="stroke-width:1.5"/>
+<text class="m" x="62" y="30">↑ 偏綠（高估民進黨）</text>
+<text class="m" x="62" y="320">↓ 偏藍（高估國民黨）</text>
+<circle cx="86.1" cy="239.5" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜全國意向
+綠藍偏差 −13.2（距投票 27 天）"/>
+<circle cx="134.8" cy="232.7" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 政黨票｜全國意向
+綠藍偏差 −11.1（距投票 39 天）"/>
+<circle cx="103.5" cy="229.4" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 政黨票｜三立
+綠藍偏差 −10.1（距投票 13 天）"/>
+<circle cx="152.3" cy="226.2" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 政黨票｜世新大學
+綠藍偏差 −9.1（距投票 14 天）"/>
+<circle cx="120.9" cy="214.3" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 政黨票｜兩岸政策協會
+綠藍偏差 −5.4（距投票 13 天）"/>
+<circle cx="89.6" cy="213.3" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 政黨票｜循證民調
+綠藍偏差 −5.1（距投票 26 天）"/>
+<circle cx="138.3" cy="209.1" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 政黨票｜趨勢民調
+綠藍偏差 −3.8（距投票 19 天）"/>
+<circle cx="107.0" cy="207.8" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜TVBS
+綠藍偏差 −3.4（距投票 11 天）"/>
+<circle cx="155.7" cy="202.6" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 政黨票｜台灣指標民調
+綠藍偏差 −1.8（距投票 18 天）"/>
+<circle cx="124.4" cy="191.0" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜蘋果日報
+綠藍偏差 +1.8（距投票 12 天）"/>
+<circle cx="93.1" cy="190.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 政黨票｜新台灣國策智庫
+綠藍偏差 +2.1（距投票 21 天）"/>
+<circle cx="141.8" cy="185.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜聯合報
+綠藍偏差 +3.5（距投票 20 天）"/>
+<circle cx="110.5" cy="182.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 政黨票｜蓋洛普
+綠藍偏差 +4.5（距投票 45 天）"/>
+<circle cx="159.2" cy="179.7" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜台灣指標民調
+綠藍偏差 +5.3（距投票 18 天）"/>
+<circle cx="127.9" cy="179.7" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜台灣智庫
+綠藍偏差 +5.3（距投票 19 天）"/>
+<circle cx="96.5" cy="178.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜趨勢民調
+綠藍偏差 +5.8（距投票 19 天）"/>
+<circle cx="145.3" cy="176.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜典通
+綠藍偏差 +6.3（距投票 12 天）"/>
+<circle cx="114.0" cy="173.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜壹電視
+綠藍偏差 +7.3（距投票 13 天）"/>
+<circle cx="162.7" cy="172.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜世新大學
+綠藍偏差 +7.6（距投票 34 天）"/>
+<circle cx="131.4" cy="169.7" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 政黨票｜自由時報
+綠藍偏差 +8.4（距投票 12 天）"/>
+<circle cx="100.0" cy="166.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜三立
+綠藍偏差 +9.4（距投票 12 天）"/>
+<circle cx="148.8" cy="157.4" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜兩岸政策協會
+綠藍偏差 +12.2（距投票 11 天）"/>
+<circle cx="117.4" cy="149.7" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜決策民調
+綠藍偏差 +14.6（距投票 40 天）"/>
+<circle cx="86.1" cy="149.4" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜蓋洛普
+綠藍偏差 +14.7（距投票 45 天）"/>
+<circle cx="134.8" cy="142.6" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜新台灣國策智庫
+綠藍偏差 +16.8（距投票 21 天）"/>
+<circle cx="103.5" cy="131.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2016 總統｜自由時報
+綠藍偏差 +20.3（距投票 11 天）"/>
+<line x1="75.2" x2="173.6" y1="186.5" y2="186.5" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+<text class="v" x="176.4" y="190.5">+3.2</text>
+<text x="124.4" y="348" text-anchor="middle" class="v">2016</text>
+<text class="m" x="124.4" y="360" text-anchor="middle">26 份</text>
+<circle cx="222.9" cy="263.7" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 新北｜聯合報
+綠藍偏差 −20.7（距投票 22 天）"/>
+<circle cx="271.6" cy="256.2" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 新北｜美麗島電子報
+綠藍偏差 −18.4（距投票 29 天）"/>
+<circle cx="240.3" cy="244.3" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 高雄｜台灣競爭力論壇
+綠藍偏差 −14.7（距投票 12 天）"/>
+<circle cx="289.1" cy="234.9" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 高雄｜聯合報
+綠藍偏差 −11.8（距投票 12 天）"/>
+<circle cx="257.7" cy="231.4" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 新北｜TVBS
+綠藍偏差 −10.7（距投票 37 天）"/>
+<circle cx="226.4" cy="228.2" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台北｜蘋果日報
+綠藍偏差 −9.7（距投票 15 天）"/>
+<circle cx="275.1" cy="227.8" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台北｜聯合報
+綠藍偏差 −9.6（距投票 24 天）"/>
+<circle cx="243.8" cy="223.6" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 新北｜中國時報
+綠藍偏差 −8.3（距投票 39 天）"/>
+<circle cx="292.5" cy="215.9" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 新北｜艾普羅
+綠藍偏差 −5.9（距投票 48 天）"/>
+<circle cx="261.2" cy="207.8" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台中｜聯合報
+綠藍偏差 −3.4（距投票 19 天）"/>
+<circle cx="229.9" cy="204.6" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 高雄｜TVBS
+綠藍偏差 −2.4（距投票 17 天）"/>
+<circle cx="278.6" cy="203.6" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台北｜大社會民調
+綠藍偏差 −2.1（距投票 26 天）"/>
+<circle cx="247.3" cy="202.3" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台北｜美麗島電子報
+綠藍偏差 −1.7（距投票 12 天）"/>
+<circle cx="296.0" cy="200.1" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台北｜TVBS
+綠藍偏差 −1.0（距投票 29 天）"/>
+<circle cx="264.7" cy="198.8" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台北｜負數票協會
+綠藍偏差 −0.6（距投票 30 天）"/>
+<circle cx="233.3" cy="197.2" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台中｜ETtoday／東森民調雲
+綠藍偏差 −0.1（距投票 15 天）"/>
+<circle cx="282.1" cy="193.9" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 桃園｜蘋果日報
+綠藍偏差 +0.9（距投票 20 天）"/>
+<circle cx="250.8" cy="191.7" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 高雄｜ETtoday／東森民調雲
+綠藍偏差 +1.6（距投票 12 天）"/>
+<circle cx="299.5" cy="188.8" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台中｜台灣競爭力論壇
+綠藍偏差 +2.5（距投票 28 天）"/>
+<circle cx="268.2" cy="186.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台北｜台灣民意基金會
+綠藍偏差 +3.2（距投票 39 天）"/>
+<circle cx="236.8" cy="185.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台中｜美麗島電子報
+綠藍偏差 +3.5（距投票 23 天）"/>
+<circle cx="285.6" cy="185.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台北｜三立
+綠藍偏差 +3.6（距投票 56 天）"/>
+<circle cx="254.2" cy="182.6" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台中｜TVBS
+綠藍偏差 +4.4（距投票 33 天）"/>
+<circle cx="222.9" cy="181.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 高雄｜旺旺中時
+綠藍偏差 +4.8（距投票 11 天）"/>
+<circle cx="271.6" cy="180.4" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 高雄｜蘋果日報
+綠藍偏差 +5.1（距投票 12 天）"/>
+<circle cx="240.3" cy="178.8" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 高雄｜艾普羅
+綠藍偏差 +5.6（距投票 17 天）"/>
+<circle cx="289.1" cy="178.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 新北｜蘋果日報
+綠藍偏差 +5.8（距投票 14 天）"/>
+<circle cx="257.7" cy="168.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 高雄｜信傳媒
+綠藍偏差 +8.9（距投票 16 天）"/>
+<circle cx="226.4" cy="166.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台北｜中國時報
+綠藍偏差 +9.5（距投票 50 天）"/>
+<circle cx="275.1" cy="162.0" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台中｜蘋果日報
+綠藍偏差 +10.8（距投票 14 天）"/>
+<circle cx="243.8" cy="159.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台中｜旺旺中時
+綠藍偏差 +11.7（距投票 59 天）"/>
+<circle cx="292.5" cy="155.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 高雄｜三立
+綠藍偏差 +12.9（距投票 11 天）"/>
+<circle cx="261.2" cy="154.9" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 新北｜三立
+綠藍偏差 +13.0（距投票 21 天）"/>
+<circle cx="229.9" cy="134.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 高雄｜台灣世代智庫
+綠藍偏差 +19.3（距投票 36 天）"/>
+<circle cx="278.6" cy="124.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台中｜信傳媒
+綠藍偏差 +22.4（距投票 21 天）"/>
+<circle cx="247.3" cy="105.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台中｜三立
+綠藍偏差 +28.4（距投票 18 天）"/>
+<circle cx="296.0" cy="104.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台中｜台灣世代智庫
+綠藍偏差 +28.6（距投票 41 天）"/>
+<circle cx="264.7" cy="88.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 桃園｜聯合報
+綠藍偏差 +33.6（距投票 60 天）"/>
+<circle cx="233.3" cy="75.7" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 桃園｜三立
+綠藍偏差 +37.5（距投票 17 天）"/>
+<circle cx="282.1" cy="31.8" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2018 台南｜蘋果日報
+綠藍偏差 +51.1（距投票 19 天）"/>
+<line x1="212.0" x2="310.4" y1="180.1" y2="180.1" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+<text class="v" x="313.2" y="184.1">+5.2</text>
+<text x="261.2" y="348" text-anchor="middle" class="v">2018</text>
+<text class="m" x="261.2" y="360" text-anchor="middle">40 份</text>
+<circle cx="359.7" cy="215.6" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 政黨票｜旺旺中時
+綠藍偏差 −5.8（距投票 56 天）"/>
+<circle cx="408.4" cy="197.5" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜旺旺中時
+綠藍偏差 −0.2（距投票 56 天）"/>
+<circle cx="377.1" cy="194.6" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 政黨票｜ETtoday／東森民調雲
+綠藍偏差 +0.7（距投票 30 天）"/>
+<circle cx="425.9" cy="194.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜台灣獨立建國聯盟
+綠藍偏差 +0.8（距投票 51 天）"/>
+<circle cx="394.5" cy="193.0" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜TVBS
+綠藍偏差 +1.2（距投票 12 天）"/>
+<circle cx="363.2" cy="177.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜ETtoday／東森民調雲
+綠藍偏差 +6.0（距投票 12 天）"/>
+<circle cx="411.9" cy="177.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 政黨票｜品觀點
+綠藍偏差 +6.1（距投票 55 天）"/>
+<circle cx="380.6" cy="171.0" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜品觀點
+綠藍偏差 +8.0（距投票 46 天）"/>
+<circle cx="429.3" cy="164.9" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 政黨票｜震撼世代傳媒
+綠藍偏差 +9.9（距投票 11 天）"/>
+<circle cx="398.0" cy="160.7" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜寶島通訊
+綠藍偏差 +11.2（距投票 38 天）"/>
+<circle cx="366.7" cy="157.4" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜放言
+綠藍偏差 +12.2（距投票 16 天）"/>
+<circle cx="415.4" cy="150.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜聯合報
+綠藍偏差 +14.4（距投票 28 天）"/>
+<circle cx="384.1" cy="150.0" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 政黨票｜兩岸政策協會
+綠藍偏差 +14.5（距投票 11 天）"/>
+<circle cx="432.8" cy="148.4" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜台灣制憲基金會
+綠藍偏差 +15.0（距投票 38 天）"/>
+<circle cx="401.5" cy="142.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜美麗島電子報
+綠藍偏差 +16.9（距投票 12 天）"/>
+<circle cx="370.1" cy="138.7" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜台灣民意基金會
+綠藍偏差 +18.0（距投票 12 天）"/>
+<circle cx="418.9" cy="132.9" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜兩岸政策協會
+綠藍偏差 +19.8（距投票 11 天）"/>
+<circle cx="387.6" cy="125.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜台灣基進
+綠藍偏差 +22.2（距投票 14 天）"/>
+<circle cx="436.3" cy="124.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜震撼世代傳媒
+綠藍偏差 +22.5（距投票 15 天）"/>
+<circle cx="405.0" cy="123.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜綠黨
+綠藍偏差 +22.7（距投票 12 天）"/>
+<circle cx="373.6" cy="120.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜新台灣國策智庫
+綠藍偏差 +23.7（距投票 35 天）"/>
+<circle cx="422.4" cy="104.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜蘋果日報
+綠藍偏差 +28.7（距投票 12 天）"/>
+<circle cx="391.0" cy="89.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2020 總統｜自由時報
+綠藍偏差 +33.3（距投票 17 天）"/>
+<line x1="348.8" x2="447.2" y1="154.5" y2="154.5" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+<text class="v" x="450.0" y="158.5">+13.1</text>
+<text x="398.0" y="348" text-anchor="middle" class="v">2020</text>
+<text class="m" x="398.0" y="360" text-anchor="middle">23 份</text>
+<circle cx="496.5" cy="303.7" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台中｜美麗島電子報
+綠藍偏差 −33.1（距投票 13 天）"/>
+<circle cx="545.2" cy="263.0" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台中｜大台中市政發展協會
+綠藍偏差 −20.5（距投票 22 天）"/>
+<circle cx="513.9" cy="225.6" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜聯合報
+綠藍偏差 −8.9（距投票 11 天）"/>
+<circle cx="562.7" cy="224.6" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台中｜ETtoday／東森民調雲
+綠藍偏差 −8.6（距投票 11 天）"/>
+<circle cx="531.3" cy="213.9" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜中廣
+綠藍偏差 −5.3（距投票 12 天）"/>
+<circle cx="500.0" cy="204.9" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜TVBS
+綠藍偏差 −2.5（距投票 12 天）"/>
+<circle cx="548.7" cy="204.9" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜TVBS
+綠藍偏差 −2.5（距投票 37 天）"/>
+<circle cx="517.4" cy="204.6" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜蓋洛普
+綠藍偏差 −2.4（距投票 21 天）"/>
+<circle cx="566.1" cy="196.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜震傳媒
+綠藍偏差 +0.1（距投票 15 天）"/>
+<circle cx="534.8" cy="196.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜台灣民意基金會
+綠藍偏差 +0.2（距投票 16 天）"/>
+<circle cx="503.5" cy="195.9" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 高雄｜菱傳媒
+綠藍偏差 +0.3（距投票 52 天）"/>
+<circle cx="552.2" cy="193.6" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜ETtoday／東森民調雲
+綠藍偏差 +1.0（距投票 11 天）"/>
+<circle cx="520.9" cy="193.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 新竹市｜菱傳媒
+綠藍偏差 +1.1（距投票 45 天）"/>
+<circle cx="569.6" cy="192.6" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 新北｜ETtoday／東森民調雲
+綠藍偏差 +1.3（距投票 11 天）"/>
+<circle cx="538.3" cy="188.8" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 新竹市｜ETtoday／東森民調雲
+綠藍偏差 +2.5（距投票 31 天）"/>
+<circle cx="506.9" cy="188.4" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜美麗島電子報
+綠藍偏差 +2.6（距投票 23 天）"/>
+<circle cx="555.7" cy="186.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 新竹市｜TVBS
+綠藍偏差 +3.2（距投票 14 天）"/>
+<circle cx="524.4" cy="185.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜中廣
+綠藍偏差 +3.5（距投票 15 天）"/>
+<circle cx="573.1" cy="184.6" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 新竹市｜年代
+綠藍偏差 +3.8（距投票 16 天）"/>
+<circle cx="541.8" cy="184.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台南｜菱傳媒
+綠藍偏差 +3.9（距投票 31 天）"/>
+<circle cx="510.4" cy="184.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜負數票協會
+綠藍偏差 +3.9（距投票 23 天）"/>
+<circle cx="559.2" cy="184.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜聯合報
+綠藍偏差 +3.9（距投票 20 天）"/>
+<circle cx="527.8" cy="183.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜QuickseeK
+綠藍偏差 +4.2（距投票 33 天）"/>
+<circle cx="496.5" cy="182.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜匯流新聞網
+綠藍偏差 +4.5（距投票 15 天）"/>
+<circle cx="545.2" cy="177.8" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜匯流新聞網
+綠藍偏差 +5.9（距投票 13 天）"/>
+<circle cx="513.9" cy="177.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜蓋洛普
+綠藍偏差 +6.0（距投票 29 天）"/>
+<circle cx="562.7" cy="177.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 新竹市｜蓋洛普
+綠藍偏差 +6.1（距投票 15 天）"/>
+<circle cx="531.3" cy="176.8" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜台灣民意基金會
+綠藍偏差 +6.2（距投票 27 天）"/>
+<circle cx="500.0" cy="175.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜菱傳媒
+綠藍偏差 +6.7（距投票 24 天）"/>
+<circle cx="548.7" cy="174.6" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 新竹市｜聯合報
+綠藍偏差 +6.9（距投票 14 天）"/>
+<circle cx="517.4" cy="172.9" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜菱傳媒
+綠藍偏差 +7.4（距投票 17 天）"/>
+<circle cx="566.1" cy="172.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 新竹市｜負數票協會
+綠藍偏差 +7.6（距投票 14 天）"/>
+<circle cx="534.8" cy="172.0" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 高雄｜ETtoday／東森民調雲
+綠藍偏差 +7.7（距投票 11 天）"/>
+<circle cx="503.5" cy="169.4" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 基隆｜年代
+綠藍偏差 +8.5（距投票 36 天）"/>
+<circle cx="552.2" cy="168.7" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 基隆｜台灣指標民調
+綠藍偏差 +8.7（距投票 50 天）"/>
+<circle cx="520.9" cy="167.4" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜ETtoday／東森民調雲
+綠藍偏差 +9.1（距投票 11 天）"/>
+<circle cx="569.6" cy="166.8" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台中｜周刊王CTWANT
+綠藍偏差 +9.3（距投票 12 天）"/>
+<circle cx="538.3" cy="162.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜關鍵調查
+綠藍偏差 +10.7（距投票 51 天）"/>
+<circle cx="506.9" cy="158.4" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜中華亞太菁英交流協會
+綠藍偏差 +11.9（距投票 16 天）"/>
+<circle cx="555.7" cy="157.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 基隆｜艾普羅
+綠藍偏差 +12.3（距投票 50 天）"/>
+<circle cx="524.4" cy="155.5" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜QuickseeK
+綠藍偏差 +12.8（距投票 13 天）"/>
+<circle cx="573.1" cy="154.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 新竹市｜自由時報
+綠藍偏差 +13.2（距投票 40 天）"/>
+<circle cx="541.8" cy="152.9" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 新竹市｜中華亞太菁英交流協會
+綠藍偏差 +13.6（距投票 54 天）"/>
+<circle cx="510.4" cy="152.9" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜三立
+綠藍偏差 +13.6（距投票 12 天）"/>
+<circle cx="559.2" cy="148.7" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜放言
+綠藍偏差 +14.9（距投票 60 天）"/>
+<circle cx="527.8" cy="146.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜自由時報
+綠藍偏差 +15.7（距投票 19 天）"/>
+<circle cx="496.5" cy="144.8" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台南｜ETtoday／東森民調雲
+綠藍偏差 +16.1（距投票 11 天）"/>
+<circle cx="545.2" cy="140.6" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台北｜自由時報
+綠藍偏差 +17.4（距投票 12 天）"/>
+<circle cx="513.9" cy="137.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 基隆｜中華亞太菁英交流協會
+綠藍偏差 +18.5（距投票 29 天）"/>
+<circle cx="562.7" cy="136.8" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 桃園｜中華亞太菁英交流協會
+綠藍偏差 +18.6（距投票 12 天）"/>
+<circle cx="531.3" cy="119.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 基隆｜自由時報
+綠藍偏差 +24.0（距投票 46 天）"/>
+<circle cx="500.0" cy="114.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 高雄｜自由時報
+綠藍偏差 +25.6（距投票 54 天）"/>
+<circle cx="548.7" cy="109.0" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 高雄｜中華亞太菁英交流協會
+綠藍偏差 +27.2（距投票 17 天）"/>
+<circle cx="517.4" cy="81.9" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 高雄｜三立
+綠藍偏差 +35.6（距投票 42 天）"/>
+<circle cx="566.1" cy="60.2" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台南｜匯流新聞網
+綠藍偏差 +42.3（距投票 13 天）"/>
+<circle cx="534.8" cy="40.9" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台南｜崑山科大
+綠藍偏差 +48.3（距投票 50 天）"/>
+<circle cx="503.5" cy="24.1" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2022 台南｜美麗島電子報
+綠藍偏差 +53.5（距投票 21 天）"/>
+<line x1="485.6" x2="584.0" y1="168.6" y2="168.6" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+<text class="v" x="586.8" y="172.6">+8.7</text>
+<text x="534.8" y="348" text-anchor="middle" class="v">2022</text>
+<text class="m" x="534.8" y="360" text-anchor="middle">57 份</text>
+<circle cx="633.3" cy="239.1" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 政黨票｜震傳媒
+綠藍偏差 −13.1（距投票 12 天）"/>
+<circle cx="682.0" cy="217.8" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜新未來文教基金會
+綠藍偏差 −6.5（距投票 47 天）"/>
+<circle cx="650.7" cy="213.9" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 政黨票｜TVBS
+綠藍偏差 −5.3（距投票 15 天）"/>
+<circle cx="699.5" cy="207.8" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜ETtoday／東森民調雲
+綠藍偏差 −3.4（距投票 11 天）"/>
+<circle cx="668.1" cy="207.2" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜榮泰創數據
+綠藍偏差 −3.2（距投票 13 天）"/>
+<circle cx="636.8" cy="206.5" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜TVBS
+綠藍偏差 −3.0（距投票 12 天）"/>
+<circle cx="685.5" cy="206.2" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜震傳媒
+綠藍偏差 −2.9（距投票 12 天）"/>
+<circle cx="654.2" cy="206.2" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜三立
+綠藍偏差 −2.9（距投票 17 天）"/>
+<circle cx="702.9" cy="204.6" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜菱傳媒
+綠藍偏差 −2.4（距投票 12 天）"/>
+<circle cx="671.6" cy="203.3" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜旺旺中時
+綠藍偏差 −2.0（距投票 28 天）"/>
+<circle cx="640.3" cy="203.0" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 政黨票｜ETtoday／東森民調雲
+綠藍偏差 −1.9（距投票 43 天）"/>
+<circle cx="689.0" cy="202.0" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜中華亞太菁英交流協會
+綠藍偏差 −1.6（距投票 17 天）"/>
+<circle cx="657.7" cy="202.0" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜台灣民意基金會
+綠藍偏差 −1.6（距投票 15 天）"/>
+<circle cx="706.4" cy="201.4" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜鋒燦
+綠藍偏差 −1.4（距投票 42 天）"/>
+<circle cx="675.1" cy="199.7" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜台灣獨立建國聯盟
+綠藍偏差 −0.9（距投票 52 天）"/>
+<circle cx="643.7" cy="197.8" r="4.5" fill="var(--b)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜聯合報
+綠藍偏差 −0.3（距投票 11 天）"/>
+<circle cx="692.5" cy="194.3" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 政黨票｜信傳媒
+綠藍偏差 +0.8（距投票 19 天）"/>
+<circle cx="661.2" cy="190.7" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜信傳媒
+綠藍偏差 +1.9（距投票 19 天）"/>
+<circle cx="709.9" cy="187.8" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜匯流新聞網
+綠藍偏差 +2.8（距投票 19 天）"/>
+<circle cx="678.6" cy="181.0" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜關鍵調查
+綠藍偏差 +4.9（距投票 43 天）"/>
+<circle cx="647.2" cy="180.0" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜QuickseeK
+綠藍偏差 +5.2（距投票 14 天）"/>
+<circle cx="696.0" cy="176.8" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜美麗島電子報
+綠藍偏差 +6.2（距投票 14 天）"/>
+<circle cx="664.6" cy="173.9" r="4.5" fill="var(--g)" opacity=".5" stroke="var(--surface)" stroke-width="1" data-tip="2024 總統｜鏡新聞
+綠藍偏差 +7.1（距投票 12 天）"/>
+<line x1="622.4" x2="720.8" y1="200.1" y2="200.1" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+<text class="v" x="723.6" y="204.1">−1.0</text>
+<text x="671.6" y="348" text-anchor="middle" class="v">2024</text>
+<text class="m" x="671.6" y="360" text-anchor="middle">23 份</text>
+</svg></div><p class="note">超過 ±40 的點畫在邊界上；滑鼠移到點上可看機構與選舉。</p></figure>
+
+<figure class="viz"><figcaption><div class="t">純市話的誤差是市話＋手機的兩倍以上</div><div class="s">差距誤差中位數（點），投票前 60 天內最後一份、不含陣營公布；右欄為綠藍偏差平均（＋偏綠）</div></figcaption><div class="sc"><svg viewBox="0 0 760 210" role="img" aria-label="純市話的誤差是市話＋手機的兩倍以上">
+<line class="grid" x1="170.0" x2="170.0" y1="8" y2="190"/>
+<text class="m" x="170.0" y="204" text-anchor="middle">0</text>
+<line class="grid" x1="367.2" x2="367.2" y1="8" y2="190"/>
+<text class="m" x="367.2" y="204" text-anchor="middle">5</text>
+<line class="grid" x1="564.4" x2="564.4" y1="8" y2="190"/>
+<text class="m" x="564.4" y="204" text-anchor="middle">10</text>
+<text x="160" y="27.0" text-anchor="end">純市話（86 份）</text>
+<path d="M170,15.0 h421.9 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-421.9 z" fill="var(--c1)" opacity="1" data-tip="純市話
+86 份；方向猜對 68/86
+差距誤差中位 10.8；綠藍偏差平均 +6.4"/>
+<text class="v" x="601.9" y="27.0">10.8</text>
+<text x="756" y="27.0" text-anchor="end">平均偏差 +6.4</text>
+<text x="160" y="57.0" text-anchor="end">未載明（81 份）</text>
+<path d="M170,45.0 h347.0 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-347.0 z" fill="var(--c1)" opacity=".45" data-tip="未載明
+81 份；方向猜對 64/81
+差距誤差中位 8.9；綠藍偏差平均 +0.3"/>
+<text class="v" x="527.0" y="57.0">8.9</text>
+<text x="756" y="57.0" text-anchor="end">平均偏差 +0.3</text>
+<text x="160" y="87.0" text-anchor="end">電話＋網路混合（12 份）</text>
+<path d="M170,75.0 h197.1 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-197.1 z" fill="var(--c1)" opacity="1" data-tip="電話＋網路混合
+12 份；方向猜對 12/12
+差距誤差中位 5.1；綠藍偏差平均 +3.4"/>
+<text class="v" x="377.1" y="87.0">5.1</text>
+<text x="756" y="87.0" text-anchor="end">平均偏差 +3.4</text>
+<text x="160" y="117.0" text-anchor="end">市話＋手機（31 份）</text>
+<path d="M170,105.0 h189.2 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-189.2 z" fill="var(--c1)" opacity="1" data-tip="市話＋手機
+31 份；方向猜對 25/31
+差距誤差中位 4.9；綠藍偏差平均 +1.1"/>
+<text class="v" x="369.2" y="117.0">4.9</text>
+<text x="756" y="117.0" text-anchor="end">平均偏差 +1.1</text>
+<text x="160" y="147.0" text-anchor="end">網路／簡訊問卷（21 份）</text>
+<path d="M170,135.0 h161.6 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-161.6 z" fill="var(--c1)" opacity="1" data-tip="網路／簡訊問卷
+21 份；方向猜對 15/21
+差距誤差中位 4.2；綠藍偏差平均 −0.4"/>
+<text class="v" x="341.6" y="147.0">4.2</text>
+<text x="756" y="147.0" text-anchor="end">平均偏差 −0.4</text>
+<text x="160" y="177.0" text-anchor="end">純手機（3 份）</text>
+<path d="M170,165.0 h70.9 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-70.9 z" fill="var(--c1)" opacity="1" data-tip="純手機
+3 份；方向猜對 3/3
+差距誤差中位 1.9；綠藍偏差平均 +3.0"/>
+<text class="v" x="250.9" y="177.0">1.9</text>
+<text x="756" y="177.0" text-anchor="end">平均偏差 +3.0</text>
+<line class="axis" x1="170" x2="170" y1="8" y2="190"/>
+</svg></div><p class="note">「未載明」是報導沒寫調查方式的民調，其中可能有不少其實是純市話，以淡色表示。純手機只有 3 份，僅供參考。</p></figure>
+
 <h2 id="2">2. 十年總表：各次選舉</h2>
 <p>各家封關前最後一份的彙總，完整明細見 <a href="list.html">完整列表</a>。「最準」「最不準」不含陣營公布的。</p>
+<figure class="viz"><figcaption><div class="t">總統選舉誤差約 5 點，一面倒的縣市長選舉常超過 25 點</div><div class="s">各家封關前最後一份的差距誤差中位數（點），依投票日排列；右欄為猜對贏家的家數</div></figcaption><div class="lg"><span><i style="background:var(--c2)"></i>總統、政黨票</span><span><i style="background:var(--c1)"></i>縣市長</span><span><i style="background:var(--c3)"></i>公投、罷免</span></div><div class="sc"><svg viewBox="0 0 760 900" role="img" aria-label="總統選舉誤差約 5 點，一面倒的縣市長選舉常超過 25 點">
+<line class="grid" x1="170.0" x2="170.0" y1="8" y2="880"/>
+<text class="m" x="170.0" y="894" text-anchor="middle">0</text>
+<line class="grid" x1="313.8" x2="313.8" y1="8" y2="880"/>
+<text class="m" x="313.8" y="894" text-anchor="middle">10</text>
+<line class="grid" x1="457.6" x2="457.6" y1="8" y2="880"/>
+<text class="m" x="457.6" y="894" text-anchor="middle">20</text>
+<line class="grid" x1="601.3" x2="601.3" y1="8" y2="880"/>
+<text class="m" x="601.3" y="894" text-anchor="middle">30</text>
+<text x="160" y="27.0" text-anchor="end">2016 政黨票</text>
+<path d="M170,15.0 h116.8 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-116.8 z" fill="var(--c2)" opacity="1" data-tip="2016 政黨票（2016-01-16）
+13 家；方向猜對 13/13
+差距誤差中位 8.4"/>
+<text class="v" x="296.8" y="27.0">8.4</text>
+<text x="756" y="27.0" text-anchor="end">猜對 13/13</text>
+<text x="160" y="57.0" text-anchor="end">2016 總統</text>
+<path d="M170,45.0 h86.6 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-86.6 z" fill="var(--c2)" opacity="1" data-tip="2016 總統（2016-01-16）
+23 家；方向猜對 23/23
+差距誤差中位 6.3"/>
+<text class="v" x="266.6" y="57.0">6.3</text>
+<text x="756" y="57.0" text-anchor="end">猜對 23/23</text>
+<text x="160" y="87.0" text-anchor="end">2018 台中</text>
+<path d="M170,75.0 h155.6 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-155.6 z" fill="var(--c1)" opacity="1" data-tip="2018 台中（2018-11-24）
+17 家；方向猜對 11/17
+差距誤差中位 11.1"/>
+<text class="v" x="335.6" y="87.0">11.1</text>
+<text x="756" y="87.0" text-anchor="end">猜對 11/17</text>
+<text x="160" y="117.0" text-anchor="end">2018 台北</text>
+<path d="M170,105.0 h100.2 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-100.2 z" fill="var(--c1)" opacity="1" data-tip="2018 台北（2018-11-24）
+18 家；方向猜對 17/18
+差距誤差中位 7.2"/>
+<text class="v" x="280.2" y="117.0">7.2</text>
+<text x="756" y="117.0" text-anchor="end">猜對 17/18</text>
+<text x="160" y="147.0" text-anchor="end">2018 台南</text>
+<path d="M170,135.0 h377.0 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-377.0 z" fill="var(--c1)" opacity="1" data-tip="2018 台南（2018-11-24）
+3 家；方向猜對 3/3
+差距誤差中位 26.5"/>
+<text class="v" x="557.0" y="147.0">26.5</text>
+<text x="756" y="147.0" text-anchor="end">猜對 3/3</text>
+<text x="160" y="177.0" text-anchor="end">2018 新北</text>
+<path d="M170,165.0 h144.1 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-144.1 z" fill="var(--c1)" opacity="1" data-tip="2018 新北（2018-11-24）
+15 家；方向猜對 15/15
+差距誤差中位 10.3"/>
+<text class="v" x="324.1" y="177.0">10.3</text>
+<text x="756" y="177.0" text-anchor="end">猜對 15/15</text>
+<text x="160" y="207.0" text-anchor="end">2018 桃園</text>
+<path d="M170,195.0 h392.8 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-392.8 z" fill="var(--c1)" opacity="1" data-tip="2018 桃園（2018-11-24）
+10 家；方向猜對 10/10
+差距誤差中位 27.6"/>
+<text class="v" x="572.8" y="207.0">27.6</text>
+<text x="756" y="207.0" text-anchor="end">猜對 10/10</text>
+<text x="160" y="237.0" text-anchor="end">2018 高雄</text>
+<path d="M170,225.0 h185.8 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-185.8 z" fill="var(--c1)" opacity="1" data-tip="2018 高雄（2018-11-24）
+17 家；方向猜對 8/17
+差距誤差中位 13.2"/>
+<text class="v" x="365.8" y="237.0">13.2</text>
+<text x="756" y="237.0" text-anchor="end">猜對 8/17</text>
+<text x="160" y="267.0" text-anchor="end">2020 政黨票</text>
+<path d="M170,255.0 h111.0 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-111.0 z" fill="var(--c2)" opacity="1" data-tip="2020 政黨票（2020-01-11）
+6 家；方向猜對 5/6
+差距誤差中位 8.0"/>
+<text class="v" x="291.0" y="267.0">8.0</text>
+<text x="756" y="267.0" text-anchor="end">猜對 5/6</text>
+<text x="160" y="297.0" text-anchor="end">2020 總統</text>
+<path d="M170,285.0 h203.0 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-203.0 z" fill="var(--c2)" opacity="1" data-tip="2020 總統（2020-01-11）
+29 家；方向猜對 25/29
+差距誤差中位 14.4"/>
+<text class="v" x="383.0" y="297.0">14.4</text>
+<text x="756" y="297.0" text-anchor="end">猜對 25/29</text>
+<text x="160" y="327.0" text-anchor="end">2021 罷免陳柏惟</text>
+<path d="M170,315.0 h395.0 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-395.0 z" fill="var(--c3)" opacity="1" data-tip="2021 罷免陳柏惟（2021-10-23）
+2 家；方向猜對 2/2
+差距誤差中位 27.8"/>
+<text class="v" x="575.0" y="327.0">27.8</text>
+<text x="756" y="327.0" text-anchor="end">猜對 2/2</text>
+<text x="160" y="357.0" text-anchor="end">2021 公投 17 核四</text>
+<path d="M170,345.0 h39.1 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-39.1 z" fill="var(--c3)" opacity="1" data-tip="2021 公投 17 核四（2021-12-18）
+11 家；方向猜對 8/11
+差距誤差中位 3.0"/>
+<text class="v" x="219.1" y="357.0">3.0</text>
+<text x="756" y="357.0" text-anchor="end">猜對 8/11</text>
+<text x="160" y="387.0" text-anchor="end">2021 公投 18 萊豬</text>
+<path d="M170,375.0 h323.1 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-323.1 z" fill="var(--c3)" opacity="1" data-tip="2021 公投 18 萊豬（2021-12-18）
+10 家；方向猜對 0/10
+差距誤差中位 22.8"/>
+<text class="v" x="503.1" y="387.0">22.8</text>
+<text x="756" y="387.0" text-anchor="end">猜對 0/10</text>
+<text x="160" y="417.0" text-anchor="end">2021 公投 19 綁大選</text>
+<path d="M170,405.0 h142.7 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-142.7 z" fill="var(--c3)" opacity="1" data-tip="2021 公投 19 綁大選（2021-12-18）
+10 家；方向猜對 1/10
+差距誤差中位 10.2"/>
+<text class="v" x="322.7" y="417.0">10.2</text>
+<text x="756" y="417.0" text-anchor="end">猜對 1/10</text>
+<text x="160" y="447.0" text-anchor="end">2021 公投 20 藻礁</text>
+<path d="M170,435.0 h144.1 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-144.1 z" fill="var(--c3)" opacity="1" data-tip="2021 公投 20 藻礁（2021-12-18）
+9 家；方向猜對 2/9
+差距誤差中位 10.3"/>
+<text class="v" x="324.1" y="447.0">10.3</text>
+<text x="756" y="447.0" text-anchor="end">猜對 2/9</text>
+<text x="160" y="477.0" text-anchor="end">2022 罷免林昶佐</text>
+<path d="M170,465.0 h164.2 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-164.2 z" fill="var(--c3)" opacity="1" data-tip="2022 罷免林昶佐（2022-01-09）
+1 家；方向猜對 0/1
+差距誤差中位 11.7"/>
+<text class="v" x="344.2" y="477.0">11.7</text>
+<text x="756" y="477.0" text-anchor="end">猜對 0/1</text>
+<text x="160" y="507.0" text-anchor="end">2022 18 歲公民權複決</text>
+<path d="M170,495.0 h149.1 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-149.1 z" fill="var(--c3)" opacity="1" data-tip="2022 18 歲公民權複決（2022-11-26）
+2 家；方向猜對 2/2
+差距誤差中位 10.7"/>
+<text class="v" x="329.1" y="507.0">10.7</text>
+<text x="756" y="507.0" text-anchor="end">猜對 2/2</text>
+<text x="160" y="537.0" text-anchor="end">2022 台中</text>
+<path d="M170,525.0 h198.7 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-198.7 z" fill="var(--c1)" opacity="1" data-tip="2022 台中（2022-11-26）
+10 家；方向猜對 10/10
+差距誤差中位 14.1"/>
+<text class="v" x="378.7" y="537.0">14.1</text>
+<text x="756" y="537.0" text-anchor="end">猜對 10/10</text>
+<text x="160" y="567.0" text-anchor="end">2022 台北</text>
+<path d="M170,555.0 h82.3 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-82.3 z" fill="var(--c1)" opacity="1" data-tip="2022 台北（2022-11-26）
+26 家；方向猜對 20/26
+差距誤差中位 6.0"/>
+<text class="v" x="262.3" y="567.0">6.0</text>
+<text x="756" y="567.0" text-anchor="end">猜對 20/26</text>
+<text x="160" y="597.0" text-anchor="end">2022 台南</text>
+<path d="M170,585.0 h459.0 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-459.0 z" fill="var(--c1)" opacity="1" data-tip="2022 台南（2022-11-26）
+7 家；方向猜對 7/7
+差距誤差中位 32.2"/>
+<text class="v" x="639.0" y="597.0">32.2</text>
+<text x="756" y="597.0" text-anchor="end">猜對 7/7</text>
+<text x="160" y="627.0" text-anchor="end">2022 基隆</text>
+<path d="M170,615.0 h182.2 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-182.2 z" fill="var(--c1)" opacity="1" data-tip="2022 基隆（2022-11-26）
+14 家；方向猜對 8/14
+差距誤差中位 12.9"/>
+<text class="v" x="362.2" y="627.0">12.9</text>
+<text x="756" y="627.0" text-anchor="end">猜對 8/14</text>
+<text x="160" y="657.0" text-anchor="end">2022 新北</text>
+<path d="M170,645.0 h228.9 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-228.9 z" fill="var(--c1)" opacity="1" data-tip="2022 新北（2022-11-26）
+5 家；方向猜對 5/5
+差距誤差中位 16.2"/>
+<text class="v" x="408.9" y="657.0">16.2</text>
+<text x="756" y="657.0" text-anchor="end">猜對 5/5</text>
+<text x="160" y="687.0" text-anchor="end">2022 新竹市</text>
+<path d="M170,675.0 h71.5 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-71.5 z" fill="var(--c1)" opacity="1" data-tip="2022 新竹市（2022-11-26）
+12 家；方向猜對 9/12
+差距誤差中位 5.2"/>
+<text class="v" x="251.5" y="687.0">5.2</text>
+<text x="756" y="687.0" text-anchor="end">猜對 9/12</text>
+<text x="160" y="717.0" text-anchor="end">2022 桃園</text>
+<path d="M170,705.0 h95.2 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-95.2 z" fill="var(--c1)" opacity="1" data-tip="2022 桃園（2022-11-26）
+20 家；方向猜對 15/20
+差距誤差中位 6.9"/>
+<text class="v" x="275.2" y="717.0">6.9</text>
+<text x="756" y="717.0" text-anchor="end">猜對 15/20</text>
+<text x="160" y="747.0" text-anchor="end">2022 高雄</text>
+<path d="M170,735.0 h441.7 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-441.7 z" fill="var(--c1)" opacity="1" data-tip="2022 高雄（2022-11-26）
+9 家；方向猜對 9/9
+差距誤差中位 31.0"/>
+<text class="v" x="621.7" y="747.0">31.0</text>
+<text x="756" y="747.0" text-anchor="end">猜對 9/9</text>
+<text x="160" y="777.0" text-anchor="end">2024 政黨票</text>
+<path d="M170,765.0 h23.3 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-23.3 z" fill="var(--c2)" opacity="1" data-tip="2024 政黨票（2024-01-13）
+9 家；方向猜對 5/9
+差距誤差中位 1.9"/>
+<text class="v" x="203.3" y="777.0">1.9</text>
+<text x="756" y="777.0" text-anchor="end">猜對 5/9</text>
+<text x="160" y="807.0" text-anchor="end">2024 總統</text>
+<path d="M170,795.0 h61.4 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-61.4 z" fill="var(--c2)" opacity="1" data-tip="2024 總統（2024-01-13）
+32 家；方向猜對 32/32
+差距誤差中位 4.6"/>
+<text class="v" x="241.4" y="807.0">4.6</text>
+<text x="756" y="807.0" text-anchor="end">猜對 32/32</text>
+<text x="160" y="837.0" text-anchor="end">2025 大罷免（各區合計）</text>
+<path d="M170,825.0 h119.6 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-119.6 z" fill="var(--c3)" opacity="1" data-tip="2025 大罷免（各區合計）（2025-07-26）
+31 家；方向猜對 24/31
+差距誤差中位 8.6"/>
+<text class="v" x="299.6" y="837.0">8.6</text>
+<text x="756" y="837.0" text-anchor="end">猜對 24/31</text>
+<text x="160" y="867.0" text-anchor="end">2025 公投 21 核三</text>
+<path d="M170,855.0 h20.4 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-20.4 z" fill="var(--c3)" opacity="1" data-tip="2025 公投 21 核三（2025-08-23）
+3 家；方向猜對 3/3
+差距誤差中位 1.7"/>
+<text class="v" x="200.4" y="867.0">1.7</text>
+<text x="756" y="867.0" text-anchor="end">猜對 3/3</text>
+<line class="axis" x1="170" x2="170" y1="8" y2="880"/>
+</svg></div><p class="note">2018 公投只有台灣民意基金會一家、2020 罷韓因杯葛投票不可比，未列入。</p></figure>
+
 <div class="tw"><table>
 <thead>
 <tr>
@@ -446,6 +1079,266 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <h2 id="3">3. 機構成績單</h2>
 <p>只計投票前 60 天內的最後一份、非陣營公布的民調，且至少要有 3 次。依差距誤差中位數由小到大排列。綠藍偏差後的括號是次數。</p>
 <h3 id="31">3.1 依委託／發布方</h3>
+<figure class="viz"><figcaption><div class="t">準又不偏的：TVBS、聯合報、ETtoday、菱傳媒、旺旺中時；誤差大的多半同時偏向一邊</div><div class="s">各委託／發布方，投票前 60 天內最後一份、不含陣營公布，至少 3 次；依差距誤差中位由小到大</div></figcaption><div class="lg"><span><i style="background:var(--c1)"></i>差距誤差中位</span><span><i style="background:var(--g)"></i>偏綠</span><span><i style="background:var(--b)"></i>偏藍</span></div><div class="sc"><svg viewBox="0 0 760 730" role="img" aria-label="各委託方的差距誤差中位與綠藍偏差">
+<text class="v" x="178" y="14">差距誤差中位（越短越準）</text>
+<text class="v" x="590" y="14" text-anchor="middle">綠藍偏差平均</text>
+<text class="m" x="440" y="27">← 偏藍</text><text class="m" x="740" y="27" text-anchor="end">偏綠 →</text>
+<line class="grid" x1="178.0" x2="178.0" y1="30" y2="710"/>
+<text class="m" x="178.0" y="724" text-anchor="middle">0</text>
+<line class="grid" x1="233.5" x2="233.5" y1="30" y2="710"/>
+<text class="m" x="233.5" y="724" text-anchor="middle">10</text>
+<line class="grid" x1="289.0" x2="289.0" y1="30" y2="710"/>
+<text class="m" x="289.0" y="724" text-anchor="middle">20</text>
+<line class="grid" x1="344.5" x2="344.5" y1="30" y2="710"/>
+<text class="m" x="344.5" y="724" text-anchor="middle">30</text>
+<line class="grid" x1="400.0" x2="400.0" y1="30" y2="710"/>
+<text class="m" x="400.0" y="724" text-anchor="middle">40</text>
+<line class="grid" x1="449.4" x2="449.4" y1="30" y2="710"/>
+<text class="m" x="449.4" y="724" text-anchor="middle">−30</text>
+<line class="grid" x1="519.7" x2="519.7" y1="30" y2="710"/>
+<text class="m" x="519.7" y="724" text-anchor="middle">−15</text>
+<line class="axis" x1="590.0" x2="590.0" y1="30" y2="710"/>
+<text class="m" x="590.0" y="724" text-anchor="middle">0</text>
+<line class="grid" x1="660.3" x2="660.3" y1="30" y2="710"/>
+<text class="m" x="660.3" y="724" text-anchor="middle">+15</text>
+<line class="grid" x1="730.6" x2="730.6" y1="30" y2="710"/>
+<text class="m" x="730.6" y="724" text-anchor="middle">+30</text>
+<text x="168" y="47.0" text-anchor="end">震傳媒</text>
+<path d="M178,36.0 h12.1 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-12.1 z" fill="var(--c1)" data-tip="震傳媒（3 次，2022、2024）
+方向猜對 2/3；差距誤差中位 2.9
+綠藍偏差：候選人 −5.3（3）；公投罷免 —"/>
+<text class="v" x="199.1" y="47.0">2.9</text>
+<rect x="565.2" y="36.0" width="24.8" height="14" rx="3" fill="var(--b)" opacity="1" data-tip="震傳媒（3 次，2022、2024）
+方向猜對 2/3；差距誤差中位 2.9
+綠藍偏差：候選人 −5.3（3）；公投罷免 —"/>
+<text class="v" x="595.0" y="47.0">−5.3</text>
+<text x="168" y="73.0" text-anchor="end">菱傳媒</text>
+<path d="M178,62.0 h13.2 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-13.2 z" fill="var(--c1)" data-tip="菱傳媒（6 次，2022、2024）
+方向猜對 6/6；差距誤差中位 3.1
+綠藍偏差：候選人 +2.8（6）；公投罷免 —"/>
+<text class="v" x="200.2" y="73.0">3.1</text>
+<rect x="590.0" y="62.0" width="13.1" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="菱傳媒（6 次，2022、2024）
+方向猜對 6/6；差距誤差中位 3.1
+綠藍偏差：候選人 +2.8（6）；公投罷免 —"/>
+<text class="v" x="608.1" y="73.0">+2.8</text>
+<text x="168" y="99.0" text-anchor="end">TVBS</text>
+<path d="M178,88.0 h14.3 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-14.3 z" fill="var(--c1)" data-tip="TVBS（16 次，2016、2018、2020、2021、2022、2024、2025）
+方向猜對 12/16；差距誤差中位 3.3
+綠藍偏差：候選人 −2.0（11）；公投罷免 −8.3（5）"/>
+<text class="v" x="201.3" y="99.0">3.3</text>
+<rect x="580.6" y="88.0" width="9.4" height="14" rx="3" fill="var(--b)" opacity="1" data-tip="TVBS（16 次，2016、2018、2020、2021、2022、2024、2025）
+方向猜對 12/16；差距誤差中位 3.3
+綠藍偏差：候選人 −2.0（11）；公投罷免 −8.3（5）"/>
+<text class="v" x="595.0" y="99.0">−2.0</text>
+<text x="168" y="125.0" text-anchor="end">旺旺中時</text>
+<path d="M178,114.0 h14.9 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-14.9 z" fill="var(--c1)" data-tip="旺旺中時（6 次，2018、2020、2024）
+方向猜對 5/6；差距誤差中位 3.4
+綠藍偏差：候選人 +1.7（5）；公投罷免 —"/>
+<text class="v" x="201.9" y="125.0">3.4</text>
+<rect x="590.0" y="114.0" width="8.0" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="旺旺中時（6 次，2018、2020、2024）
+方向猜對 5/6；差距誤差中位 3.4
+綠藍偏差：候選人 +1.7（5）；公投罷免 —"/>
+<text class="v" x="603.0" y="125.0">+1.7</text>
+<text x="168" y="151.0" text-anchor="end">皮爾森數據</text>
+<path d="M178,140.0 h16.5 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-16.5 z" fill="var(--c1)" data-tip="皮爾森數據（4 次，2021）
+方向猜對 2/4；差距誤差中位 3.7
+綠藍偏差：候選人 —；公投罷免 −3.6（4）"/>
+<text class="v" x="203.5" y="151.0">3.7</text>
+<rect x="573.1" y="140.0" width="16.9" height="14" rx="3" fill="var(--b)" opacity=".45" data-tip="皮爾森數據（4 次，2021）
+方向猜對 2/4；差距誤差中位 3.7
+綠藍偏差：候選人 —；公投罷免 −3.6（4）"/>
+<text class="v" x="595.0" y="151.0">−3.6（公投）</text>
+<text x="168" y="177.0" text-anchor="end">ETtoday</text>
+<path d="M178,166.0 h21.0 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-21.0 z" fill="var(--c1)" data-tip="ETtoday（18 次，2018、2020、2021、2022、2024）
+方向猜對 14/18；差距誤差中位 4.5
+綠藍偏差：候選人 +2.5（13）；公投罷免 −9.8（4）"/>
+<text class="v" x="208.0" y="177.0">4.5</text>
+<rect x="590.0" y="166.0" width="11.7" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="ETtoday（18 次，2018、2020、2021、2022、2024）
+方向猜對 14/18；差距誤差中位 4.5
+綠藍偏差：候選人 +2.5（13）；公投罷免 −9.8（4）"/>
+<text class="v" x="606.7" y="177.0">+2.5</text>
+<text x="168" y="203.0" text-anchor="end">QuickseeK</text>
+<path d="M178,192.0 h24.9 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-24.9 z" fill="var(--c1)" data-tip="QuickseeK（3 次，2022、2024）
+方向猜對 2/3；差距誤差中位 5.2
+綠藍偏差：候選人 +7.4（3）；公投罷免 —"/>
+<text class="v" x="211.9" y="203.0">5.2</text>
+<rect x="590.0" y="192.0" width="34.7" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="QuickseeK（3 次，2022、2024）
+方向猜對 2/3；差距誤差中位 5.2
+綠藍偏差：候選人 +7.4（3）；公投罷免 —"/>
+<text class="v" x="629.7" y="203.0">+7.4</text>
+<text x="168" y="229.0" text-anchor="end">匯流新聞網</text>
+<path d="M178,218.0 h24.9 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-24.9 z" fill="var(--c1)" data-tip="匯流新聞網（4 次，2022、2024）
+方向猜對 4/4；差距誤差中位 5.2
+綠藍偏差：候選人 +13.9（4）；公投罷免 —"/>
+<text class="v" x="211.9" y="229.0">5.2</text>
+<rect x="590.0" y="218.0" width="65.2" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="匯流新聞網（4 次，2022、2024）
+方向猜對 4/4；差距誤差中位 5.2
+綠藍偏差：候選人 +13.9（4）；公投罷免 —"/>
+<text class="v" x="660.2" y="229.0">+13.9</text>
+<text x="168" y="255.0" text-anchor="end">台灣指標民調</text>
+<path d="M178,244.0 h25.4 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-25.4 z" fill="var(--c1)" data-tip="台灣指標民調（3 次，2016、2022）
+方向猜對 3/3；差距誤差中位 5.3
+綠藍偏差：候選人 +4.1（3）；公投罷免 —"/>
+<text class="v" x="212.4" y="255.0">5.3</text>
+<rect x="590.0" y="244.0" width="19.2" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="台灣指標民調（3 次，2016、2022）
+方向猜對 3/3；差距誤差中位 5.3
+綠藍偏差：候選人 +4.1（3）；公投罷免 —"/>
+<text class="v" x="614.2" y="255.0">+4.1</text>
+<text x="168" y="281.0" text-anchor="end">信傳媒</text>
+<path d="M178,270.0 h26.0 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-26.0 z" fill="var(--c1)" data-tip="信傳媒（4 次，2018、2024）
+方向猜對 3/4；差距誤差中位 5.4
+綠藍偏差：候選人 +8.5（4）；公投罷免 —"/>
+<text class="v" x="213.0" y="281.0">5.4</text>
+<rect x="590.0" y="270.0" width="39.8" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="信傳媒（4 次，2018、2024）
+方向猜對 3/4；差距誤差中位 5.4
+綠藍偏差：候選人 +8.5（4）；公投罷免 —"/>
+<text class="v" x="634.8" y="281.0">+8.5</text>
+<text x="168" y="307.0" text-anchor="end">鏡新聞（大地執行）</text>
+<path d="M178,296.0 h26.0 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-26.0 z" fill="var(--c1)" data-tip="鏡新聞（大地執行）（24 次，2024、2025）
+方向猜對 22/24；差距誤差中位 5.4
+綠藍偏差：候選人 +7.1（1）；公投罷免 +2.4（23）"/>
+<text class="v" x="213.0" y="307.0">5.4</text>
+<rect x="590.0" y="296.0" width="33.3" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="鏡新聞（大地執行）（24 次，2024、2025）
+方向猜對 22/24；差距誤差中位 5.4
+綠藍偏差：候選人 +7.1（1）；公投罷免 +2.4（23）"/>
+<text class="v" x="628.3" y="307.0">+7.1</text>
+<text x="168" y="333.0" text-anchor="end">蘋果日報</text>
+<path d="M178,322.0 h26.0 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-26.0 z" fill="var(--c1)" data-tip="蘋果日報（8 次，2016、2018、2020）
+方向猜對 8/8；差距誤差中位 5.4
+綠藍偏差：候選人 +11.8（8）；公投罷免 —"/>
+<text class="v" x="213.0" y="333.0">5.4</text>
+<rect x="590.0" y="322.0" width="55.3" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="蘋果日報（8 次，2016、2018、2020）
+方向猜對 8/8；差距誤差中位 5.4
+綠藍偏差：候選人 +11.8（8）；公投罷免 —"/>
+<text class="v" x="650.3" y="333.0">+11.8</text>
+<text x="168" y="359.0" text-anchor="end">艾普羅</text>
+<path d="M178,348.0 h28.7 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-28.7 z" fill="var(--c1)" data-tip="艾普羅（3 次，2018、2022）
+方向猜對 3/3；差距誤差中位 5.9
+綠藍偏差：候選人 +4.0（3）；公投罷免 —"/>
+<text class="v" x="215.7" y="359.0">5.9</text>
+<rect x="590.0" y="348.0" width="18.8" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="艾普羅（3 次，2018、2022）
+方向猜對 3/3；差距誤差中位 5.9
+綠藍偏差：候選人 +4.0（3）；公投罷免 —"/>
+<text class="v" x="613.8" y="359.0">+4.0</text>
+<text x="168" y="385.0" text-anchor="end">蓋洛普</text>
+<path d="M178,374.0 h29.3 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-29.3 z" fill="var(--c1)" data-tip="蓋洛普（5 次，2016、2022）
+方向猜對 5/5；差距誤差中位 6.0
+綠藍偏差：候選人 +5.8（5）；公投罷免 —"/>
+<text class="v" x="216.3" y="385.0">6.0</text>
+<rect x="590.0" y="374.0" width="27.2" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="蓋洛普（5 次，2016、2022）
+方向猜對 5/5；差距誤差中位 6.0
+綠藍偏差：候選人 +5.8（5）；公投罷免 —"/>
+<text class="v" x="622.2" y="385.0">+5.8</text>
+<text x="168" y="411.0" text-anchor="end">負數票協會</text>
+<path d="M178,400.0 h32.1 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-32.1 z" fill="var(--c1)" data-tip="負數票協會（3 次，2018、2022）
+方向猜對 3/3；差距誤差中位 6.5
+綠藍偏差：候選人 +3.6（3）；公投罷免 —"/>
+<text class="v" x="219.1" y="411.0">6.5</text>
+<rect x="590.0" y="400.0" width="16.9" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="負數票協會（3 次，2018、2022）
+方向猜對 3/3；差距誤差中位 6.5
+綠藍偏差：候選人 +3.6（3）；公投罷免 —"/>
+<text class="v" x="611.9" y="411.0">+3.6</text>
+<text x="168" y="437.0" text-anchor="end">聯合報</text>
+<path d="M178,426.0 h34.3 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-34.3 z" fill="var(--c1)" data-tip="聯合報（11 次，2016、2018、2020、2022、2024）
+方向猜對 11/11；差距誤差中位 6.9
+綠藍偏差：候選人 +0.7（11）；公投罷免 —"/>
+<text class="v" x="221.3" y="437.0">6.9</text>
+<rect x="590.0" y="426.0" width="3.3" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="聯合報（11 次，2016、2018、2020、2022、2024）
+方向猜對 11/11；差距誤差中位 6.9
+綠藍偏差：候選人 +0.7（11）；公投罷免 —"/>
+<text class="v" x="598.3" y="437.0">+0.7</text>
+<text x="168" y="463.0" text-anchor="end">台灣民意基金會</text>
+<path d="M178,452.0 h49.8 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-49.8 z" fill="var(--c1)" data-tip="台灣民意基金會（14 次，2018、2020、2021、2022、2024、2025）
+方向猜對 10/14；差距誤差中位 9.7
+綠藍偏差：候選人 +5.2（5）；公投罷免 −9.4（5）"/>
+<text class="v" x="236.8" y="463.0">9.7</text>
+<rect x="590.0" y="452.0" width="24.4" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="台灣民意基金會（14 次，2018、2020、2021、2022、2024、2025）
+方向猜對 10/14；差距誤差中位 9.7
+綠藍偏差：候選人 +5.2（5）；公投罷免 −9.4（5）"/>
+<text class="v" x="619.4" y="463.0">+5.2</text>
+<text x="168" y="489.0" text-anchor="end">三立</text>
+<path d="M178,478.0 h69.8 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-69.8 z" fill="var(--c1)" data-tip="三立（10 次，2016、2018、2022、2024）
+方向猜對 7/10；差距誤差中位 13.3
+綠藍偏差：候選人 +14.1（10）；公投罷免 —"/>
+<text class="v" x="256.8" y="489.0">13.3</text>
+<rect x="590.0" y="478.0" width="66.1" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="三立（10 次，2016、2018、2022、2024）
+方向猜對 7/10；差距誤差中位 13.3
+綠藍偏差：候選人 +14.1（10）；公投罷免 —"/>
+<text class="v" x="661.1" y="489.0">+14.1</text>
+<text x="168" y="515.0" text-anchor="end">兩岸政策協會</text>
+<path d="M178,504.0 h69.8 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-69.8 z" fill="var(--c1)" data-tip="兩岸政策協會（4 次，2016、2020）
+方向猜對 4/4；差距誤差中位 13.3
+綠藍偏差：候選人 +10.3（4）；公投罷免 —"/>
+<text class="v" x="256.8" y="515.0">13.3</text>
+<rect x="590.0" y="504.0" width="48.3" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="兩岸政策協會（4 次，2016、2020）
+方向猜對 4/4；差距誤差中位 13.3
+綠藍偏差：候選人 +10.3（4）；公投罷免 —"/>
+<text class="v" x="643.3" y="515.0">+10.3</text>
+<text x="168" y="541.0" text-anchor="end">美麗島電子報</text>
+<path d="M178,530.0 h80.9 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-80.9 z" fill="var(--c1)" data-tip="美麗島電子報（13 次，2018、2020、2021、2022、2024）
+方向猜對 11/13；差距誤差中位 15.3
+綠藍偏差：候選人 +3.7（8）；公投罷免 −5.8（5）"/>
+<text class="v" x="267.9" y="541.0">15.3</text>
+<rect x="590.0" y="530.0" width="17.3" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="美麗島電子報（13 次，2018、2020、2021、2022、2024）
+方向猜對 11/13；差距誤差中位 15.3
+綠藍偏差：候選人 +3.7（8）；公投罷免 −5.8（5）"/>
+<text class="v" x="612.3" y="541.0">+3.7</text>
+<text x="168" y="567.0" text-anchor="end">中華亞太菁英交流協會</text>
+<path d="M178,556.0 h85.4 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-85.4 z" fill="var(--c1)" data-tip="中華亞太菁英交流協會（6 次，2022、2024）
+方向猜對 2/6；差距誤差中位 16.1
+綠藍偏差：候選人 +14.7（6）；公投罷免 —"/>
+<text class="v" x="272.4" y="567.0">16.1</text>
+<rect x="590.0" y="556.0" width="68.9" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="中華亞太菁英交流協會（6 次，2022、2024）
+方向猜對 2/6；差距誤差中位 16.1
+綠藍偏差：候選人 +14.7（6）；公投罷免 —"/>
+<text class="v" x="663.9" y="567.0">+14.7</text>
+<text x="168" y="593.0" text-anchor="end">新台灣國策智庫</text>
+<path d="M178,582.0 h89.2 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-89.2 z" fill="var(--c1)" data-tip="新台灣國策智庫（3 次，2016、2020）
+方向猜對 3/3；差距誤差中位 16.8
+綠藍偏差：候選人 +14.2（3）；公投罷免 —"/>
+<text class="v" x="276.2" y="593.0">16.8</text>
+<rect x="590.0" y="582.0" width="66.6" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="新台灣國策智庫（3 次，2016、2020）
+方向猜對 3/3；差距誤差中位 16.8
+綠藍偏差：候選人 +14.2（3）；公投罷免 —"/>
+<text class="v" x="661.6" y="593.0">+14.2</text>
+<text x="168" y="619.0" text-anchor="end">自由時報</text>
+<path d="M178,608.0 h100.9 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-100.9 z" fill="var(--c1)" data-tip="自由時報（8 次，2016、2020、2022）
+方向猜對 4/8；差距誤差中位 18.9
+綠藍偏差：候選人 +19.7（8）；公投罷免 —"/>
+<text class="v" x="287.9" y="619.0">18.9</text>
+<rect x="590.0" y="608.0" width="92.3" height="14" rx="3" fill="var(--g)" opacity="1" data-tip="自由時報（8 次，2016、2020、2022）
+方向猜對 4/8；差距誤差中位 18.9
+綠藍偏差：候選人 +19.7（8）；公投罷免 —"/>
+<text class="v" x="687.3" y="619.0">+19.7</text>
+<text x="168" y="645.0" text-anchor="end">遠見民調</text>
+<path d="M178,634.0 h109.2 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-109.2 z" fill="var(--c1)" data-tip="遠見民調（4 次，2021）
+方向猜對 0/4；差距誤差中位 20.4
+綠藍偏差：候選人 —；公投罷免 −26.7（4）"/>
+<text class="v" x="296.2" y="645.0">20.4</text>
+<rect x="464.8" y="634.0" width="125.2" height="14" rx="3" fill="var(--b)" opacity=".45" data-tip="遠見民調（4 次，2021）
+方向猜對 0/4；差距誤差中位 20.4
+綠藍偏差：候選人 —；公投罷免 −26.7（4）"/>
+<text class="v" x="595.0" y="645.0">−26.7（公投）</text>
+<text x="168" y="671.0" text-anchor="end">十方民調</text>
+<path d="M178,660.0 h146.4 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-146.4 z" fill="var(--c1)" data-tip="十方民調（4 次，2021）
+方向猜對 0/4；差距誤差中位 27.1
+綠藍偏差：候選人 —；公投罷免 −25.4（4）"/>
+<text class="v" x="333.4" y="671.0">27.1</text>
+<rect x="470.9" y="660.0" width="119.1" height="14" rx="3" fill="var(--b)" opacity=".45" data-tip="十方民調（4 次，2021）
+方向猜對 0/4；差距誤差中位 27.1
+綠藍偏差：候選人 —；公投罷免 −25.4（4）"/>
+<text class="v" x="595.0" y="671.0">−25.4（公投）</text>
+<text x="168" y="697.0" text-anchor="end">台北智會</text>
+<path d="M178,686.0 h204.1 a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h-204.1 z" fill="var(--c1)" data-tip="台北智會（4 次，2021）
+方向猜對 1/4；差距誤差中位 37.5
+綠藍偏差：候選人 —；公投罷免 −30.6（4）"/>
+<text class="v" x="391.1" y="697.0">37.5</text>
+<rect x="446.6" y="686.0" width="143.4" height="14" rx="3" fill="var(--b)" opacity=".45" data-tip="台北智會（4 次，2021）
+方向猜對 1/4；差距誤差中位 37.5
+綠藍偏差：候選人 —；公投罷免 −30.6（4）"/>
+<text class="v" x="595.0" y="697.0">−30.6（公投）</text>
+</svg></div><p class="note">綠藍偏差預設取候選人選舉；只有公投資料的機構（2021 公投）改取公投罷免，以淡色並標「（公投）」。樣本 3–5 次的排名差異不一定有意義。</p></figure>
+
 <div class="tw"><table>
 <thead>
 <tr>
@@ -473,7 +1366,7 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>6</td>
 <td>6/6</td>
 <td>3.1</td>
-<td>+0.5（6）</td>
+<td>+2.8（6）</td>
 <td>—</td>
 <td>2022、2024</td>
 </tr>
@@ -482,7 +1375,7 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>16</td>
 <td>12/16</td>
 <td>3.3</td>
-<td>−2.9（11）</td>
+<td>−2.0（11）</td>
 <td>−8.3（5）</td>
 <td>2016–2025</td>
 </tr>
@@ -496,13 +1389,31 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>2018、2020、2024</td>
 </tr>
 <tr>
+<td>皮爾森數據</td>
+<td>4</td>
+<td>2/4</td>
+<td>3.7</td>
+<td>—</td>
+<td>−3.6（4）</td>
+<td>2021</td>
+</tr>
+<tr>
 <td>ETtoday／東森民調雲</td>
 <td>18</td>
 <td>14/18</td>
 <td>4.5</td>
-<td>+2.1（13）</td>
+<td>+2.5（13）</td>
 <td>−9.8（4）</td>
 <td>2018–2024</td>
+</tr>
+<tr>
+<td>QuickseeK</td>
+<td>3</td>
+<td>2/3</td>
+<td>5.2</td>
+<td>+7.4（3）</td>
+<td>—</td>
+<td>2022、2024</td>
 </tr>
 <tr>
 <td>匯流新聞網</td>
@@ -547,14 +1458,41 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>5.4</td>
 <td>+11.8（8）</td>
 <td>—</td>
-<td>2016–2020</td>
+<td>2016、2018、2020</td>
+</tr>
+<tr>
+<td>艾普羅</td>
+<td>3</td>
+<td>3/3</td>
+<td>5.9</td>
+<td>+4.0（3）</td>
+<td>—</td>
+<td>2018、2022</td>
+</tr>
+<tr>
+<td>蓋洛普</td>
+<td>5</td>
+<td>5/5</td>
+<td>6.0</td>
+<td>+5.8（5）</td>
+<td>—</td>
+<td>2016、2022</td>
+</tr>
+<tr>
+<td>負數票協會</td>
+<td>3</td>
+<td>3/3</td>
+<td>6.5</td>
+<td>+3.6（3）</td>
+<td>—</td>
+<td>2018、2022</td>
 </tr>
 <tr>
 <td>聯合報</td>
 <td>11</td>
 <td>11/11</td>
 <td>6.9</td>
-<td>−0.5（11）</td>
+<td>+0.7（11）</td>
 <td>—</td>
 <td>2016–2024</td>
 </tr>
@@ -577,20 +1515,11 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>2016–2024</td>
 </tr>
 <tr>
-<td>中華亞太菁英交流協會</td>
-<td>7</td>
-<td>2/7</td>
-<td>13.6</td>
-<td>+10.3（7）</td>
-<td>—</td>
-<td>2022、2024</td>
-</tr>
-<tr>
 <td>兩岸政策協會</td>
-<td>5</td>
-<td>5/5</td>
-<td>14.5</td>
-<td>+11.1（5）</td>
+<td>4</td>
+<td>4/4</td>
+<td>13.3</td>
+<td>+10.3（4）</td>
 <td>—</td>
 <td>2016、2020</td>
 </tr>
@@ -604,13 +1533,31 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>2018–2024</td>
 </tr>
 <tr>
+<td>中華亞太菁英交流協會</td>
+<td>6</td>
+<td>2/6</td>
+<td>16.1</td>
+<td>+14.7（6）</td>
+<td>—</td>
+<td>2022、2024</td>
+</tr>
+<tr>
+<td>新台灣國策智庫</td>
+<td>3</td>
+<td>3/3</td>
+<td>16.8</td>
+<td>+14.2（3）</td>
+<td>—</td>
+<td>2016、2020</td>
+</tr>
+<tr>
 <td>自由時報</td>
 <td>8</td>
 <td>4/8</td>
 <td>18.9</td>
-<td>+18.7（8）</td>
+<td>+19.7（8）</td>
 <td>—</td>
-<td>2016–2022</td>
+<td>2016、2020、2022</td>
 </tr>
 <tr>
 <td>遠見</td>
@@ -666,15 +1613,15 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <tbody>
 <tr>
 <td>2016 候選人</td>
-<td>19</td>
-<td>+3.3</td>
-<td>+4.5</td>
+<td>26</td>
+<td>+3.2</td>
+<td>+4.9</td>
 </tr>
 <tr>
 <td>2018 候選人</td>
-<td>37</td>
-<td>+5.6</td>
-<td>+3.5</td>
+<td>40</td>
+<td>+5.2</td>
+<td>+3.4</td>
 </tr>
 <tr>
 <td>2020 候選人</td>
@@ -690,9 +1637,9 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 </tr>
 <tr>
 <td>2022 候選人</td>
-<td>56</td>
-<td>+7.0</td>
-<td>+4.7</td>
+<td>57</td>
+<td>+8.7</td>
+<td>+6.7</td>
 </tr>
 <tr>
 <td>2024 候選人</td>
@@ -783,6 +1730,104 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <li><strong>2025 罷免</strong>：各選區自報會投的比例，比實際投票率高 5–20 點。</li>
 <li><strong>2026 台北</strong>：TVBS 辯論後民調中，93% 說會投、80% 說一定會投，TVBS 自己預估投票率 72%。</li>
 </ul>
+<figure class="viz"><figcaption><div class="t">說「會去投」的人，幾乎都比實際投票的多</div><div class="s">有附投票意願的民調，自報投票比例平均 vs 實際投票率；右欄為高估點數</div></figcaption><div class="lg"><span><i style="background:var(--c1)"></i>民調自報「會去投／一定會投」</span><span><i style="background:var(--ink2)"></i>實際投票率</span></div><div class="sc"><svg viewBox="0 0 760 322" role="img" aria-label="自報投票意願與實際投票率">
+<line class="grid" x1="150.0" x2="150.0" y1="10" y2="302"/>
+<text class="m" x="150.0" y="316" text-anchor="middle">30%</text>
+<line class="grid" x1="240.0" x2="240.0" y1="10" y2="302"/>
+<text class="m" x="240.0" y="316" text-anchor="middle">40%</text>
+<line class="grid" x1="330.0" x2="330.0" y1="10" y2="302"/>
+<text class="m" x="330.0" y="316" text-anchor="middle">50%</text>
+<line class="grid" x1="420.0" x2="420.0" y1="10" y2="302"/>
+<text class="m" x="420.0" y="316" text-anchor="middle">60%</text>
+<line class="grid" x1="510.0" x2="510.0" y1="10" y2="302"/>
+<text class="m" x="510.0" y="316" text-anchor="middle">70%</text>
+<line class="grid" x1="600.0" x2="600.0" y1="10" y2="302"/>
+<text class="m" x="600.0" y="316" text-anchor="middle">80%</text>
+<line class="grid" x1="690.0" x2="690.0" y1="10" y2="302"/>
+<text class="m" x="690.0" y="316" text-anchor="middle">90%</text>
+<text x="140" y="30.0" text-anchor="end">2016 總統</text>
+<line x1="476.4" x2="600.0" y1="26.0" y2="26.0" stroke="var(--axis)" stroke-width="3"/>
+<circle cx="476.4" cy="26.0" r="6" fill="var(--ink2)" stroke="var(--surface)" stroke-width="2" data-tip="2016 總統（1 份）
+自報會投 80.0%；實際 66.3%
+差 +13.7 點"/>
+<circle cx="600.0" cy="26.0" r="6" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="2016 總統（1 份）
+自報會投 80.0%；實際 66.3%
+差 +13.7 點"/>
+<text class="v" x="756" y="30.0" text-anchor="end">+13.7</text>
+<text x="140" y="62.0" text-anchor="end">2018 縣市長</text>
+<line x1="496.3" x2="624.0" y1="58.0" y2="58.0" stroke="var(--axis)" stroke-width="3"/>
+<circle cx="496.3" cy="58.0" r="6" fill="var(--ink2)" stroke="var(--surface)" stroke-width="2" data-tip="2018 縣市長（3 份）
+自報會投 82.7%；實際 68.5%
+差 +14.2 點"/>
+<circle cx="624.0" cy="58.0" r="6" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="2018 縣市長（3 份）
+自報會投 82.7%；實際 68.5%
+差 +14.2 點"/>
+<text class="v" x="756" y="62.0" text-anchor="end">+14.2</text>
+<text x="140" y="94.0" text-anchor="end">2020 總統</text>
+<line x1="554.1" x2="598.8" y1="90.0" y2="90.0" stroke="var(--axis)" stroke-width="3"/>
+<circle cx="554.1" cy="90.0" r="6" fill="var(--ink2)" stroke="var(--surface)" stroke-width="2" data-tip="2020 總統（3 份）
+自報會投 79.9%；實際 74.9%
+差 +5.0 點"/>
+<circle cx="598.8" cy="90.0" r="6" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="2020 總統（3 份）
+自報會投 79.9%；實際 74.9%
+差 +5.0 點"/>
+<text class="v" x="756" y="94.0" text-anchor="end">+5.0</text>
+<text x="140" y="126.0" text-anchor="end">2021 罷免陳柏惟</text>
+<line x1="345.5" x2="253.5" y1="122.0" y2="122.0" stroke="var(--axis)" stroke-width="3"/>
+<circle cx="345.5" cy="122.0" r="6" fill="var(--ink2)" stroke="var(--surface)" stroke-width="2" data-tip="2021 罷免陳柏惟（3 份）
+自報會投 41.5%；實際 51.7%
+差 −10.2 點"/>
+<circle cx="253.5" cy="122.0" r="6" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="2021 罷免陳柏惟（3 份）
+自報會投 41.5%；實際 51.7%
+差 −10.2 點"/>
+<text class="v" x="756" y="126.0" text-anchor="end">−10.2</text>
+<text x="140" y="158.0" text-anchor="end">2021 公投（4 案）</text>
+<line x1="249.8" x2="358.8" y1="154.0" y2="154.0" stroke="var(--axis)" stroke-width="3"/>
+<circle cx="249.8" cy="154.0" r="6" fill="var(--ink2)" stroke="var(--surface)" stroke-width="2" data-tip="2021 公投（4 案）（45 份）
+自報會投 53.2%；實際 41.1%
+差 +12.1 點"/>
+<circle cx="358.8" cy="154.0" r="6" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="2021 公投（4 案）（45 份）
+自報會投 53.2%；實際 41.1%
+差 +12.1 點"/>
+<text class="v" x="756" y="158.0" text-anchor="end">+12.1</text>
+<text x="140" y="190.0" text-anchor="end">2022 縣市長</text>
+<line x1="456.5" x2="615.2" y1="186.0" y2="186.0" stroke="var(--axis)" stroke-width="3"/>
+<circle cx="456.5" cy="186.0" r="6" fill="var(--ink2)" stroke="var(--surface)" stroke-width="2" data-tip="2022 縣市長（7 份）
+自報會投 81.7%；實際 64.1%
+差 +17.6 點"/>
+<circle cx="615.2" cy="186.0" r="6" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="2022 縣市長（7 份）
+自報會投 81.7%；實際 64.1%
+差 +17.6 點"/>
+<text class="v" x="756" y="190.0" text-anchor="end">+17.6</text>
+<text x="140" y="222.0" text-anchor="end">2022 18 歲複決</text>
+<line x1="411.9" x2="448.4" y1="218.0" y2="218.0" stroke="var(--axis)" stroke-width="3"/>
+<circle cx="411.9" cy="218.0" r="6" fill="var(--ink2)" stroke="var(--surface)" stroke-width="2" data-tip="2022 18 歲複決（2 份）
+自報會投 63.1%；實際 59.1%
+差 +4.0 點"/>
+<circle cx="448.4" cy="218.0" r="6" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="2022 18 歲複決（2 份）
+自報會投 63.1%；實際 59.1%
+差 +4.0 點"/>
+<text class="v" x="756" y="222.0" text-anchor="end">+4.0</text>
+<text x="140" y="254.0" text-anchor="end">2024 總統</text>
+<line x1="526.7" x2="625.2" y1="250.0" y2="250.0" stroke="var(--axis)" stroke-width="3"/>
+<circle cx="526.7" cy="250.0" r="6" fill="var(--ink2)" stroke="var(--surface)" stroke-width="2" data-tip="2024 總統（1 份）
+自報會投 82.8%；實際 71.9%
+差 +10.9 點"/>
+<circle cx="625.2" cy="250.0" r="6" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="2024 總統（1 份）
+自報會投 82.8%；實際 71.9%
+差 +10.9 點"/>
+<text class="v" x="756" y="254.0" text-anchor="end">+10.9</text>
+<text x="140" y="286.0" text-anchor="end">2025 大罷免</text>
+<line x1="380.1" x2="469.9" y1="282.0" y2="282.0" stroke="var(--axis)" stroke-width="3"/>
+<circle cx="380.1" cy="282.0" r="6" fill="var(--ink2)" stroke="var(--surface)" stroke-width="2" data-tip="2025 大罷免（24 份）
+自報會投 65.5%；實際 55.6%
+差 +10.0 點"/>
+<circle cx="469.9" cy="282.0" r="6" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="2025 大罷免（24 份）
+自報會投 65.5%；實際 55.6%
+差 +10.0 點"/>
+<text class="v" x="756" y="286.0" text-anchor="end">+10.0</text>
+</svg></div><p class="note">唯一例外是 2021 罷免陳柏惟（民調自報低於實際）。2021 公投實際投票率 41%，民調 49–62% 說一定會投，同意方的領先因此失真（見 4.3）。</p></figure>
+
 <h3 id="44-2025">4.4 2025 大罷免逐區</h3>
 <ul>
 <li><strong>大地民意研究（鏡新聞委託，純市話）</strong>：涵蓋 23 個選區。平均偏同意方 +2.4，差距誤差中位 5.4，是最完整、也大致最準的一組。但葉元之、徐巧芯兩區民調是同意方領先，結果罷免被否決，方向錯了。</li>
@@ -843,6 +1888,93 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <p>完整民調與事件見 <a href="list.html">完整列表</a> 的 2020 段。</p>
 <h2 id="5-fb">5. 發布團體關聯（FB 流傳圖查核）</h2>
 <p><strong>來源</strong>：2026-11 在 Facebook 流傳的一張關係圖截圖，原貼文作者與網址未查到。</p>
+<figure class="fbimg"><a href="fb-network.jpg" target="_blank"><img src="fb-network.jpg" loading="lazy" alt="FB 流傳的關係圖：上排五個團體與其發布民調的年份，下排五位人物與其職務，以紅線相連"></a><figcaption>原圖：FB 流傳截圖（點擊放大）。原貼文作者與網址未查到；圖中各項主張的查核見下方重畫圖與 5.1。</figcaption></figure>
+
+<figure class="viz"><figcaption><div class="t">查核後的關係圖：四個團體有人員重疊，信民協會的連線查無證據</div><div class="s">依原圖的團體與人物重畫，線條依查核結果分三種；滑鼠移到線上可看職務與來源狀態</div></figcaption><div class="lg"><span><i class="ln" style="border-color:var(--ink2)"></i>✅ 有具名來源</span><span><i class="ln" style="border-color:var(--ink2);border-top-style:dashed"></i>⚖️ 只見於單一個人部落格</span><span><i class="ln" style="border-color:var(--c1);border-top-style:dotted"></i>❓ 查無職務證據</span></div><div class="sc"><svg viewBox="0 0 760 330" role="img" aria-label="查核後的團體與人物關係圖">
+<path d="M80.0,92 C80.0,162 80.0,166 80.0,236" fill="none" stroke="var(--ink2)" stroke-width="2"/>
+<path d="M80.0,92 C80.0,162 80.0,166 80.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="兩岸政策協會 — 王智盛
+兩岸政策協會秘書長（理事 ⚖️）
+✅ 有具名來源"/>
+<path d="M230.0,92 C230.0,162 80.0,166 80.0,236" fill="none" stroke="var(--ink2)" stroke-width="2"/>
+<path d="M230.0,92 C230.0,162 80.0,166 80.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="中華亞太菁英交流協會 — 王智盛
+亞太菁英秘書長
+✅ 有具名來源"/>
+<path d="M380.0,92 C380.0,162 80.0,166 80.0,236" fill="none" stroke="var(--c1)" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"/>
+<path d="M380.0,92 C380.0,162 80.0,166 80.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="國家安全研究學會 — 王智盛
+國安學會顧問：只查到出席座談
+❓ 查無職務證據"/>
+<path d="M80.0,92 C80.0,162 230.0,166 230.0,236" fill="none" stroke="var(--ink2)" stroke-width="2" stroke-dasharray="7 5"/>
+<path d="M80.0,92 C80.0,162 230.0,166 230.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="兩岸政策協會 — 范世平
+兩岸政策協會常務理事：只見於個人部落格
+⚖️ 只見於單一個人部落格"/>
+<path d="M230.0,92 C230.0,162 230.0,166 230.0,236" fill="none" stroke="var(--ink2)" stroke-width="2"/>
+<path d="M230.0,92 C230.0,162 230.0,166 230.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="中華亞太菁英交流協會 — 范世平
+亞太菁英理事長
+✅ 有具名來源"/>
+<path d="M380.0,92 C380.0,162 230.0,166 230.0,236" fill="none" stroke="var(--ink2)" stroke-width="2"/>
+<path d="M380.0,92 C380.0,162 230.0,166 230.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="國家安全研究學會 — 范世平
+國安學會理事長
+✅ 有具名來源"/>
+<path d="M80.0,92 C80.0,162 380.0,166 380.0,236" fill="none" stroke="var(--ink2)" stroke-width="2"/>
+<path d="M80.0,92 C80.0,162 380.0,166 380.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="兩岸政策協會 — 譚耀南
+兩岸政策協會理事長（副理事長 ⚖️）
+✅ 有具名來源"/>
+<path d="M530.0,92 C530.0,162 380.0,166 380.0,236" fill="none" stroke="var(--c1)" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"/>
+<path d="M530.0,92 C530.0,162 380.0,166 380.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="信民兩岸研究協會 — 譚耀南
+信民協會理事：查無
+❓ 查無職務證據"/>
+<path d="M80.0,92 C80.0,162 530.0,166 530.0,236" fill="none" stroke="var(--ink2)" stroke-width="2"/>
+<path d="M80.0,92 C80.0,162 530.0,166 530.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="兩岸政策協會 — 張宇韶
+兩岸政策協會研究員、副秘書長
+✅ 有具名來源"/>
+<path d="M680.0,92 C680.0,162 530.0,166 530.0,236" fill="none" stroke="var(--ink2)" stroke-width="2"/>
+<path d="M680.0,92 C680.0,162 530.0,166 530.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="台灣韜略策進學會 — 張宇韶
+韜略副理事長
+✅ 有具名來源"/>
+<path d="M80.0,92 C80.0,162 680.0,166 680.0,236" fill="none" stroke="var(--ink2)" stroke-width="2"/>
+<path d="M80.0,92 C80.0,162 680.0,166 680.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="兩岸政策協會 — 郭國興
+兩岸政策協會副理事長
+✅ 有具名來源"/>
+<path d="M680.0,92 C680.0,162 680.0,166 680.0,236" fill="none" stroke="var(--ink2)" stroke-width="2"/>
+<path d="M680.0,92 C680.0,162 680.0,166 680.0,236" fill="none" stroke="transparent" stroke-width="12" data-tip="台灣韜略策進學會 — 郭國興
+韜略理事長
+✅ 有具名來源"/>
+<rect x="10.0" y="8" width="140" height="84" rx="8" fill="var(--surface)" stroke="var(--axis)" stroke-width="1" />
+<text class="v" x="80.0" y="30" text-anchor="middle">兩岸政策協會</text>
+<text class="m" x="80.0" y="66" text-anchor="middle">2016、2018、2020 民調</text>
+<text class="m" x="80.0" y="82" text-anchor="middle">2014 立案，2026 仍運作</text>
+<rect x="160.0" y="8" width="140" height="84" rx="8" fill="var(--surface)" stroke="var(--axis)" stroke-width="1" />
+<text class="v" x="230.0" y="30" text-anchor="middle">中華亞太菁英</text>
+<text class="v" x="230.0" y="46" text-anchor="middle">交流協會</text>
+<text class="m" x="230.0" y="66" text-anchor="middle">2022、2024 民調</text>
+<text class="m" x="230.0" y="82" text-anchor="middle">2003 立案，2026 仍發民調</text>
+<rect x="310.0" y="8" width="140" height="84" rx="8" fill="var(--surface)" stroke="var(--axis)" stroke-width="1" />
+<text class="v" x="380.0" y="30" text-anchor="middle">國家安全研究</text>
+<text class="v" x="380.0" y="46" text-anchor="middle">學會</text>
+<text class="m" x="380.0" y="66" text-anchor="middle">2025 大罷免民調</text>
+<rect x="460.0" y="8" width="140" height="84" rx="8" fill="var(--surface)" stroke="var(--c1)" stroke-width="2" stroke-dasharray="4 4"/>
+<text class="v" x="530.0" y="30" text-anchor="middle">信民兩岸研究</text>
+<text class="v" x="530.0" y="46" text-anchor="middle">協會</text>
+<text class="m" x="530.0" y="66" text-anchor="middle">2026 民調</text>
+<text class="m" x="530.0" y="82" text-anchor="middle">2019-12 成立</text>
+<rect x="610.0" y="8" width="140" height="84" rx="8" fill="var(--surface)" stroke="var(--axis)" stroke-width="1" />
+<text class="v" x="680.0" y="30" text-anchor="middle">台灣韜略策進</text>
+<text class="v" x="680.0" y="46" text-anchor="middle">學會</text>
+<text class="m" x="680.0" y="66" text-anchor="middle">2026 民調</text>
+<rect x="10.0" y="236" width="140" height="40" rx="20" fill="var(--surface)" stroke="var(--axis)"/>
+<text class="v" x="80.0" y="261" text-anchor="middle">王智盛</text>
+<rect x="160.0" y="236" width="140" height="40" rx="20" fill="var(--surface)" stroke="var(--axis)"/>
+<text class="v" x="230.0" y="261" text-anchor="middle">范世平</text>
+<rect x="310.0" y="236" width="140" height="40" rx="20" fill="var(--surface)" stroke="var(--axis)"/>
+<text class="v" x="380.0" y="261" text-anchor="middle">譚耀南</text>
+<rect x="460.0" y="236" width="140" height="40" rx="20" fill="var(--surface)" stroke="var(--axis)"/>
+<text class="v" x="530.0" y="261" text-anchor="middle">張宇韶</text>
+<rect x="610.0" y="236" width="140" height="40" rx="20" fill="var(--surface)" stroke="var(--axis)"/>
+<text class="v" x="680.0" y="261" text-anchor="middle">郭國興</text>
+<text class="m" x="380.0" y="304" text-anchor="middle">五個團體是同時並存的，不是依序「換殼」；連線只表示有查到職務，不代表資金或指揮關係</text>
+<text class="m" x="380.0" y="322" text-anchor="middle">信民協會（虛線框）目前沒有證據顯示屬於同一網絡</text>
+</svg></div></figure>
+
 <h3 id="51">5.1 圖的主張與查核</h3>
 <p>圖的主張：兩岸政策協會（2016、2018、2020）、中華亞太菁英交流協會（2022、2024）、國家安全研究學會（2025 大罷免）、信民兩岸研究協會（2026）、台灣韜略策進學會（2026），由王智盛、范世平、譚耀南、張宇韶、郭國興五人串連。</p>
 <ul>
@@ -869,6 +2001,646 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <p>王智盛、范世平、郭國興、張宇韶等與民進黨有具名淵源的兩岸學者，在兩岸政策協會、亞太菁英、國安學會、韜略四個並存的團體名下發布選舉民調，四人都有可證的跨團體職務。信民協會沒有證據顯示屬於同一網絡。</p>
 </blockquote>
 <h3 id="52">5.2 這幾個團體的歷次誤差</h3>
+<figure class="viz"><figcaption><div class="t">這幾個團體的民調偏綠程度，明顯大於同期其他機構</div><div class="s">每點是一次選舉的封關前最後一份（含投票前 60 天以外）；綠藍偏差＝民調差距 − 實際差距</div></figcaption><div class="lg"><span><i style="background:var(--g)"></i>偏綠</span><span><i style="background:var(--b)"></i>偏藍</span><span><i style="background:var(--mute)"></i>同期其他機構（2016–2025，不含 2021 公投）</span><span><i class="ln" style="border-color:var(--ink)"></i>中位數</span></div><div class="sc"><svg viewBox="0 0 760 246" role="img" aria-label="發布團體的綠藍偏差與同期其他機構比較">
+<rect x="374.2" y="12" width="355.8" height="208" fill="var(--gwash)"/>
+<rect x="120.0" y="12" width="254.2" height="208" fill="var(--bwash)"/>
+<line class="grid" x1="120.0" x2="120.0" y1="12" y2="222"/>
+<text class="m" x="120.0" y="238" text-anchor="middle">−40</text>
+<line class="grid" x1="247.1" x2="247.1" y1="12" y2="222"/>
+<text class="m" x="247.1" y="238" text-anchor="middle">−20</text>
+<line class="axis" x1="374.2" x2="374.2" y1="12" y2="222"/>
+<text class="m" x="374.2" y="238" text-anchor="middle">0</text>
+<line class="grid" x1="501.2" x2="501.2" y1="12" y2="222"/>
+<text class="m" x="501.2" y="238" text-anchor="middle">+20</text>
+<line class="grid" x1="628.3" x2="628.3" y1="12" y2="222"/>
+<text class="m" x="628.3" y="238" text-anchor="middle">+40</text>
+<text class="m" x="730" y="24" text-anchor="end">偏綠 →</text><text class="m" x="124" y="24">← 偏藍</text>
+<text x="110" y="48.0" text-anchor="end" class="v">兩岸政策協會</text>
+<circle cx="339.9" cy="44.0" r="6" fill="var(--b)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜兩岸政策協會
+綠藍偏差 −5.4；方向對"/>
+<circle cx="451.7" cy="44.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜兩岸政策協會
+綠藍偏差 +12.2；方向對"/>
+<circle cx="642.3" cy="44.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜兩岸政策協會
+綠藍偏差 +42.2；方向錯"/>
+<circle cx="466.3" cy="44.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 政黨票｜兩岸政策協會
+綠藍偏差 +14.5；方向對"/>
+<circle cx="500.0" cy="44.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜兩岸政策協會
+綠藍偏差 +19.8；方向對"/>
+<line x1="466.3" x2="466.3" y1="30.0" y2="58.0" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+<text class="v" x="466.3" y="27.0" text-anchor="middle">中位 +14.5</text>
+<text x="110" y="100.0" text-anchor="end" class="v">中華亞太</text>
+<circle cx="460.6" cy="96.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新竹市｜中華亞太菁英交流協會
+綠藍偏差 +13.6；方向錯"/>
+<circle cx="547.0" cy="96.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 高雄｜中華亞太菁英交流協會
+綠藍偏差 +27.2；方向對"/>
+<circle cx="491.7" cy="96.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜中華亞太菁英交流協會
+綠藍偏差 +18.5；方向錯"/>
+<circle cx="449.8" cy="96.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜中華亞太菁英交流協會
+綠藍偏差 +11.9；方向錯"/>
+<circle cx="492.4" cy="96.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜中華亞太菁英交流協會
+綠藍偏差 +18.6；方向錯"/>
+<circle cx="364.0" cy="96.0" r="6" fill="var(--b)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜中華亞太菁英交流協會
+綠藍偏差 −1.6；方向對"/>
+<line x1="476.2" x2="476.2" y1="82.0" y2="110.0" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+<text class="v" x="476.2" y="79.0" text-anchor="middle">中位 +16.1</text>
+<text x="110" y="152.0" text-anchor="end" class="v">國安學會</text>
+<circle cx="453.0" cy="148.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 傅崐萁｜國家安全研究學會
+綠藍偏差 +12.4；方向對"/>
+<circle cx="480.9" cy="148.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 廖偉翔｜國家安全研究學會
+綠藍偏差 +16.8；方向錯"/>
+<circle cx="494.3" cy="148.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 涂權吉｜國家安全研究學會
+綠藍偏差 +18.9；方向錯"/>
+<circle cx="409.1" cy="148.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 牛煦庭｜國家安全研究學會
+綠藍偏差 +5.5；方向對"/>
+<circle cx="480.9" cy="148.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 羅廷瑋｜國家安全研究學會
+綠藍偏差 +16.8；方向錯"/>
+<circle cx="444.7" cy="148.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 葉元之｜國家安全研究學會
+綠藍偏差 +11.1；方向錯"/>
+<circle cx="428.8" cy="148.0" r="6" fill="var(--g)" opacity=".85" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 黃健豪｜國家安全研究學會
+綠藍偏差 +8.6；方向對"/>
+<line x1="453.0" x2="453.0" y1="134.0" y2="162.0" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+<text class="v" x="453.0" y="131.0" text-anchor="middle">中位 +12.4</text>
+<text x="110" y="204.0" text-anchor="end" class="v">同期其他機構</text>
+<circle cx="362.7" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜台灣指標民調
+綠藍偏差 −1.8；方向對"/>
+<circle cx="387.5" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜新台灣國策智庫
+綠藍偏差 +2.1；方向對"/>
+<circle cx="350.0" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜趨勢民調
+綠藍偏差 −3.8；方向對"/>
+<circle cx="402.8" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜蓋洛普
+綠藍偏差 +4.5；方向對"/>
+<circle cx="341.8" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜循證民調
+綠藍偏差 −5.1；方向對"/>
+<circle cx="427.5" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜自由時報
+綠藍偏差 +8.4；方向對"/>
+<circle cx="316.3" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜世新大學
+綠藍偏差 −9.1；方向對"/>
+<circle cx="310.0" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜三立
+綠藍偏差 −10.1；方向對"/>
+<circle cx="309.4" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜蘋果日報
+綠藍偏差 −10.2；方向對"/>
+<circle cx="308.1" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜決策民調
+綠藍偏差 −10.4；方向對"/>
+<circle cx="303.6" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 政黨票｜全國意向
+綠藍偏差 −11.1；方向對"/>
+<circle cx="385.6" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜蘋果日報
+綠藍偏差 +1.8；方向對"/>
+<circle cx="352.6" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜TVBS
+綠藍偏差 −3.4；方向對"/>
+<circle cx="396.4" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜聯合報
+綠藍偏差 +3.5；方向對"/>
+<circle cx="398.3" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜砝迪斯
+綠藍偏差 +3.8；方向對"/>
+<circle cx="402.1" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜台灣競爭力論壇
+綠藍偏差 +4.4；方向對"/>
+<circle cx="407.8" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜台灣指標民調
+綠藍偏差 +5.3；方向對"/>
+<circle cx="407.8" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜台灣智庫
+綠藍偏差 +5.3；方向對"/>
+<circle cx="411.0" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜趨勢民調
+綠藍偏差 +5.8；方向對"/>
+<circle cx="334.1" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜旺旺中時
+綠藍偏差 −6.3；方向對"/>
+<circle cx="414.2" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜美麗島電子報
+綠藍偏差 +6.3；方向對"/>
+<circle cx="414.2" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜典通
+綠藍偏差 +6.3；方向對"/>
+<circle cx="420.6" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜壹電視
+綠藍偏差 +7.3；方向對"/>
+<circle cx="422.5" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜世新大學
+綠藍偏差 +7.6；方向對"/>
+<circle cx="433.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜三立
+綠藍偏差 +9.4；方向對"/>
+<circle cx="435.8" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜決策／精湛
+綠藍偏差 +9.7；方向對"/>
+<circle cx="290.3" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜全國意向
+綠藍偏差 −13.2；方向對"/>
+<circle cx="466.9" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜決策民調
+綠藍偏差 +14.6；方向對"/>
+<circle cx="467.6" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜蓋洛普
+綠藍偏差 +14.7；方向對"/>
+<circle cx="480.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜新台灣國策智庫
+綠藍偏差 +16.8；方向對"/>
+<circle cx="503.2" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2016 總統｜自由時報
+綠藍偏差 +20.3；方向對"/>
+<circle cx="384.3" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜ETtoday／東森民調雲
+綠藍偏差 +1.6；方向對"/>
+<circle cx="358.9" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜TVBS
+綠藍偏差 −2.4；方向對"/>
+<circle cx="404.7" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜旺旺中時
+綠藍偏差 +4.8；方向對"/>
+<circle cx="406.6" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜蘋果日報
+綠藍偏差 +5.1；方向對"/>
+<circle cx="409.8" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜艾普羅
+綠藍偏差 +5.6；方向對"/>
+<circle cx="430.7" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜信傳媒
+綠藍偏差 +8.9；方向對"/>
+<circle cx="299.2" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜聯合報
+綠藍偏差 −11.8；方向對"/>
+<circle cx="456.1" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜三立
+綠藍偏差 +12.9；方向錯"/>
+<circle cx="458.0" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜世新大學
+綠藍偏差 +13.2；方向錯"/>
+<circle cx="280.8" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜台灣競爭力論壇
+綠藍偏差 −14.7；方向對"/>
+<circle cx="496.8" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜台灣世代智庫
+綠藍偏差 +19.3；方向錯"/>
+<circle cx="516.5" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜吳益政團隊
+綠藍偏差 +22.4；方向錯"/>
+<circle cx="529.2" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜台灣智庫
+綠藍偏差 +24.4；方向錯"/>
+<circle cx="538.1" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜美麗島電子報
+綠藍偏差 +25.8；方向錯"/>
+<circle cx="550.2" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜自由時報
+綠藍偏差 +27.7；方向錯"/>
+<circle cx="592.8" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜大社會民調
+綠藍偏差 +34.4；方向錯"/>
+<circle cx="702.7" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 高雄｜新台灣國策智庫
+綠藍偏差 +51.7；方向錯"/>
+<circle cx="366.5" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜世新大學
+綠藍偏差 −1.2；方向對"/>
+<circle cx="384.3" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜自由時報
+綠藍偏差 +1.6；方向對"/>
+<circle cx="350.0" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜新台灣國策智庫
+綠藍偏差 −3.8；方向對"/>
+<circle cx="340.5" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜信傳媒
+綠藍偏差 −5.3；方向對"/>
+<circle cx="411.0" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜蘋果日報
+綠藍偏差 +5.8；方向對"/>
+<circle cx="336.7" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜艾普羅
+綠藍偏差 −5.9；方向對"/>
+<circle cx="321.4" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜中國時報
+綠藍偏差 −8.3；方向對"/>
+<circle cx="439.6" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜台灣世代智庫
+綠藍偏差 +10.3；方向對"/>
+<circle cx="306.2" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜TVBS
+綠藍偏差 −10.7；方向對"/>
+<circle cx="456.8" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜三立
+綠藍偏差 +13.0；方向對"/>
+<circle cx="273.1" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜旺旺中時
+綠藍偏差 −15.9；方向對"/>
+<circle cx="271.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜ETtoday／東森民調雲
+綠藍偏差 −16.1；方向對"/>
+<circle cx="257.2" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜美麗島電子報
+綠藍偏差 −18.4；方向對"/>
+<circle cx="242.6" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 新北｜聯合報
+綠藍偏差 −20.7；方向對"/>
+<circle cx="373.5" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜ETtoday／東森民調雲
+綠藍偏差 −0.1；方向對"/>
+<circle cx="390.1" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜台灣競爭力論壇
+綠藍偏差 +2.5；方向對"/>
+<circle cx="352.6" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜聯合報
+綠藍偏差 −3.4；方向對"/>
+<circle cx="396.4" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜美麗島電子報
+綠藍偏差 +3.5；方向對"/>
+<circle cx="402.1" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜TVBS
+綠藍偏差 +4.4；方向對"/>
+<circle cx="440.2" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜艾普羅
+綠藍偏差 +10.4；方向對"/>
+<circle cx="442.8" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜蘋果日報
+綠藍偏差 +10.8；方向對"/>
+<circle cx="444.7" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜台灣指標民調
+綠藍偏差 +11.1；方向對"/>
+<circle cx="448.5" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜旺旺中時
+綠藍偏差 +11.7；方向對"/>
+<circle cx="459.3" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜世新大學
+綠藍偏差 +13.4；方向對"/>
+<circle cx="484.7" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜新台灣國策智庫
+綠藍偏差 +17.4；方向錯"/>
+<circle cx="516.5" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜信傳媒
+綠藍偏差 +22.4；方向錯"/>
+<circle cx="520.3" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜自由時報
+綠藍偏差 +23.0；方向錯"/>
+<circle cx="554.6" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜三立
+綠藍偏差 +28.4；方向錯"/>
+<circle cx="555.9" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台中｜台灣世代智庫
+綠藍偏差 +28.6；方向錯"/>
+<circle cx="508.2" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台南｜TVBS
+綠藍偏差 +21.1；方向對"/>
+<circle cx="542.6" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台南｜新台灣國策智庫
+綠藍偏差 +26.5；方向對"/>
+<circle cx="698.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台南｜蘋果日報
+綠藍偏差 +51.1；方向對"/>
+<circle cx="360.8" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜大社會民調
+綠藍偏差 −2.1；方向對"/>
+<circle cx="313.2" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜聯合報
+綠藍偏差 −9.6；方向對"/>
+<circle cx="312.5" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜蘋果日報
+綠藍偏差 −9.7；方向對"/>
+<circle cx="354.5" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜世新大學
+綠藍偏差 −3.1；方向對"/>
+<circle cx="379.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜新台灣國策智庫
+綠藍偏差 +0.9；方向對"/>
+<circle cx="370.4" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜負數票協會
+綠藍偏差 −0.6；方向對"/>
+<circle cx="367.8" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜TVBS
+綠藍偏差 −1.0；方向對"/>
+<circle cx="439.6" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜自由時報
+綠藍偏差 +10.3；方向對"/>
+<circle cx="397.0" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜三立
+綠藍偏差 +3.6；方向對"/>
+<circle cx="354.5" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜ETtoday／東森民調雲
+綠藍偏差 −3.1；方向對"/>
+<circle cx="389.4" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜信傳媒
+綠藍偏差 +2.4；方向對"/>
+<circle cx="363.4" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜美麗島電子報
+綠藍偏差 −1.7；方向對"/>
+<circle cx="394.5" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜台灣民意基金會
+綠藍偏差 +3.2；方向對"/>
+<circle cx="434.5" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜中國時報
+綠藍偏差 +9.5；方向對"/>
+<circle cx="375.4" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 台北｜趨勢民調
+綠藍偏差 +0.2；方向對"/>
+<circle cx="379.9" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 桃園｜蘋果日報
+綠藍偏差 +0.9；方向對"/>
+<circle cx="490.4" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 桃園｜我是台灣人
+綠藍偏差 +18.3；方向對"/>
+<circle cx="499.3" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 桃園｜旺旺中時
+綠藍偏差 +19.7；方向對"/>
+<circle cx="507.6" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 桃園｜ETtoday／東森民調雲
+綠藍偏差 +21.0；方向對"/>
+<circle cx="511.4" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 桃園｜世新大學
+綠藍偏差 +21.6；方向對"/>
+<circle cx="587.7" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 桃園｜聯合報
+綠藍偏差 +33.6；方向對"/>
+<circle cx="596.6" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 桃園｜TVBS
+綠藍偏差 +35.0；方向對"/>
+<circle cx="612.4" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 桃園｜三立
+綠藍偏差 +37.5；方向對"/>
+<circle cx="627.7" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 桃園｜新台灣國策智庫
+綠藍偏差 +39.9；方向對"/>
+<circle cx="630.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2018 桃園｜自由時報
+綠藍偏差 +40.4；方向對"/>
+<circle cx="378.6" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 政黨票｜ETtoday／東森民調雲
+綠藍偏差 +0.7；方向對"/>
+<circle cx="337.3" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 政黨票｜旺旺中時
+綠藍偏差 −5.8；方向錯"/>
+<circle cx="412.9" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 政黨票｜品觀點
+綠藍偏差 +6.1；方向對"/>
+<circle cx="437.1" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 政黨票｜震撼世代傳媒
+綠藍偏差 +9.9；方向對"/>
+<circle cx="372.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜旺旺中時
+綠藍偏差 −0.2；方向對"/>
+<circle cx="379.2" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜台灣獨立建國聯盟
+綠藍偏差 +0.8；方向對"/>
+<circle cx="381.8" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜TVBS
+綠藍偏差 +1.2；方向對"/>
+<circle cx="363.4" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜風傳媒
+綠藍偏差 −1.7；方向對"/>
+<circle cx="395.1" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜匯流新聞網
+綠藍偏差 +3.3；方向對"/>
+<circle cx="339.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜天下雜誌
+綠藍偏差 −5.4；方向對"/>
+<circle cx="412.3" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜ETtoday／東森民調雲
+綠藍偏差 +6.0；方向對"/>
+<circle cx="324.0" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜台灣競爭力論壇
+綠藍偏差 −7.9；方向對"/>
+<circle cx="425.0" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜品觀點
+綠藍偏差 +8.0；方向對"/>
+<circle cx="445.3" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜寶島通訊
+綠藍偏差 +11.2；方向對"/>
+<circle cx="298.6" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜優傳媒
+綠藍偏差 −11.9；方向對"/>
+<circle cx="451.7" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜放言
+綠藍偏差 +12.2；方向對"/>
+<circle cx="465.7" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜聯合報
+綠藍偏差 +14.4；方向對"/>
+<circle cx="469.5" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜台灣制憲基金會
+綠藍偏差 +15.0；方向對"/>
+<circle cx="481.6" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜美麗島電子報
+綠藍偏差 +16.9；方向對"/>
+<circle cx="488.5" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜台灣民意基金會
+綠藍偏差 +18.0；方向對"/>
+<circle cx="236.9" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜中國時報
+綠藍偏差 −21.6；方向錯"/>
+<circle cx="515.2" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜台灣基進
+綠藍偏差 +22.2；方向對"/>
+<circle cx="233.1" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜中華傳播學會
+綠藍偏差 −22.2；方向錯"/>
+<circle cx="517.1" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜震撼世代傳媒
+綠藍偏差 +22.5；方向對"/>
+<circle cx="518.4" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜綠黨
+綠藍偏差 +22.7；方向對"/>
+<circle cx="229.9" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜鏡週刊
+綠藍偏差 −22.7；方向錯"/>
+<circle cx="228.0" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜山水民意研究
+綠藍偏差 −23.0；方向錯"/>
+<circle cx="524.8" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜新台灣國策智庫
+綠藍偏差 +23.7；方向對"/>
+<circle cx="556.5" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜蘋果日報
+綠藍偏差 +28.7；方向對"/>
+<circle cx="585.8" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2020 總統｜自由時報
+綠藍偏差 +33.3；方向對"/>
+<circle cx="381.2" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新竹市｜菱傳媒
+綠藍偏差 +1.1；方向對"/>
+<circle cx="390.1" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新竹市｜ETtoday／東森民調雲
+綠藍偏差 +2.5；方向對"/>
+<circle cx="392.6" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新竹市｜美麗島電子報
+綠藍偏差 +2.9；方向對"/>
+<circle cx="394.5" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新竹市｜TVBS
+綠藍偏差 +3.2；方向對"/>
+<circle cx="398.3" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新竹市｜年代
+綠藍偏差 +3.8；方向對"/>
+<circle cx="402.1" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新竹市｜匯流新聞網
+綠藍偏差 +4.4；方向對"/>
+<circle cx="412.9" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新竹市｜蓋洛普
+綠藍偏差 +6.1；方向對"/>
+<circle cx="418.0" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新竹市｜聯合報
+綠藍偏差 +6.9；方向對"/>
+<circle cx="422.5" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新竹市｜負數票協會
+綠藍偏差 +7.6；方向對"/>
+<circle cx="458.0" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新竹市｜自由時報
+綠藍偏差 +13.2；方向錯"/>
+<circle cx="376.1" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 高雄｜菱傳媒
+綠藍偏差 +0.3；方向對"/>
+<circle cx="423.1" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 高雄｜ETtoday／東森民調雲
+綠藍偏差 +7.7；方向對"/>
+<circle cx="536.8" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 高雄｜自由時報
+綠藍偏差 +25.6；方向對"/>
+<circle cx="571.1" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 高雄｜聯合報
+綠藍偏差 +31.0；方向對"/>
+<circle cx="600.4" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 高雄｜三立
+綠藍偏差 +35.6；方向對"/>
+<circle cx="639.1" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 高雄｜匯流新聞網
+綠藍偏差 +41.7；方向對"/>
+<circle cx="655.0" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 高雄｜上報
+綠藍偏差 +44.2；方向對"/>
+<circle cx="660.1" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 高雄｜美麗島電子報
+綠藍偏差 +45.0；方向對"/>
+<circle cx="371.0" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜TVBS
+綠藍偏差 −0.5；方向對"/>
+<circle cx="413.6" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜菱傳媒
+綠藍偏差 +6.2；方向對"/>
+<circle cx="428.2" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜年代
+綠藍偏差 +8.5；方向對"/>
+<circle cx="429.4" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜台灣指標民調
+綠藍偏差 +8.7；方向對"/>
+<circle cx="433.3" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜聯合報
+綠藍偏差 +9.3；方向對"/>
+<circle cx="434.5" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜世新大學
+綠藍偏差 +9.5；方向對"/>
+<circle cx="452.3" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜艾普羅
+綠藍偏差 +12.3；方向對"/>
+<circle cx="460.6" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜美麗島電子報
+綠藍偏差 +13.6；方向對"/>
+<circle cx="471.4" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜ETtoday／東森民調雲
+綠藍偏差 +15.3；方向錯"/>
+<circle cx="476.5" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜蓋洛普
+綠藍偏差 +16.1；方向錯"/>
+<circle cx="484.1" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜匯流新聞網
+綠藍偏差 +17.3；方向錯"/>
+<circle cx="519.7" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜趨勢民調
+綠藍偏差 +22.9；方向錯"/>
+<circle cx="526.7" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 基隆｜自由時報
+綠藍偏差 +24.0；方向錯"/>
+<circle cx="382.4" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新北｜ETtoday／東森民調雲
+綠藍偏差 +1.3；方向對"/>
+<circle cx="388.8" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新北｜菱傳媒
+綠藍偏差 +2.3；方向對"/>
+<circle cx="271.2" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新北｜自由時報
+綠藍偏差 −16.2；方向對"/>
+<circle cx="244.5" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新北｜蓋洛普
+綠藍偏差 −20.4；方向對"/>
+<circle cx="238.8" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 新北｜聯合報
+綠藍偏差 −21.3；方向對"/>
+<circle cx="372.3" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台中｜匯流新聞網
+綠藍偏差 −0.3；方向對"/>
+<circle cx="347.5" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台中｜菱傳媒
+綠藍偏差 −4.2；方向對"/>
+<circle cx="319.5" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台中｜ETtoday／東森民調雲
+綠藍偏差 −8.6；方向對"/>
+<circle cx="433.3" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台中｜周刊王CTWANT
+綠藍偏差 +9.3；方向對"/>
+<circle cx="254.1" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台中｜聯合報
+綠藍偏差 −18.9；方向對"/>
+<circle cx="243.9" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台中｜大台中市政發展協會
+綠藍偏差 −20.5；方向對"/>
+<circle cx="233.7" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台中｜台灣指標民調
+綠藍偏差 −22.1；方向對"/>
+<circle cx="233.7" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台中｜TVBS
+綠藍偏差 −22.1；方向對"/>
+<circle cx="163.8" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台中｜美麗島電子報
+綠藍偏差 −33.1；方向對"/>
+<circle cx="398.9" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台南｜菱傳媒
+綠藍偏差 +3.9；方向對"/>
+<circle cx="476.5" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台南｜ETtoday／東森民調雲
+綠藍偏差 +16.1；方向對"/>
+<circle cx="479.0" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台南｜TVBS
+綠藍偏差 +16.5；方向對"/>
+<circle cx="578.8" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台南｜聯合報
+綠藍偏差 +32.2；方向對"/>
+<circle cx="642.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台南｜匯流新聞網
+綠藍偏差 +42.3；方向對"/>
+<circle cx="681.1" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台南｜崑山科大
+綠藍偏差 +48.3；方向對"/>
+<circle cx="714.1" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台南｜美麗島電子報
+綠藍偏差 +53.5；方向對"/>
+<circle cx="374.8" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜震傳媒
+綠藍偏差 +0.1；方向對"/>
+<circle cx="375.4" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜台灣民意基金會
+綠藍偏差 +0.2；方向對"/>
+<circle cx="380.5" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜ETtoday／東森民調雲
+綠藍偏差 +1.0；方向對"/>
+<circle cx="385.6" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜[1]
+綠藍偏差 +1.8；方向對"/>
+<circle cx="358.9" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜蓋洛普
+綠藍偏差 −2.4；方向對"/>
+<circle cx="358.3" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜TVBS
+綠藍偏差 −2.5；方向對"/>
+<circle cx="390.7" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜美麗島電子報
+綠藍偏差 +2.6；方向對"/>
+<circle cx="398.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜新台灣國策智庫
+綠藍偏差 +3.9；方向對"/>
+<circle cx="400.9" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜QuickseeK
+綠藍偏差 +4.2；方向對"/>
+<circle cx="405.9" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜世新大學
+綠藍偏差 +5.0；方向對"/>
+<circle cx="340.5" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜中廣
+綠藍偏差 −5.3；方向對"/>
+<circle cx="411.7" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜匯流新聞網
+綠藍偏差 +5.9；方向對"/>
+<circle cx="335.4" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜中天新聞
+綠藍偏差 −6.1；方向對"/>
+<circle cx="421.2" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜菱傳媒
+綠藍偏差 +7.4；方向對"/>
+<circle cx="425.0" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜網路溫度計DailyView
+綠藍偏差 +8.0；方向對"/>
+<circle cx="428.8" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜負數票協會
+綠藍偏差 +8.6；方向對"/>
+<circle cx="317.6" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜聯合報
+綠藍偏差 −8.9；方向對"/>
+<circle cx="435.8" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜台灣指標民調
+綠藍偏差 +9.7；方向對"/>
+<circle cx="443.4" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜中國時報
+綠藍偏差 +10.9；方向錯"/>
+<circle cx="444.7" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜放言
+綠藍偏差 +11.1；方向錯"/>
+<circle cx="460.6" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜三立
+綠藍偏差 +13.6；方向錯"/>
+<circle cx="465.0" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜台灣民意與政策顧問
+綠藍偏差 +14.3；方向錯"/>
+<circle cx="484.7" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 台北｜自由時報
+綠藍偏差 +17.4；方向錯"/>
+<circle cx="358.3" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜TVBS
+綠藍偏差 −2.5；方向對"/>
+<circle cx="396.4" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜中廣
+綠藍偏差 +3.5；方向對"/>
+<circle cx="398.9" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜負數票協會
+綠藍偏差 +3.9；方向對"/>
+<circle cx="398.9" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜聯合報
+綠藍偏差 +3.9；方向對"/>
+<circle cx="402.8" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜匯流新聞網
+綠藍偏差 +4.5；方向對"/>
+<circle cx="409.8" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜美麗島電子報
+綠藍偏差 +5.6；方向對"/>
+<circle cx="412.3" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜蓋洛普
+綠藍偏差 +6.0；方向對"/>
+<circle cx="413.6" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜台灣民意基金會
+綠藍偏差 +6.2；方向對"/>
+<circle cx="416.7" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜菱傳媒
+綠藍偏差 +6.7；方向對"/>
+<circle cx="432.0" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜ETtoday／東森民調雲
+綠藍偏差 +9.1；方向對"/>
+<circle cx="435.8" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜三立
+綠藍偏差 +9.7；方向對"/>
+<circle cx="442.2" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜關鍵調查
+綠藍偏差 +10.7；方向對"/>
+<circle cx="455.5" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜QuickseeK
+綠藍偏差 +12.8；方向錯"/>
+<circle cx="468.8" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜放言
+綠藍偏差 +14.9；方向錯"/>
+<circle cx="473.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜自由時報
+綠藍偏差 +15.7；方向錯"/>
+<circle cx="503.8" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2022 桃園｜桃園公正監督民意基金會
+綠藍偏差 +20.4；方向錯"/>
+<circle cx="379.2" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 政黨票｜信傳媒
+綠藍偏差 +0.8；方向對"/>
+<circle cx="369.1" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 政黨票｜世界城市發展交流協會
+綠藍偏差 −0.8；方向對"/>
+<circle cx="385.6" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 政黨票｜菱傳媒
+綠藍偏差 +1.8；方向對"/>
+<circle cx="362.1" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 政黨票｜ETtoday／東森民調雲
+綠藍偏差 −1.9；方向錯"/>
+<circle cx="340.5" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 政黨票｜TVBS
+綠藍偏差 −5.3；方向錯"/>
+<circle cx="444.1" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 政黨票｜鋒燦
+綠藍偏差 +11.0；方向對"/>
+<circle cx="290.9" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 政黨票｜震傳媒
+綠藍偏差 −13.1；方向錯"/>
+<circle cx="281.4" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 政黨票｜新頭殼
+綠藍偏差 −14.6；方向錯"/>
+<circle cx="372.3" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜聯合報
+綠藍偏差 −0.3；方向對"/>
+<circle cx="368.4" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜台灣獨立建國聯盟
+綠藍偏差 −0.9；方向對"/>
+<circle cx="365.3" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜鋒燦
+綠藍偏差 −1.4；方向對"/>
+<circle cx="364.0" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜台灣民意基金會
+綠藍偏差 −1.6；方向對"/>
+<circle cx="386.2" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜信傳媒
+綠藍偏差 +1.9；方向對"/>
+<circle cx="361.5" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜旺旺中時
+綠藍偏差 −2.0；方向對"/>
+<circle cx="358.9" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜菱傳媒
+綠藍偏差 −2.4；方向對"/>
+<circle cx="392.0" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜匯流新聞網
+綠藍偏差 +2.8；方向對"/>
+<circle cx="355.7" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜震傳媒
+綠藍偏差 −2.9；方向對"/>
+<circle cx="355.7" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜三立
+綠藍偏差 −2.9；方向對"/>
+<circle cx="355.1" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜TVBS
+綠藍偏差 −3.0；方向對"/>
+<circle cx="353.8" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜榮泰創數據
+綠藍偏差 −3.2；方向對"/>
+<circle cx="352.6" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜ETtoday／東森民調雲
+綠藍偏差 −3.4；方向對"/>
+<circle cx="349.4" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜放言
+綠藍偏差 −3.9；方向對"/>
+<circle cx="404.0" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜世界城市發展交流協會
+綠藍偏差 +4.7；方向對"/>
+<circle cx="405.3" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜關鍵調查
+綠藍偏差 +4.9；方向對"/>
+<circle cx="407.2" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜QuickseeK
+綠藍偏差 +5.2；方向對"/>
+<circle cx="413.6" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜美麗島電子報
+綠藍偏差 +6.2；方向對"/>
+<circle cx="332.9" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜新未來文教基金會
+綠藍偏差 −6.5；方向對"/>
+<circle cx="332.9" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜新頭殼
+綠藍偏差 −6.5；方向對"/>
+<circle cx="419.3" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜鏡新聞
+綠藍偏差 +7.1；方向對"/>
+<circle cx="433.9" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜亞細亞精準數據
+綠藍偏差 +9.4；方向對"/>
+<circle cx="451.7" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜蓋洛普
+綠藍偏差 +12.2；方向對"/>
+<circle cx="459.9" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜兩岸圓桌論壇協會
+綠藍偏差 +13.5；方向對"/>
+<circle cx="470.8" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜民主文教基金會
+綠藍偏差 +15.2；方向對"/>
+<circle cx="483.5" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜年代
+綠藍偏差 +17.2；方向對"/>
+<circle cx="487.9" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2024 總統｜台灣指標民調
+綠藍偏差 +17.9；方向對"/>
+<circle cx="379.9" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 呂玉玲｜鏡新聞
+綠藍偏差 +0.9；方向對"/>
+<circle cx="344.9" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 廖偉翔｜鏡新聞
+綠藍偏差 −4.6；方向對"/>
+<circle cx="381.2" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 廖先翔｜鏡新聞
+綠藍偏差 +1.1；方向對"/>
+<circle cx="459.3" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 張智倫｜鏡新聞
+綠藍偏差 +13.4；方向對"/>
+<circle cx="454.2" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 徐巧芯｜鏡新聞
+綠藍偏差 +12.6；方向錯"/>
+<circle cx="568.0" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 徐巧芯｜TVBS
+綠藍偏差 +30.5；方向錯"/>
+<circle cx="365.9" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 李彥秀｜鏡新聞
+綠藍偏差 −1.3；方向對"/>
+<circle cx="390.1" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 林德福｜鏡新聞
+綠藍偏差 +2.5；方向對"/>
+<circle cx="349.4" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 洪孟楷｜鏡新聞
+綠藍偏差 −3.9；方向對"/>
+<circle cx="334.8" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 涂權吉｜鏡新聞
+綠藍偏差 −6.2；方向對"/>
+<circle cx="384.3" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 牛煦庭｜鏡新聞
+綠藍偏差 +1.6；方向對"/>
+<circle cx="378.6" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 王鴻薇｜鏡新聞
+綠藍偏差 +0.7；方向對"/>
+<circle cx="397.7" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 羅廷瑋｜鏡新聞
+綠藍偏差 +3.7；方向對"/>
+<circle cx="317.6" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 羅智強｜鏡新聞
+綠藍偏差 −8.9；方向對"/>
+<circle cx="275.0" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 萬美玲｜鏡新聞
+綠藍偏差 −15.6；方向對"/>
+<circle cx="478.4" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 葉元之｜鏡新聞
+綠藍偏差 +16.4；方向錯"/>
+<circle cx="444.1" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 賴士葆｜鏡新聞
+綠藍偏差 +11.0；方向對"/>
+<circle cx="344.9" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 邱若華｜鏡新聞
+綠藍偏差 −4.6；方向對"/>
+<circle cx="393.9" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 魯明哲｜鏡新聞
+綠藍偏差 +3.1；方向對"/>
+<circle cx="364.6" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 黃健豪｜鏡新聞
+綠藍偏差 −1.5；方向對"/>
+<circle cx="501.9" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 楊瓊瓔｜鏡新聞
+綠藍偏差 +20.1；方向對"/>
+<circle cx="437.7" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 江啟臣｜鏡新聞
+綠藍偏差 +10.0；方向對"/>
+<circle cx="453.0" cy="196.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 羅明才｜鏡新聞
+綠藍偏差 +12.4；方向對"/>
+<circle cx="329.7" cy="203.5" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 罷免 顏寬恒｜鏡新聞
+綠藍偏差 −7.0；方向對"/>
+<circle cx="378.0" cy="193.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 公投 21｜TVBS
+綠藍偏差 +0.6；方向對"/>
+<circle cx="363.4" cy="200.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 公投 21｜台灣民意基金會
+綠藍偏差 −1.7；方向對"/>
+<circle cx="387.5" cy="207.0" r="3.5" fill="var(--mute)" opacity=".35" stroke="var(--surface)" stroke-width="1.5" data-tip="2025 公投 21｜風傳媒
+綠藍偏差 +2.1；方向對"/>
+<line x1="402.4" x2="402.4" y1="186.0" y2="214.0" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+<text class="v" x="402.4" y="183.0" text-anchor="middle">中位 +4.5</text>
+</svg></div><p class="note">同期其他機構同樣不含陣營公布的民調。純市話本身在 2016–2022 就偏綠（見 §4.2），這幾個團體多用純市話。</p></figure>
+
 <div class="tw"><table>
 <thead>
 <tr>
@@ -957,7 +2729,7 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <tr>
 <td>2022 新竹市</td>
 <td>中華亞太</td>
-<td>市話</td>
+<td>未載明</td>
 <td>54 天</td>
 <td>−13.6</td>
 <td>+13.6（沈 vs 高）</td>
@@ -1023,6 +2795,75 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <h2 id="6-2026-114">6. 2026 九合一（進行中，截至 11/4）</h2>
 <p>封關 11/18；開票後補上實際結果，並重算各家誤差。下表是各委託方 9 月以後的最新一份。</p>
 <h3 id="61-vs">6.1 台北市長（蔣萬安 vs 沈伯洋）</h3>
+<figure class="viz"><figcaption><div class="t">同一週內，各家結果從沈 +17 到蔣 +11</div><div class="s">2026 台北市長民調，蔣萬安得票 − 沈伯洋得票（點）；同一家的連續兩份以細線連接</div></figcaption><div class="lg"><span><i style="background:var(--c2)"></i>有長期紀錄的機構（TVBS、聯合報、ETtoday、震傳媒）</span><span><i style="background:var(--c1)"></i>沒有過往紀錄（信民協會、韜略）</span></div><div class="sc"><svg viewBox="0 0 760 340" role="img" aria-label="2026 台北市長民調：蔣萬安減沈伯洋差距">
+<rect x="50" y="14" width="690" height="131.6" fill="var(--bwash)"/>
+<rect x="50" y="145.6" width="690" height="164.4" fill="var(--gwash)"/>
+<line class="grid" x1="50" x2="740" y1="277.1" y2="277.1"/>
+<text class="m" x="44" y="281.1" text-anchor="end">−20</text>
+<line class="grid" x1="50" x2="740" y1="211.3" y2="211.3"/>
+<text class="m" x="44" y="215.3" text-anchor="end">−10</text>
+<line class="axis" x1="50" x2="740" y1="145.6" y2="145.6"/>
+<text class="m" x="44" y="149.6" text-anchor="end">0</text>
+<line class="grid" x1="50" x2="740" y1="79.8" y2="79.8"/>
+<text class="m" x="44" y="83.8" text-anchor="end">+10</text>
+<line class="grid" x1="50" x2="740" y1="14.0" y2="14.0"/>
+<text class="m" x="44" y="18.0" text-anchor="end">+20</text>
+<text class="m" x="93.7" y="330" text-anchor="middle">9/15</text>
+<text class="m" x="233.4" y="330" text-anchor="middle">10/1</text>
+<text class="m" x="355.7" y="330" text-anchor="middle">10/15</text>
+<text class="m" x="504.2" y="330" text-anchor="middle">11/1</text>
+<text class="m" x="626.5" y="330" text-anchor="middle">11/15</text>
+<line x1="652.7" x2="652.7" y1="14" y2="310" stroke="var(--mute)" stroke-dasharray="3 4"/>
+<text class="m" x="656.7" y="304">封關 11/18</text>
+<text class="m" x="56" y="28">↑ 蔣萬安領先</text><text class="m" x="56" y="304">↓ 沈伯洋領先</text>
+<path d="M154.8,137.7 L399.4,257.4" fill="none" stroke="var(--c1)" stroke-width="1.5" opacity=".45"/>
+<path d="M294.6,92.9 L504.2,119.2" fill="none" stroke="var(--c2)" stroke-width="1.5" opacity=".45"/>
+<path d="M460.5,96.2 L512.9,71.2" fill="none" stroke="var(--c2)" stroke-width="1.5" opacity=".45"/>
+<text x="164.8" y="141.7">信民協會 <tspan class="v">+1.2</tspan></text>
+<circle cx="154.8" cy="137.7" r="6.5" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="信民協會｜發布 9/22
+蔣 41.7、沈 40.5
+差（蔣−沈）+1.2；市話+手機(市話752:手機324)"/>
+<text x="304.6" y="96.9">TVBS <tspan class="v">+8.0</tspan></text>
+<circle cx="294.6" cy="92.9" r="6.5" fill="var(--c2)" stroke="var(--surface)" stroke-width="2" data-tip="TVBS｜發布 10/8
+蔣 49、沈 41
+差（蔣−沈）+8.0；電訪"/>
+<path d="M406.4,257.4 L543.8,257.4" stroke="var(--axis)" fill="none"/>
+<text x="547.8" y="261.4">信民協會 <tspan class="v">−17.0</tspan></text>
+<circle cx="399.4" cy="257.4" r="6.5" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="信民協會｜發布 10/20
+沈 50.3、蔣 33.3
+差（蔣−沈）−17.0；市話+手機(市話753:手機322)"/>
+<path d="M423.8,170.6 L543.8,170.6" stroke="var(--axis)" fill="none"/>
+<text x="547.8" y="174.6">震傳媒 <tspan class="v">−3.8</tspan></text>
+<circle cx="416.8" cy="170.6" r="6.5" fill="var(--c2)" stroke="var(--surface)" stroke-width="2" data-tip="震傳媒｜發布 10/22
+沈 42.8、蔣 39.0
+差（蔣−沈）−3.8；電訪"/>
+<path d="M467.5,96.2 L543.8,96.2" stroke="var(--axis)" fill="none"/>
+<text x="547.8" y="100.2">ETtoday <tspan class="v">+7.5</tspan></text>
+<circle cx="460.5" cy="96.2" r="6.5" fill="var(--c2)" stroke="var(--surface)" stroke-width="2" data-tip="ETtoday｜發布 10/27
+蔣 48.6、沈 41.1
+差（蔣−沈）+7.5；網路panel"/>
+<path d="M476.2,171.9 L543.8,186.6" stroke="var(--axis)" fill="none"/>
+<text x="547.8" y="190.6">聯合報 <tspan class="v">−4.0</tspan></text>
+<circle cx="469.2" cy="171.9" r="6.5" fill="var(--c2)" stroke="var(--surface)" stroke-width="2" data-tip="聯合報｜發布 10/28
+沈 45、蔣 41
+差（蔣−沈）−4.0；電訪(市話+手機)"/>
+<path d="M511.2,119.2 L543.8,119.2" stroke="var(--axis)" fill="none"/>
+<text x="547.8" y="123.2">TVBS（辯論後） <tspan class="v">+4.0</tspan></text>
+<circle cx="504.2" cy="119.2" r="6.5" fill="var(--c2)" stroke="var(--surface)" stroke-width="2" data-tip="TVBS（辯論後）｜發布 11/1
+蔣 46、沈 42
+差（蔣−沈）+4.0；電訪"/>
+<path d="M519.9,259.4 L543.8,273.4" stroke="var(--axis)" fill="none"/>
+<text x="547.8" y="277.4">韜略 <tspan class="v">−17.3</tspan></text>
+<circle cx="512.9" cy="259.4" r="6.5" fill="var(--c1)" stroke="var(--surface)" stroke-width="2" data-tip="韜略｜發布 11/2
+沈 52.6、蔣 35.3
+差（蔣−沈）−17.3；AI電訪 市話+手機(市話884:手機552)"/>
+<path d="M519.9,71.2 L543.8,71.2" stroke="var(--axis)" fill="none"/>
+<text x="547.8" y="75.2">ETtoday（辯論後） <tspan class="v">+11.3</tspan></text>
+<circle cx="512.9" cy="71.2" r="6.5" fill="var(--c2)" stroke="var(--surface)" stroke-width="2" data-tip="ETtoday（辯論後）｜發布 11/2
+蔣 52.0、沈 40.7
+差（蔣−沈）+11.3；網路panel"/>
+</svg></div><p class="note">9 月前只有 TVBS 5/26 一份（蔣 +28.0），未畫入。開票後會補上實際結果，並計算每家的誤差。</p></figure>
+
 <div class="tw"><table>
 <thead>
 <tr>
@@ -1047,7 +2888,7 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>58</td>
 <td>30</td>
 <td>+28</td>
-<td>3.3／−2.9</td>
+<td>3.3／−2.0</td>
 </tr>
 <tr>
 <td>09-22</td>
@@ -1069,7 +2910,7 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>49</td>
 <td>41</td>
 <td>+8</td>
-<td>3.3／−2.9</td>
+<td>3.3／−2.0</td>
 </tr>
 <tr>
 <td>10-20</td>
@@ -1102,7 +2943,7 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>48.6</td>
 <td>41.1</td>
 <td>+7.5</td>
-<td>4.5／+2.1</td>
+<td>4.5／+2.5</td>
 </tr>
 <tr>
 <td>10-28</td>
@@ -1113,7 +2954,7 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>41</td>
 <td>45</td>
 <td>−4</td>
-<td>6.9／−0.5</td>
+<td>6.9／+0.7</td>
 </tr>
 <tr>
 <td>11-01</td>
@@ -1124,7 +2965,7 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>46</td>
 <td>42</td>
 <td>+4</td>
-<td>3.3／−2.9</td>
+<td>3.3／−2.0</td>
 </tr>
 <tr>
 <td>11-02</td>
@@ -1146,7 +2987,7 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 <td>52.0</td>
 <td>40.7</td>
 <td>+11.3</td>
-<td>4.5／+2.1</td>
+<td>4.5／+2.5</td>
 </tr>
 </tbody>
 </table></div>
@@ -1366,5 +3207,16 @@ footer{max-width:1100px;margin:0 auto;padding:1.5rem 16px 3rem;color:var(--mute)
 </ul>
 </main>
 <footer>本頁為 AI 輔助整理之實驗性質資料，民調數字取自各機構公開發布或媒體報導，開票數字以中選會為準；各項判讀僅供參考，歡迎依所附來源自行查證。更新：2026-11-04</footer>
+<script>
+(function(){var t=document.createElement('div');t.id='viztip';document.body.appendChild(t);
+function show(e){var el=e.target.closest('[data-tip]');if(!el){t.style.display='none';return;}
+t.textContent='';el.getAttribute('data-tip').split('\n').forEach(function(l,i){var d=document.createElement('div');
+if(i===0){d.style.fontWeight='600';}d.textContent=l;t.appendChild(d);});t.style.display='block';
+var x=e.clientX+14,y=e.clientY+14;if(x+290>window.innerWidth)x=e.clientX-290;if(y+80>window.innerHeight)y=e.clientY-70;
+t.style.left=x+'px';t.style.top=y+'px';}
+document.addEventListener('pointermove',show);document.addEventListener('pointerleave',function(){t.style.display='none';});
+document.addEventListener('focusin',function(e){var el=e.target.closest('[data-tip]');if(!el)return;var r=el.getBoundingClientRect();
+show({target:el,clientX:r.right,clientY:r.top});});})();
+</script>
 </body>
 </html>
